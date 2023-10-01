@@ -1,0 +1,36 @@
+h1 {
+    text-align: center;
+    margin-top: 60px;
+    color: rgb(19, 108, 191);
+
+}
+div {
+    margin: 0 auto;
+    width: 30%;
+    box-shadow: 4px 4px 4px grey;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 12px 18px;
+    padding: 18px 8px ;
+    
+} 
+label {
+    font-size: 20px;
+    color: rgb(19, 108, 191);
+}
+input {
+    width: 80%;
+    height: 20px;
+    margin-bottom: 12px;
+}
+.submit {
+    height: 28px;
+    background-color: rgb(19, 108, 191);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

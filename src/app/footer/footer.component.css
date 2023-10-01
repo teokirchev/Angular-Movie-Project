@@ -1,0 +1,18 @@
+.relative {
+    position: relative;
+}
+.fixed {
+    width: 98%;
+    position: fixed;
+    bottom: 0;
+    border-top: 1px solid grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(19, 108, 191);
+    color: white;
+    
+}
+p {
+    font-size: 18px;
+}
