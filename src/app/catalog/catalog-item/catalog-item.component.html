@@ -1,0 +1,17 @@
+<div class="wrap">
+    <div class="text">
+        <p>Name: <span>{{movie.name}}</span></p>
+        <div class="type">
+            <p>Year: <span>{{movie.year}}</span></p>
+            <p class="premium" [ngStyle]="{color: movie.isPremium === true ? 'white' : '', 
+                                           backgroundColor: movie.isPremium === true ? 'green' : '',
+            }" *ngIf="movie.isPremium">Premium</p>
+            <p class="premium" [ngStyle]="{color: movie.isPremium === false ? '' : 'white', 
+            backgroundColor: movie.isPremium === false ? '' : 'green',
+            }" *ngIf="movie.isPremium === false">Basic</p>
+        </div>
+    </div>
+    <div class="img-wrapper">
+        <img [src]="movie.imageUrl" alt="godfather">
+    </div>
+</div>

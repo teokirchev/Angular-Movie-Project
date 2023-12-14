@@ -1,0 +1,39 @@
+p {
+    color: white;
+    font-size: 18px;
+    margin-right: 12px;
+}
+
+.wrap {
+    border: 2px solid white;
+    border-radius: 8px;
+    padding: 12px;
+    background-color: #136cbf;
+}
+img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+.img-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.type {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.premium {
+    color: white;
+    border-radius: 6px;
+    padding: 2px 8px;
+    background-color: orangered;
+}
+span {
+    color: orangered;
+}
+.no-movies {
+    color: red
+}

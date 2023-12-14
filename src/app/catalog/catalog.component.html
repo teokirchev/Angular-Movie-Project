@@ -1,1 +1,14 @@
-<p>catalog works!</p>
+<app-searchbar></app-searchbar>
+<app-filter 
+    [all]="all" 
+    [premium]="premium" 
+    [basic]="basic"
+    (selectedFilterButtonChange)="onFilterChanged($event)">
+</app-filter>
+<div class="container">
+    <div *ngFor="let movie of movies">
+        <app-catalog-item [movie]="movie"
+        *ngIf="selectedFilterButton === 'all' || movie.isPremium.toString() === selectedFilterButton"></app-catalog-item>
+    </div>
+    
+</div>
