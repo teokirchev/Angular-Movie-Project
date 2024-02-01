@@ -1,12 +1,12 @@
 <nav>
     <div>
-        <a routerLink="home">Home</a>
-        <a routerLink="catalog">Catalog</a>
-        <a routerLink="create">Create</a>
+        <a class="link" routerLink="home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        <a class="link" routerLink="catalog" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Catalog</a>
+        <a class="link" routerLink="create" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Create</a>
     </div>
     <div>
-        <a routerLink="login">Sign In</a>
+        <a class="link" routerLink="login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Sign In</a>
         <!-- <a routerLink="register">Register</a> -->
-        <a routerLink="logout">Logout</a>
+        <a class="link" routerLink="login" [queryParams]="{logout: true}">Logout</a>
     </div>
 </nav>

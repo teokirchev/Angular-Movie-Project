@@ -14,9 +14,9 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { LogoutComponent } from './logout/logout.component';
 import { NotfoundComponent } from './notfound/notfound.component';
-import { SearchbarComponent } from './catalog/searchbar/searchbar.component';
 import { CatalogItemComponent } from './catalog/catalog-item/catalog-item.component';
 import { FilterComponent } from './catalog/filter/filter.component';
+import { CatalogItemDetailsComponent } from './catalog/catalog-item-details/catalog-item-details.component';
 
 
 @NgModule({
@@ -31,9 +31,9 @@ import { FilterComponent } from './catalog/filter/filter.component';
     RegisterComponent,
     LogoutComponent,
     NotfoundComponent,
-    SearchbarComponent,
     CatalogItemComponent,
-    FilterComponent
+    FilterComponent,
+    CatalogItemDetailsComponent
   ],
   imports: [
     BrowserModule,

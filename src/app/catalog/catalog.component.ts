@@ -1,4 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Movie } from '../Models/Movie';
+import { MovieService } from '../Service/movie.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-catalog',
@@ -6,44 +9,57 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./catalog.component.css']
 })
 
-export class CatalogComponent {
-  movies = [
-    {
-      id: 1,
-      name: 'The Godfather',
-      year: '1999',
-      imageUrl: 'https://upload.wikimedia.org/wikipedia/en/a/af/The_Godfather%2C_The_Game.jpg',
-      isPremium: true,
-    },
-    {
-      id: 2,
-      name: 'The Strongman',
-      year: '2000',
-      imageUrl: 'https://upload.wikimedia.org/wikipedia/en/a/af/The_Godfather%2C_The_Game.jpg',
-      isPremium: false,
-    },
-    {
-      id: 3,
-      name: 'The Nun',
-      year: '1979',
-      imageUrl: 'https://upload.wikimedia.org/wikipedia/en/a/af/The_Godfather%2C_The_Game.jpg',
-      isPremium: false,
-      
-    },
-  ]
+export class CatalogComponent implements OnInit{
 
-  @Input()
-  all = this.movies.length;
-  @Input()
-  premium = this.movies.filter(m => m.isPremium === true).length;
-  @Input()
-  basic = this.movies.filter(m => m.isPremium === false).length;
+  constructor(
+    private movieService: MovieService,
+    private router: Router,
+    private activeRoute: ActivatedRoute) {
+  };
 
-  selectedFilterButton: string = 'all';
-  onFilterChanged(value: string) {
-    console.log('sdafg');
-    
-    this.selectedFilterButton = value
-  }
+  movies: Movie[] = this.movieService.getAllmovies();
   
-}
+
+  all = this.movies.length;
+  premium = this.movies.filter(m => m.isPremium).length;
+  basic = this.movies.filter(m => m.isPremium === false).length;
+    
+  selectedButtonChanged: string = 'all';
+
+  searchedText: string = '';
+
+  changeRadioButtonEvent(value: string) {
+    this.selectedButtonChanged = value
+  };
+  onSearchClicked(value: string) {
+    this.router.navigate(['/catalog'], { queryParams: {search: value}})
+  }
+
+  // ngOnInit() {
+  //   this.activeRoute.queryParamMap.subscribe((data) => {
+  //     this.searchedText = data.get('search')
+
+  //     if(this.searchedText === undefined || this.searchedText === null || this.searchedText === '') {
+  //       this.movieService.getAllmovies();
+  //     } else {
+  //       this.movies.filter((x) => x.name.toLowerCase()
+  //       .includes(this.searchedText.toLowerCase()));
+  //     }
+  //   })
+  // };
+  
+  ngOnInit() {
+    this.activeRoute.queryParamMap.subscribe((data) => {
+      this.searchedText = data.get('search');
+      
+      if (this.searchedText === undefined || this.searchedText === null || this.searchedText === '') {
+        this.movies = this.movieService.getAllmovies();
+      } else {
+        this.movies = this.movieService.getAllmovies()
+        .filter((x) => x.name.toLowerCase()
+        .includes(this.searchedText.toLowerCase()));
+      }
+    });
+  }
+};
+  

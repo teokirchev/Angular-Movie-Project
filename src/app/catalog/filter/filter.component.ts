@@ -13,14 +13,13 @@ export class FilterComponent {
   @Input()
   basic: number = 0;
 
-  @Output()
   // създаваш евента
-  selectedFilterButtonChange:EventEmitter<string> = new EventEmitter<string>();
+  @Output()
+  changeRadioButtonEvent: EventEmitter<string> = new EventEmitter<string>()
   // създаваш променлива и слагаш default-на стойност ("all")
-  selectedFilterButton: string = 'all';
+  selectedButtonChanged: string = 'all';
   // change функцията, която пали евента
-  onSelectedFilterButtonChange() {
-    console.log('Selected filter button changed:', this.selectedFilterButton);
-    this.selectedFilterButtonChange.emit(this.selectedFilterButton)
+  onSelectButtonChanged() {
+    this.changeRadioButtonEvent.emit(this.selectedButtonChanged);
   }
 }

@@ -2,12 +2,12 @@
 <div>
     <form>
         <label for="email">Email</label>
-        <input type="email" name="email" placeholder="Email*">
+        <input type="email" name="email" placeholder="Email*" required #email>
 
         <label for="password">Password</label>
-        <input name="password" placeholder="Password*">
+        <input type="text" name="password" placeholder="Password*" required #password >
 
-        <input type="submit" class="submit" value="Log In">
+        <input type="submit" class="submit" value="Log In" (click)="onLoginClicked()">
         <p>You don't have profile? <span routerLink="/register">Register here!</span></p>
     </form>
 </div>

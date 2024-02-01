@@ -1,14 +1,41 @@
-<app-searchbar></app-searchbar>
+<div class="search">
+    <input type="text" placeholder="Search..." #search>
+    <button class="button-srch" (click)="onSearchClicked(search.value)">Search</button>
+</div>
+
 <app-filter 
-    [all]="all" 
-    [premium]="premium" 
-    [basic]="basic"
-    (selectedFilterButtonChange)="onFilterChanged($event)">
+[all]="all" 
+[premium]="premium" 
+[basic]="basic" 
+(changeRadioButtonEvent)="changeRadioButtonEvent($event)">
 </app-filter>
+
 <div class="container">
     <div *ngFor="let movie of movies">
-        <app-catalog-item [movie]="movie"
-        *ngIf="selectedFilterButton === 'all' || movie.isPremium.toString() === selectedFilterButton"></app-catalog-item>
+            
+            <div class="wrap" *ngIf="selectedButtonChanged === 'all' || movie.isPremium.toString() === selectedButtonChanged">
+            <div class="text">
+                <span class="title">{{movie.name}}</span>
+                <div class="type">
+                    <p>Year: <span>{{movie.year}}</span></p>
+
+                    <div class="premium" [ngStyle]="{backgroundColor: movie.isPremium ? 'green' : 'orangered',}">
+                        <span *ngIf="movie.isPremium; else basicStyle">Premium</span>
+                        <ng-template #basicStyle>
+                            <span>Basic</span>
+                        </ng-template>
+
+                    </div>
+                </div>
+            </div>
+            <div class="img-wrapper">
+                <img [src]="movie.imageUrl">
+            </div>
+            <div class="btn-wrapper">
+                <button class="btn-details" routerLink="/catalog/{{movie.id}}">Details</button>
+            </div>
+        </div>
+        <!-- <app-catalog-item [movie]="movie" -->
+        <!-- </app-catalog-item> -->
     </div>
-    
 </div>

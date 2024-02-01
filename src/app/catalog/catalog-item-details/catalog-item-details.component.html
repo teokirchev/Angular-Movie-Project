@@ -1,0 +1,11 @@
+<div class="container" *ngIf="selectedMovie">
+    <div class="image-wrapper">
+        <img [src]="selectedMovie.imageUrl" alt="">
+    </div>
+    <div class="details-wrapper">
+        <h2>Title: {{selectedMovie.name}}</h2>
+        <p>Year: {{selectedMovie.year}}</p>
+        <p>Type: {{selectedMovie.isPremium ? 'Premium' : 'Basic'}}</p>
+        <p>Details: {{selectedMovie.details}}</p>
+    </div>
+</div>
