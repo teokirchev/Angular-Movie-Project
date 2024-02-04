@@ -11,7 +11,7 @@
 </app-filter>
 
 <div class="container">
-    <div *ngFor="let movie of movies">
+    <div *ngFor="let movie of allMovies">
             
             <div class="wrap" *ngIf="selectedButtonChanged === 'all' || movie.isPremium.toString() === selectedButtonChanged">
             <div class="text">

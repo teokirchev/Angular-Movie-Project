@@ -17,12 +17,17 @@ export class CatalogComponent implements OnInit{
     private activeRoute: ActivatedRoute) {
   };
 
-  movies: Movie[] = this.movieService.getAllmovies();
+  allMovies: Movie[] = [] 
   
-
-  all = this.movies.length;
-  premium = this.movies.filter(m => m.isPremium).length;
-  basic = this.movies.filter(m => m.isPremium === false).length;
+  all: number;
+  premium: number;
+  basic: number;
+  updateCounts() {
+    this.all = this.allMovies.length;
+    this.premium = this.allMovies.filter(m => m.isPremium).length;
+    this.basic = this.allMovies.filter(m => !m.isPremium).length;
+  }
+  
     
   selectedButtonChanged: string = 'all';
 
@@ -34,32 +39,26 @@ export class CatalogComponent implements OnInit{
   onSearchClicked(value: string) {
     this.router.navigate(['/catalog'], { queryParams: {search: value}})
   }
-
-  // ngOnInit() {
-  //   this.activeRoute.queryParamMap.subscribe((data) => {
-  //     this.searchedText = data.get('search')
-
-  //     if(this.searchedText === undefined || this.searchedText === null || this.searchedText === '') {
-  //       this.movieService.getAllmovies();
-  //     } else {
-  //       this.movies.filter((x) => x.name.toLowerCase()
-  //       .includes(this.searchedText.toLowerCase()));
-  //     }
-  //   })
-  // };
   
   ngOnInit() {
     this.activeRoute.queryParamMap.subscribe((data) => {
       this.searchedText = data.get('search');
       
       if (this.searchedText === undefined || this.searchedText === null || this.searchedText === '') {
-        this.movies = this.movieService.getAllmovies();
+        this.movieService.getAllmovies().subscribe((movies) => {
+          this.allMovies = movies;
+          this.updateCounts();
+        });
       } else {
-        this.movies = this.movieService.getAllmovies()
-        .filter((x) => x.name.toLowerCase()
-        .includes(this.searchedText.toLowerCase()));
+        this.movieService.getAllmovies().subscribe((movies) => {
+          this.allMovies = movies.filter((x) => x.name.toLowerCase()
+          .includes(this.searchedText.toLowerCase()));
+          this.updateCounts();
+        })
       }
     });
   }
+  
+ 
 };
   

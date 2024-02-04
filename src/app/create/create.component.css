@@ -36,9 +36,9 @@ input {
     background-color: white;
     margin-bottom: 12px;
     height: 30px;
-    border-right: 1px solid black;
     border-top: 1px solid black;
-    border-left: 1px solid grey;
+    border-left: 1px solid black;
+    border-right: 1px solid grey;
     border-bottom: 1px solid grey;
     border-radius: 4px;
 
@@ -64,8 +64,8 @@ textarea {
     height: 80px;
     margin-bottom: 12px;
     border-top: 1px solid black;
-    border-right: 1px solid black;
-    border-left: 1px solid grey;
+    border-left: 1px solid black;
+    border-right: 1px solid grey;
     border-bottom: 1px solid grey;
     border-radius: 4px;
 

@@ -14,7 +14,7 @@ export class CreateComponent {
 
   @ViewChild('createForm') form: NgForm;
 
-  id: number;
+  id: string;
   name: string;
   year: number;
   imageUrl: string;
@@ -24,21 +24,16 @@ export class CreateComponent {
   isSubmited: boolean = false
 
   onCreateMovie() {    
-    
-    this.name = this.form.value.name;
-    this.year = this.form.value.year;
-    this.imageUrl = this.form.value.imageUrl;
-    this.isPremium = this.form.value.isPremium;
-    this.details = this.form.value.details;
 
     this.isSubmited = true;
     
-    console.log(this.form);
     if(this.form.valid && this.isSubmited === true) {
       if(confirm('Do you want to create this movie?')) {
-        this.movieService.createMovie(this.id, this.name, this.year, this.imageUrl, this.isPremium, this.details);
+        this.movieService.createMovie(this.form.value);
+        console.log(this.form.form.value);
+        
         this.form.reset()
-        // this.router.navigate(['/catalog']);
+        this.router.navigate(['/catalog']); 
       }
     } else {
       this.isSubmited = false

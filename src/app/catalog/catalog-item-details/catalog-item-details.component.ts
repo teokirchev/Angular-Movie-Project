@@ -11,7 +11,7 @@ import { MovieService } from 'src/app/Service/movie.service';
 export class CatalogItemDetailsComponent implements OnInit, OnDestroy{
   
   selectedMovie: Movie;
-  movieId: number;
+  movieId: string;
   paramMapObs;
 
   constructor(private movieService: MovieService, private activeRoute: ActivatedRoute) {
@@ -20,8 +20,11 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy{
   
   ngOnInit() {
     this.paramMapObs = this.activeRoute.paramMap.subscribe((data) => {
-      this.movieId = Number(data.get('id'));
-      this.selectedMovie = this.movieService.movies.find(movie => movie.id === this.movieId);
+      this.movieId = data.get('id');
+      this.movieService.getMovieById(this.movieId).subscribe((movie) => {
+        this.selectedMovie = movie;
+      })
+      // this.selectedMovie = this.movieService.movies.find(movie => movie.id === this.movieId);
     })
   }
   ngOnDestroy() {

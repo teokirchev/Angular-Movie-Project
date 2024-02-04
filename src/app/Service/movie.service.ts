@@ -1,28 +1,48 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Movie } from '../Models/Movie';
+import { HttpClient } from '@angular/common/http';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  movies: Movie[] = [
-    new Movie(1, 'The Godfather', 1999, 'https://upload.wikimedia.org/wikipedia/en/a/af/The_Godfather%2C_The_Game.jpg', true, 'The Godfather "Don" Vito Corleone is the head of the Corleone mafia family in New York. He is at the event of his daughter\'s wedding. Michael, Vito\'s youngest son and a decorated WW II Marine is also present at the wedding.'),
-    new Movie(2, 'The Strongman', 2000, 'https://upload.wikimedia.org/wikipedia/en/a/af/The_Godfather%2C_The_Game.jpg', false, 'The Godfather "Don" Vito Corleone is the head of the Corleone mafia family in New York. He is at the event of his daughter\'s wedding. Michael, Vito\'s youngest son and a decorated WW II Marine is also present at the wedding.'),
-    new Movie(3, 'The Nun', 2001, 'https://upload.wikimedia.org/wikipedia/en/a/af/The_Godfather%2C_The_Game.jpg', false, 'The Godfather "Don" Vito Corleone is the head of the Corleone mafia family in New York. He is at the event of his daughter\'s wedding. Michael, Vito\'s youngest son and a decorated WW II Marine is also present at the wedding.')
-  ]
+  // url = 'https://angular-movie-project-732b7-default-rtdb.firebaseio.com/';
+
+  movies: Movie[] = []
 
   getAllmovies() {
-    return this.movies
+    return this.http.get<{[key: string]: Movie}>(
+      'https://angular-movie-project-732b7-default-rtdb.firebaseio.com/movies.json')
+      .pipe(map((response) => {
+        let movies = [];
+
+        for(let key in response) {
+          if(response.hasOwnProperty(key)) {
+            movies.push({...response[key], id: key});
+          }
+        }
+        return movies;
+      }))
   };
+
+  getMovieById(id: string): Observable<Movie> {
+    return this.http.get<Movie>(
+      `https://angular-movie-project-732b7-default-rtdb.firebaseio.com/movies/${id}.json`
+    );
+  }
   
 
-  createMovie( id: number, name: string, year: number, imageUrl: string, isPremium: boolean, details: string) {
-    id = Math.random()
-    let movie = new Movie(id, name, year, imageUrl, isPremium, details);
-    
-    this.movies.push(movie);
+  
+  createMovie(movie: Movie) {
+    this.http.post<{name: string}>
+    ('https://angular-movie-project-732b7-default-rtdb.firebaseio.com/movies.json', movie)
+    .subscribe((response) => {
+      console.log(response);
+    })
   }
+  
 }
