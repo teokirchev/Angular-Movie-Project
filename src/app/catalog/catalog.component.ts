@@ -32,6 +32,7 @@ export class CatalogComponent implements OnInit{
   selectedButtonChanged: string = 'all';
 
   searchedText: string = '';
+  isLoading: boolean = false;
 
   changeRadioButtonEvent(value: string) {
     this.selectedButtonChanged = value
@@ -50,15 +51,19 @@ export class CatalogComponent implements OnInit{
         this.searchedText = data.get('search');
       
       if (this.searchedText === undefined || this.searchedText === null || this.searchedText === '') {
+        this.isLoading = true        
         this.movieService.getAllmovies().subscribe((movies) => {
           this.allMovies = movies;
           this.updateCounts();
+        this.isLoading = false
         });
       } else {
+        this.isLoading = true
         this.movieService.getAllmovies().subscribe((movies) => {
           this.allMovies = movies.filter((x) => x.name.toLowerCase()
           .includes(this.searchedText.toLowerCase()));
           this.updateCounts();
+          this.isLoading = false
         })
       }
     });

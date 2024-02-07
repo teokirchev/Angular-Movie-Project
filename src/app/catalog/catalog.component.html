@@ -16,11 +16,12 @@
 </div>
 
 <div class="container">
-    
-    
-    <div *ngIf="allMovies.length === 0" class="no-movies">
-        <p class="no-movies-text">No movies in the catalog.</p>
-    </div>
+    <div class="loader" *ngIf="isLoading"></div>
+    <ng-container *ngIf="!isLoading">
+        <div *ngIf="allMovies.length === 0" class="no-movies">
+            <p class="no-movies-text">No movies in the catalog.</p>
+        </div>
+    </ng-container>
     
     
     <div *ngFor="let movie of allMovies">

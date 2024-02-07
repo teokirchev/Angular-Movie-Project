@@ -26,13 +26,14 @@ export class EditComponent implements OnInit{
   details: string;
 
   isSubmited: boolean = false;
-  currentMovieId: string;
+  paramMapObs
+  movieId: string;
 
   ngOnInit() {
-    this.activateRoute.params.subscribe((params) => {
-      const movieId = params['id'];
-      this.currentMovieId = movieId;
-      this.movieService.getMovieById(movieId).subscribe((movie) => {
+    this.paramMapObs = this.activateRoute.paramMap.subscribe((params) => {
+      this.movieId = params.get('id');
+      // this.currentMovieId = movieId;
+      this.movieService.getMovieById(this.movieId).subscribe((movie) => {
         this.id = movie.id;
         this.name = movie.name;
         this.year = movie.year;
@@ -42,13 +43,16 @@ export class EditComponent implements OnInit{
       })
     })
   }
+  ngOnDestroy() {
+    this.paramMapObs.unsubscribe()
+  }
 
   onEditMovie() {    
     this.isSubmited = true;
     
     if(this.form.valid && this.isSubmited === true) {
       if(confirm('Do you want to edit this movie?')) {
-        this.movieService.editMovie(this.currentMovieId, this.form.value);
+        this.movieService.editMovie(this.movieId, this.form.value);
         
         this.form.reset()
         this.router.navigate(['/catalog']); 

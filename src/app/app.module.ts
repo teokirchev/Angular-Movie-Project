@@ -14,7 +14,6 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { LogoutComponent } from './logout/logout.component';
 import { NotfoundComponent } from './notfound/notfound.component';
-import { CatalogItemComponent } from './catalog/catalog-item/catalog-item.component';
 import { FilterComponent } from './catalog/filter/filter.component';
 import { CatalogItemDetailsComponent } from './catalog/catalog-item-details/catalog-item-details.component';
 import { EditComponent } from './edit/edit.component';
@@ -32,7 +31,6 @@ import { EditComponent } from './edit/edit.component';
     RegisterComponent,
     LogoutComponent,
     NotfoundComponent,
-    CatalogItemComponent,
     FilterComponent,
     CatalogItemDetailsComponent,
     EditComponent
