@@ -24,7 +24,6 @@ export class CreateComponent {
   isSubmited: boolean = false
 
   onCreateMovie() {    
-
     this.isSubmited = true;
     
     if(this.form.valid && this.isSubmited === true) {

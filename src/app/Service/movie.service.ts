@@ -47,6 +47,15 @@ export class MovieService {
       })
     })
   }
+  
+  editMovie(id: string, editMovie: Movie) {
+    this.http.put(`https://angular-movie-project-732b7-default-rtdb.firebaseio.com/movies/${id}.json`, editMovie)
+    .subscribe((response) => {
+      this.getAllmovies().subscribe((movie) => {
+        this.moviesUpdated.emit(movie)
+      })
+    })
+  }
 
   deleteMovie(id: string) {
     this.http.delete(`https://angular-movie-project-732b7-default-rtdb.firebaseio.com/movies/${id}.json`)
@@ -56,5 +65,7 @@ export class MovieService {
       });
     });
   }
+
+  
   
 }
