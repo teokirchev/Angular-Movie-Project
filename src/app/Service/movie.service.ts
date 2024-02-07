@@ -12,7 +12,8 @@ export class MovieService {
 
   // url = 'https://angular-movie-project-732b7-default-rtdb.firebaseio.com/';
 
-  movies: Movie[] = []
+  movies: Movie[] = [];
+  moviesUpdated = new EventEmitter<Movie[]>();
 
   getAllmovies() {
     return this.http.get<{[key: string]: Movie}>(
@@ -41,8 +42,19 @@ export class MovieService {
     this.http.post<{name: string}>
     ('https://angular-movie-project-732b7-default-rtdb.firebaseio.com/movies.json', movie)
     .subscribe((response) => {
-      console.log(response);
+      this.getAllmovies().subscribe((movies) => {
+        this.moviesUpdated.emit(movies)
+      })
     })
+  }
+
+  deleteMovie(id: string) {
+    this.http.delete(`https://angular-movie-project-732b7-default-rtdb.firebaseio.com/movies/${id}.json`)
+    .subscribe((response) => {
+      this.getAllmovies().subscribe((movies) => {
+        this.moviesUpdated.emit(movies)
+      });
+    });
   }
   
 }

@@ -92,5 +92,13 @@ img {
     border-radius: 4px;
     width: 80%;
 }
+.no-movies {
+    margin: 0 auto;
+}
+.no-movies-text {
+    font-size: 30px;
+    color: #f36b39ed;
+}
+
 
  

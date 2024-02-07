@@ -41,8 +41,13 @@ export class CatalogComponent implements OnInit{
   }
   
   ngOnInit() {
-    this.activeRoute.queryParamMap.subscribe((data) => {
-      this.searchedText = data.get('search');
+    
+      this.movieService.moviesUpdated.subscribe((movies) => {
+        this.allMovies = movies;
+        this.updateCounts()
+      })
+      this.activeRoute.queryParamMap.subscribe((data) => {
+        this.searchedText = data.get('search');
       
       if (this.searchedText === undefined || this.searchedText === null || this.searchedText === '') {
         this.movieService.getAllmovies().subscribe((movies) => {

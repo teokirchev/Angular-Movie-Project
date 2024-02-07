@@ -30,7 +30,6 @@ export class CreateComponent {
     if(this.form.valid && this.isSubmited === true) {
       if(confirm('Do you want to create this movie?')) {
         this.movieService.createMovie(this.form.value);
-        console.log(this.form.form.value);
         
         this.form.reset()
         this.router.navigate(['/catalog']); 

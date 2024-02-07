@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Movie } from 'src/app/Models/Movie';
 import { MovieService } from 'src/app/Service/movie.service';
 
@@ -14,7 +14,11 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy{
   movieId: string;
   paramMapObs;
 
-  constructor(private movieService: MovieService, private activeRoute: ActivatedRoute) {
+  constructor(
+    private movieService: MovieService,
+    private activeRoute: ActivatedRoute,
+    private router: Router
+    ) {
      
   }
   
@@ -29,5 +33,10 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy{
   }
   ngOnDestroy() {
     this.paramMapObs.unsubscribe()
+  }
+
+  deleteMovie() {
+    this.movieService.deleteMovie(this.movieId);
+    this.router.navigate(['/catalog']);
   }
 }
