@@ -1,6 +1,7 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from '../Service/auth.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -11,13 +12,9 @@ export class LoginComponent implements OnInit{
 
   constructor( 
     private authService: AuthService,
-    private router: Router,
     private activeRoute: ActivatedRoute ) {}
 
-  @ViewChild('email')email: ElementRef;
-  @ViewChild('password')password: ElementRef;
- 
-
+  @ViewChild('loginForm')form: NgForm
   isSubmited: boolean = false;
 
   ngOnInit() {
@@ -30,24 +27,17 @@ export class LoginComponent implements OnInit{
     }) 
   }
 
-
   onLoginClicked() {
-    const email = this.email.nativeElement.value;
-    const password = this.password.nativeElement.value;
-
-    let user = this.authService.login(email, password);
+    const email = this.form.value.email;
+    const password = this.form.value.password;
+    console.log(this.form.value);
+    
     this.isSubmited = true;
-    if(user === undefined){
-      alert('The login credentials you have entered is not correct.');
-    }
-    else {
-      alert(`Welcome ${user.email}. You are logged in.`)
-      this.router.navigate(['/catalog']);
-    } 
+    this.form.reset();
   } 
 
   canExit() {
-    if((this.email.nativeElement.value || this.password.nativeElement.value) && this.isSubmited === false){
+    if(this.form.dirty && this.isSubmited === false){
       return confirm('You have unsaved changes. Do you want to exit the page?')
     } else {
       return true;

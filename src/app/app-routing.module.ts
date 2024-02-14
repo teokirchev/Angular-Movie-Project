@@ -24,8 +24,10 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent,
   canDeactivate: [(comp: LoginComponent) => {return comp.canExit();}]},
 
+  {path: 'register', component: RegisterComponent,
+  canDeactivate: [(comp: RegisterComponent) => {return comp.canExit();}]},
+
   {path: 'logout', component: HomeComponent},
-  {path: 'register', component: RegisterComponent},
   {path: '**', component: NotfoundComponent},
 ];
 

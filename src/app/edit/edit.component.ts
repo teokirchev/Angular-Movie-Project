@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MovieService } from '../Service/movie.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-edit',
@@ -26,7 +27,7 @@ export class EditComponent implements OnInit{
   details: string;
 
   isSubmited: boolean = false;
-  paramMapObs
+  paramMapObs;
   movieId: string;
 
   ngOnInit() {
@@ -52,8 +53,12 @@ export class EditComponent implements OnInit{
     
     if(this.form.valid && this.isSubmited === true) {
       if(confirm('Do you want to edit this movie?')) {
-        this.movieService.editMovie(this.movieId, this.form.value);
-        
+        this.movieService.editMovie(this.movieId, this.form.value)
+        .subscribe(() => {
+          this.movieService.getAllmovies().subscribe((movie) => {
+            this.movieService.moviesUpdated.emit(movie)
+          })
+        });
         this.form.reset()
         this.router.navigate(['/catalog']); 
       }

@@ -36,7 +36,12 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy{
   }
 
   deleteMovie() {
-    this.movieService.deleteMovie(this.movieId);
+    this.movieService.deleteMovie(this.movieId)
+    .subscribe(() => {
+      this.movieService.getAllmovies().subscribe((movies) => {
+        this.movieService.moviesUpdated.emit(movies)
+      });
+    });;
     this.router.navigate(['/catalog']);
   }
 

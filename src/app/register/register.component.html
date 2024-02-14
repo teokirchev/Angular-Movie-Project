@@ -1,15 +1,23 @@
 <h1>Register</h1>
 <div>
-    <form>
+    <form  #registerForm="ngForm" (ngSubmit)="onSubmitRegister()">
         <label for="email">Email</label>
-        <input type="email" name="email" placeholder="Email*">
+        <input type="email" 
+        placeholder="Email*" 
+        name="email" 
+        ngModel
+        required 
+        email>
 
         <label for="password">Password</label>
-        <input name="password" placeholder="Password*">
+        <input name="password" 
+        placeholder="Password*"
+        ngModel
+        required  
+        ngModel 
+        minlength="6">
 
-        <label for="repass">Repeat Password</label>
-        <input name="repass" placeholder="Repeat Password*">
-
-        <input type="submit" class="submit" value="Register">
+        <input type="submit" class="submit" value="Register" [disabled]="registerForm.invalid">
+        <p>Already have a profile? <span routerLink="/login">Log in here!</span></p>
     </form>
 </div>

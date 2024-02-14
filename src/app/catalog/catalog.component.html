@@ -6,14 +6,12 @@
 
 <div>
     <div *ngIf="allMovies.length > 0">
-<app-filter 
-[all]="all" 
-[premium]="premium" 
-[basic]="basic" 
-(changeRadioButtonEvent)="changeRadioButtonEvent($event)">
-</app-filter>
+        <app-filter [all]="all" [premium]="premium" [basic]="basic"
+            (changeRadioButtonEvent)="changeRadioButtonEvent($event)">
+        </app-filter>
+    </div>
 </div>
-</div>
+<div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
 
 <div class="container">
     <div class="loader" *ngIf="isLoading"></div>
@@ -22,13 +20,14 @@
             <p class="no-movies-text">No movies in the catalog.</p>
         </div>
     </ng-container>
-    
-    
+
+
     <div *ngFor="let movie of allMovies">
-        
-        
-            
-        <div class="wrap" *ngIf="selectedButtonChanged === 'all' || movie.isPremium.toString() === selectedButtonChanged">
+
+
+
+        <div class="wrap"
+            *ngIf="selectedButtonChanged === 'all' || movie.isPremium.toString() === selectedButtonChanged">
             <div class="text">
                 <span class="title">{{movie.name}}</span>
                 <div class="type">
