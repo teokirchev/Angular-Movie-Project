@@ -17,6 +17,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { FilterComponent } from './catalog/filter/filter.component';
 import { CatalogItemDetailsComponent } from './catalog/catalog-item-details/catalog-item-details.component';
 import { EditComponent } from './edit/edit.component';
+import { LoaderComponent } from './utility/loader/loader.component';
+import { ErrorSnackbarComponent } from './utility/error-snackbar/error-snackbar.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { EditComponent } from './edit/edit.component';
     NotfoundComponent,
     FilterComponent,
     CatalogItemDetailsComponent,
-    EditComponent
+    EditComponent,
+    LoaderComponent,
+    ErrorSnackbarComponent
   ],
   imports: [
     BrowserModule,

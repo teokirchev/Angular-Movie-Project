@@ -16,6 +16,8 @@ export class LoginComponent implements OnInit{
 
   @ViewChild('loginForm')form: NgForm
   isSubmited: boolean = false;
+  isLoading: boolean = false;
+  errorMessage: string | null = null;
 
   ngOnInit() {
     this.activeRoute.queryParamMap.subscribe((queries) => {
@@ -30,11 +32,30 @@ export class LoginComponent implements OnInit{
   onLoginClicked() {
     const email = this.form.value.email;
     const password = this.form.value.password;
-    console.log(this.form.value);
-    
+
     this.isSubmited = true;
     this.form.reset();
+
+    this.isLoading = true;
+
+    this.authService.login(email, password).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.isLoading = false;
+      },
+      error: (errMsg) => {
+        this.isLoading = false;
+        this.errorMessage = errMsg;
+        this.hideErrorSnackbar();
+      }
+    });
   } 
+
+  hideErrorSnackbar() {
+    setTimeout(() => {
+      this.errorMessage = null;
+    }, 4000);
+  }
 
   canExit() {
     if(this.form.dirty && this.isSubmited === false){

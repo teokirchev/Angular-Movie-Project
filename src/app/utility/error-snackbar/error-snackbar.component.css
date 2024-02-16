@@ -1,0 +1,32 @@
+.error {
+    color: white;
+    font-size: 20px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin-left: 20px;
+    opacity: 0.5;
+    margin: 0px auto;
+    max-width: 400px;
+    text-align: center;
+    animation-name: error;
+    position: relative;
+    animation-duration: 1.5s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes error {
+    from {
+        top: 0px;
+        background-color: red;
+        opacity: 0.3;
+    }
+
+    to {
+        top: 60px;
+        background-color: red;
+        opacity: 1
+    }
+
+
+}

@@ -1,22 +1,33 @@
+<app-error-snackbar [errorMessage]="errorMessage" *ngIf="errorMessage"></app-error-snackbar>
 <h1>Sign in</h1>
-<div>
+<app-loader *ngIf="isLoading"></app-loader>
+<div class="container" *ngIf="!isLoading">
     <form #loginForm="ngForm" (ngSubmit)="onLoginClicked()">
         <label for="email">Email</label>
         <input type="email" 
         name="email" 
         placeholder="Email*" 
         required 
-        ngModel>
+        ngModel
+        email
+        #mailInput="ngModel">
+        <div class="err-msg">
+            <small *ngIf="mailInput.invalid && mailInput.touched">*Email is required field and it must be a valid email!</small>
+        </div>
 
         <label for="password">Password</label>
-        <input
+        <input type="text"
         name="password" 
-        placeholder="Password*" 
+        placeholder="****" 
         required 
         ngModel
-        minlength="6" >
+        minlength="6"
+        #passInput="ngModel" >
+        <div class="err-msg">
+            <small *ngIf="passInput.invalid && passInput.touched">*Password is a required field and must be atleast 6 characters!</small>
+        </div>
 
-        <input type="submit" class="submit" value="Log In">
+        <input type="submit" class="submit" value="Log In" [disabled]="loginForm.invalid">
         <p>You don't have profile? <span routerLink="/register">Register here!</span></p>
     </form>
 </div>

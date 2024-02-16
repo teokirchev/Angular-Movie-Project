@@ -4,7 +4,7 @@ h1 {
     color: rgb(19, 108, 191);
 
 }
-div {
+.container {
     margin: 0 auto;
     width: 30%;
     box-shadow: 2px 2px 4px 3px grey;
@@ -42,4 +42,11 @@ span {
 }
 p{
     color: orange;
+}
+input.ng-invalid.ng-touched {
+    border: 2px solid red
+}
+small{
+    color:red;
+    font-size: 16px;
 }

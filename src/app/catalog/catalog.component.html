@@ -11,10 +11,11 @@
         </app-filter>
     </div>
 </div>
-<div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
-
+<!-- <div class="error" >{{ errorMessage }}</div> -->
+<app-error-snackbar [errorMessage]="errorMessage" *ngIf="errorMessage"></app-error-snackbar>
 <div class="container">
-    <div class="loader" *ngIf="isLoading"></div>
+    <!-- <div class="loader" *ngIf="isLoading"></div> -->
+    <app-loader *ngIf="isLoading" class="loader"></app-loader>
     <ng-container *ngIf="!isLoading">
         <div *ngIf="allMovies.length === 0" class="no-movies">
             <p class="no-movies-text">No movies in the catalog.</p>

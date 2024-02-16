@@ -1,21 +1,32 @@
+<app-error-snackbar [errorMessage]="errorMessage" *ngIf="errorMessage"></app-error-snackbar>
 <h1>Register</h1>
-<div>
+<app-loader *ngIf="isLoading"></app-loader>
+<div class="container" *ngIf="!isLoading">
     <form  #registerForm="ngForm" (ngSubmit)="onSubmitRegister()">
         <label for="email">Email</label>
         <input type="email" 
-        placeholder="Email*" 
         name="email" 
+        placeholder="Email*" 
         ngModel
-        required 
-        email>
+        required
+        email
+        #mailInput="ngModel">
+        <div class="err-msg">
+            <small *ngIf="mailInput.invalid && mailInput.touched">*Email is required field and it must be a valid email!</small>
+        </div>
 
         <label for="password">Password</label>
-        <input name="password" 
-        placeholder="Password*"
+        <input type="text"
+        name="password" 
+        placeholder="****"
         ngModel
         required  
         ngModel 
-        minlength="6">
+        minlength="6"
+        #passInput="ngModel">
+        <div class="err-msg">
+            <small *ngIf="passInput.invalid && passInput.touched">*Password is a required field and must be atleast 6 characters!</small>
+        </div>
 
         <input type="submit" class="submit" value="Register" [disabled]="registerForm.invalid">
         <p>Already have a profile? <span routerLink="/login">Log in here!</span></p>
