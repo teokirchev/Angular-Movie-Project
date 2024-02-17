@@ -7,12 +7,13 @@
                 veniam dolorum rerum ea consequatur libero deleniti, nesciunt iste itaque qui amet aliquam impedit hic!
             </p>
         </div>
-        <div class="image"></div>
+        <div class="img-wrapper">
+            <div class="image"></div>
+        </div>
     </div>
 
     <div class="form-container">
         <form (ngSubmit)="onCreateMovie()" #createForm="ngForm">
-            <div class="form-flex">
                 <input type="text" name="name" placeholder="Name.....*" [(ngModel)]="name" required #nameInput="ngModel"
                     minlength="3">
                 <div>
@@ -21,14 +22,13 @@
                         characters!</small>
                 </div>
 
-                <input name="year" placeholder="Year.....*" [(ngModel)]="year" required #yearInput="ngModel" minlength="4"
-                    maxlength="4" pattern="[0-9]*">
+                <input name="year" placeholder="Year.....*" [(ngModel)]="year" required #yearInput="ngModel"
+                    minlength="4" maxlength="4" pattern="[0-9]*">
                 <div>
                     <small *ngIf="yearInput.invalid && yearInput.touched">* Year is a required field and must be a
                         4-digit
                         number!</small>
                 </div>
-            </div>
             <input name="imageUrl" placeholder="Image.....*" [(ngModel)]="imageUrl" required #imageInput="ngModel">
             <div>
                 <small *ngIf="imageInput.invalid && imageInput.touched">* Image is a required field!</small>

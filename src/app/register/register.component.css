@@ -1,47 +1,54 @@
 h1 {
     text-align: center;
-    margin-top: 60px;
-    color: rgb(19, 108, 191);
+    margin-top: 50px;
+    color: var(--green);
 
 }
-.container {
+
+form {
     margin: 0 auto;
     width: 30%;
-    box-shadow: 2px 2px 4px 3px grey;
-}
-form {
+    height: 250px;
+    box-shadow: 1px 2px 10px 1px black;
+    background-color: white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    margin: 12px 18px;
-    padding: 18px 8px ;
-    
-} 
-label {
-    font-size: 20px;
-    color: rgb(19, 108, 191);
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    margin-bottom: 70px;
+
 }
+
 input {
     width: 80%;
-    height: 20px;
-    margin-bottom: 12px;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid grey;
+    border-bottom: 1px solid grey;
+    height: 30px;
+    background-color: rgb(209, 206, 206);
+    margin-top: 30px;
+
 }
 .submit {
-    height: 28px;
-    background-color: rgb(19, 108, 191);
-    color: white;
-    border: none;
-    border-radius: 4px;
+    background-color: var(--green);
+    color: black;
+    border: 1px solid black;
     cursor: pointer;
-    margin-bottom: 10px;
+    font-size: 16px;
+    height: 35px;
+    font-weight: bold;
+
 }
 span {
-    color: rgb(19, 108, 191);
+    color: black;
     text-decoration: underline;
     cursor: pointer;
+    font-weight: bold;
 }
 p{
-    color: orange;
+    color: var(--grey);
 }
 input.ng-invalid.ng-touched {
     border: 2px solid red

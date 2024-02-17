@@ -2,8 +2,8 @@
 <h1>Register</h1>
 <app-loader *ngIf="isLoading"></app-loader>
 <div class="container" *ngIf="!isLoading">
+
     <form  #registerForm="ngForm" (ngSubmit)="onSubmitRegister()">
-        <label for="email">Email</label>
         <input type="email" 
         name="email" 
         placeholder="Email*" 
@@ -15,10 +15,9 @@
             <small *ngIf="mailInput.invalid && mailInput.touched">*Email is required field and it must be a valid email!</small>
         </div>
 
-        <label for="password">Password</label>
         <input type="text"
         name="password" 
-        placeholder="****"
+        placeholder="Password*"
         ngModel
         required  
         ngModel 

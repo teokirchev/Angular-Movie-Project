@@ -24,10 +24,11 @@ h1 {
     margin-top: 0px;
     margin-bottom: 30px;
 }
-p{
-    font-size: 18px;
+p {
+    font-size: 22px;
     border: 1px solid var(--green);
-    width: 200px;
+    width: 400px;
+    min-height: 300px;
     padding: 20px 30px;
     color: white;
 }
