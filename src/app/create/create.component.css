@@ -1,19 +1,43 @@
 .container {
-    width: 40%;
+    display: flex;
+    align-items: center;
+}
+.form-container {
+    width: 50%;
     margin: 0 auto;
-    margin-top: 12px;
-    box-shadow: 2px 2px 4px 3px grey;
+    box-shadow: 2px 2px 4px 3px ;
     background-color: white;
+    /* border: 2px solid var(--green); */
+
+}
+.wrapper {
+    margin: 50px 20px;
+}
+.text-wrapper {
+    width: 200px;
+    min-height: 200px;
+    /* max-height: 300px; */
+    padding: 0px 30px;
+    color: white;
+    border: 1px solid var(--green);
+    margin-bottom: 12px;
+}
+.image {
+    background-image: url(https://d31xsmoz1lk3y3.cloudfront.net/games/imgur/eBEkqgn.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+    margin-left: 150px;
+    /* margin: 100px 20px; */
 }
 
-.form-shadow {
-    box-shadow: 2px 2px 4px 3px grey;
-}
 
 h1 {
     margin-top: 50px;
     text-align: center;
-    color: rgb(19, 108, 191);
+    color: var(--green);
     font-size: 30px;
 }
 
@@ -21,48 +45,47 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 12px 40px;
-    padding: 20px 10px;
-}
+    /* margin: 12px 40px; */
+    padding: 50px 60px;
 
-label {
-    color: rgb(19, 108, 191);
-    font-size: 20px;
-    /* margin-bottom: 8px; */
+}
+.form-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 input {
     all: unset;
-    background-color: white;
-    margin-bottom: 12px;
+    background-color: rgb(209, 206, 206);
     height: 30px;
     border-top: 1px solid black;
     border-left: 1px solid black;
     border-right: 1px solid grey;
     border-bottom: 1px solid grey;
     border-radius: 4px;
+    margin-bottom: 20px;
+
 
 }
 
 select {
-    margin-bottom: 20px;
-    height: 25px;
-    color: rgb(19, 108, 191);
+    height: 33px;
+    color: black;
     border: 1px solid grey;
     border-radius: 4px;
-    background-color: white;
-}
-
-option {
-    color: rgb(19, 108, 191);
+    background-color: rgb(209, 206, 206);
+    margin-bottom: 20px;
 
 }
+
+
 
 textarea {
     all: unset;
-    background-color: white;
+    background-color: rgb(209, 206, 206);
     height: 80px;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
     border-top: 1px solid black;
     border-left: 1px solid black;
     border-right: 1px solid grey;
@@ -73,8 +96,8 @@ textarea {
 
 input.submit {
     font-size: 18px;
-    color: white;
-    background-color: rgb(19, 108, 191);
+    color: black;
+    background-color: var(--green);
     border: none;
     border-radius: 4px;
     cursor: pointer;

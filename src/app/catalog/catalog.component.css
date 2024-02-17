@@ -19,19 +19,20 @@
 input {
     width: 30%;
     height: 30px;
-    border: 1px solid #136cbf;
-    border-radius: 6px;
+    border: 2px solid black;
+    border-radius: 1px;
     margin-right: 12px;
 }
 .button-srch {
-    border: none;
-    border-radius: 6px;
+    border: 2px solid black;
+    border-radius: 1px;
     cursor: pointer;
-    background-color: #136cbf;
-    color: white;
+    background-color: var(--green);
+    color: var(--grey);
     height: 34px;
     padding: 0px 12px;
     font-size: 16px;
+    font-weight: bold;
 }
 
 .wrap {
@@ -98,7 +99,9 @@ img {
 
 .no-movies-text {
     font-size: 40px;
-    color: #f36b39ed;
+    color: var(--green);
+    border: 1px solid var(--green);
+    padding: 15px 30px;
 }
 /* .loader {
     border: 16px solid #f3f3f3;
