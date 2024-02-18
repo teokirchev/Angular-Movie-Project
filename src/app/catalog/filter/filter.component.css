@@ -3,5 +3,15 @@
     /* display: flex;
     justify-content: center;
     align-items: center; */
+    color: var(--green);
+    border: 1px solid grey;
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 1px;
+}
+.head {
+    font-weight: bold;
+}
+.count {
     color: white;
 }

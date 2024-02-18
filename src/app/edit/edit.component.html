@@ -29,7 +29,7 @@
 
         <label for="details">Details</label>
         <textarea type="text" name="details" placeholder=".....*"
-         [(ngModel)]="details" required #detailsInput="ngModel" minlength="3" maxlength="200">
+         [(ngModel)]="details" required #detailsInput="ngModel" minlength="3">
         </textarea>
         <div>
             <small *ngIf="detailsInput.invalid && detailsInput.touched">* Details is a required field and must be between 3 and 200 characters!</small>

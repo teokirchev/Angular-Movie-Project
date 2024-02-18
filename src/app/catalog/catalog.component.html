@@ -3,7 +3,6 @@
     <button class="button-srch" (click)="onSearchClicked(search.value)">Search</button>
 </div>
 
-
 <div>
     <div *ngIf="allMovies.length > 0">
         <app-filter [all]="all" [premium]="premium" [basic]="basic"
@@ -11,10 +10,10 @@
         </app-filter>
     </div>
 </div>
-<!-- <div class="error" >{{ errorMessage }}</div> -->
+
 <app-error-snackbar [errorMessage]="errorMessage" *ngIf="errorMessage"></app-error-snackbar>
+
 <div class="container">
-    <!-- <div class="loader" *ngIf="isLoading"></div> -->
     <app-loader *ngIf="isLoading" class="loader"></app-loader>
     <ng-container *ngIf="!isLoading">
         <div *ngIf="allMovies.length === 0" class="no-movies">
@@ -22,11 +21,7 @@
         </div>
     </ng-container>
 
-
     <div *ngFor="let movie of allMovies">
-
-
-
         <div class="wrap"
             *ngIf="selectedButtonChanged === 'all' || movie.isPremium.toString() === selectedButtonChanged">
             <div class="text">

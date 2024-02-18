@@ -1,21 +1,21 @@
 <div class="filter">
-    <span>Filter: </span>
+    <span class="head">FILTER: </span>
     <input type="radio" name="filter"
         value="all"
         [(ngModel)]="selectedButtonChanged" 
         (change)="onSelectButtonChanged()"/>
-    <span>{{'All('+all+')'}}</span>
+    <span class="count">{{'All('+all+')'}}</span>
 
     <input type="radio" name="filter" 
         value="true"
         [(ngModel)]="selectedButtonChanged" 
         (change)="onSelectButtonChanged()"/>
-    <span>{{'Premium('+premium+')'}}</span>
+    <span class="count">{{'Premium('+premium+')'}}</span>
 
     <input type="radio" name="filter" 
         value="false"
         [(ngModel)]="selectedButtonChanged" 
         (change)="onSelectButtonChanged()"/>
-    <span>{{'Basic('+basic+')'}}</span>
+    <span class="count">{{'Basic('+basic+')'}}</span>
     
 </div>

@@ -2,16 +2,16 @@
     <div class="image-wrapper">
         <img [src]="selectedMovie.imageUrl" alt="">
     </div>
-    <div class="flex-wrapper">
     <div class="details-wrapper">
-        <h2>Title: {{selectedMovie.name}}</h2>
-        <p>Year: {{selectedMovie.year}}</p>
-        <p>Type: {{selectedMovie.isPremium ? 'Premium' : 'Basic'}}</p>
-        <p>Details: {{selectedMovie.details}}</p>
+        <div>
+            <h2>{{selectedMovie.name}}</h2>
+            <p><span>Year:</span> {{selectedMovie.year}}</p>
+            <p><span>Type:</span> {{selectedMovie.isPremium ? 'Premium' : 'Basic'}}</p>
+            <p><span>Details:</span> {{selectedMovie.details}}</p>
+        </div>
         <div class="btn-wrapper">
             <button (click)="deleteMovie()">Delete</button>
             <button (click)="editMovie()">Edit</button>
         </div>
     </div>
-</div>
 </div>
