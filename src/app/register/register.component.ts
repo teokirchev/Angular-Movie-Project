@@ -28,7 +28,6 @@ export class RegisterComponent {
     
     this.authService.register(email, password).subscribe({
       next: (res) => {
-        console.log(res);
         this.isLoading = false;
       }, 
       error: (errMsg) => {

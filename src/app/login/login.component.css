@@ -31,6 +31,7 @@ input {
     margin-top: 30px;
 
 }
+
 .submit {
     background-color: var(--green);
     color: black;
@@ -41,19 +42,28 @@ input {
     font-weight: bold;
 
 }
+
+.submit:hover {
+    background-color: black;
+    color: var(--green);
+}
+
 span {
     color: black;
     text-decoration: underline;
     cursor: pointer;
     font-weight: bold;
 }
-p{
+
+p {
     color: var(--grey);
 }
+
 input.ng-invalid.ng-touched {
     border: 2px solid red
 }
-small{
-    color:red;
+
+small {
+    color: red;
     font-size: 16px;
 }

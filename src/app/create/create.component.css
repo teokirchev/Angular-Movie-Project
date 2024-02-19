@@ -115,6 +115,10 @@ input.submit {
 
 
 }
+input.submit:hover {
+    background-color: black;
+    color: var(--green);
+}
 input.ng-invalid.ng-touched {
     border: 2px solid red
 }

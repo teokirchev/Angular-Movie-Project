@@ -41,6 +41,10 @@ input {
     font-weight: bold;
 
 }
+.submit:hover {
+    background-color: black;
+    color: var(--green);
+}
 span {
     color: black;
     text-decoration: underline;

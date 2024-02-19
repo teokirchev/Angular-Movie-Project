@@ -107,6 +107,10 @@ img {
     width: 100%;
     font-weight: bold;
 }
+.btn-details:hover {
+    background-color: black;
+    color:var(--green);
+}
 
 .no-movies-text {
     font-size: 40px;
