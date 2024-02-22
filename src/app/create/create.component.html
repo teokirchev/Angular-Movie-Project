@@ -1,34 +1,24 @@
 <div class="container">
-    <div class="wrapper">
-        <div class="text-wrapper">
-            <h1>Add Movie</h1>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi ipsum explicabo sint maiores est
-                placeat,
-                veniam dolorum rerum ea consequatur libero deleniti, nesciunt iste itaque qui amet aliquam impedit hic!
-            </p>
-        </div>
-        <div class="img-wrapper">
-            <div class="image"></div>
-        </div>
-    </div>
 
-    <div class="form-container">
+    <!-- <div class="form-container"> -->
+        <h1>Add Movie</h1>
         <form (ngSubmit)="onCreateMovie()" #createForm="ngForm">
-                <input type="text" name="name" placeholder="Name.....*" [(ngModel)]="name" required #nameInput="ngModel"
-                    minlength="3">
-                <div>
-                    <small *ngIf="nameInput.invalid && nameInput.touched">* Name is a required field and must be atleast
-                        3
-                        characters!</small>
-                </div>
 
-                <input name="year" placeholder="Year.....*" [(ngModel)]="year" required #yearInput="ngModel"
-                    minlength="4" maxlength="4" pattern="[0-9]*">
-                <div>
-                    <small *ngIf="yearInput.invalid && yearInput.touched">* Year is a required field and must be a
-                        4-digit
-                        number!</small>
-                </div>
+            <input type="text" name="name" placeholder="Name.....*" [(ngModel)]="name" required #nameInput="ngModel"
+                minlength="3">
+            <div>
+                <small *ngIf="nameInput.invalid && nameInput.touched">* Name is a required field and must be atleast
+                    3
+                    characters!</small>
+            </div>
+
+            <input name="year" placeholder="Year.....*" [(ngModel)]="year" required #yearInput="ngModel" minlength="4"
+                maxlength="4" pattern="[0-9]*">
+            <div>
+                <small *ngIf="yearInput.invalid && yearInput.touched">* Year is a required field and must be a
+                    4-digit
+                    number!</small>
+            </div>
             <input name="imageUrl" placeholder="Image.....*" [(ngModel)]="imageUrl" required #imageInput="ngModel">
             <div>
                 <small *ngIf="imageInput.invalid && imageInput.touched">* Image is a required field!</small>
@@ -41,7 +31,7 @@
 
             <textarea type="text" name="details" placeholder="Details.....*" [(ngModel)]="details" required
                 #detailsInput="ngModel" minlength="3" maxlength="200">
-        </textarea>
+            </textarea>
             <div>
                 <small *ngIf="detailsInput.invalid && detailsInput.touched">* Details is a required field and must be
                     between 3 and 200 characters!</small>
@@ -49,5 +39,5 @@
 
             <input type="submit" class="submit" id="submit" value="Add Movie" [disabled]="createForm.invalid">
         </form>
-    </div>
+    <!-- </div> -->
 </div>

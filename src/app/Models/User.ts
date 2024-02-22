@@ -1,12 +1,11 @@
 export class User {
 
-
     constructor(
-        email: string,
-        id: string,
+        public email: string,
+        public id: string,
         private _token: string,
         private _expiresIn: Date,
-    ) { }
+    ) {}
 
     get token() {
         if (!this._expiresIn || this._expiresIn < new Date()) {

@@ -22,12 +22,15 @@ const routes: Routes = [
     canDeactivate:[(comp: EditComponent) => {return comp.canExit();}]},
 
   {path: 'login', component: LoginComponent,
-  canDeactivate: [(comp: LoginComponent) => {return comp.canExit();}]},
+  // canDeactivate: [(comp: LoginComponent) => {return comp.canExit();}]
+},
 
   {path: 'register', component: RegisterComponent,
-  canDeactivate: [(comp: RegisterComponent) => {return comp.canExit();}]},
+  // canDeactivate: [(comp: RegisterComponent) => {return comp.canExit();}]
+},
 
   {path: 'logout', component: HomeComponent},
+  
   {path: '**', component: NotfoundComponent},
 ];
 

@@ -1,13 +1,12 @@
 <nav>
     <div class="link img-wrapper"></div>
     <div>
-        <a class="link" routerLink="home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-        <a class="link" routerLink="catalog" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Catalog</a>
-        <a class="link" routerLink="create" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Create</a>
+        <a class="link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        <a class="link" routerLink="catalog" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf="isLoggedIn">Catalog</a>
+        <a class="link" routerLink="create" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf="isLoggedIn">Create</a>
     </div>
     <div>
-        <a class="link" routerLink="login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Sign In</a>
-        <!-- <a routerLink="register">Register</a> -->
-        <a class="link" routerLink="login" [queryParams]="{logout: true}">Logout</a>
+        <a class="link" routerLink="login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf="!isLoggedIn">Sign In</a>
+        <a class="link" *ngIf="isLoggedIn">Logout</a>
     </div>
 </nav>

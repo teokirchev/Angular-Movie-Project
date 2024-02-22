@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { User } from '../Models/User';
 import { HttpClient } from '@angular/common/http';
 import { AuthResponse } from '../Models/AuthResponse';
-import { Observable, Subject, catchError, tap, throwError } from 'rxjs';
+import { BehaviorSubject, Subject, catchError, tap, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +10,11 @@ import { Observable, Subject, catchError, tap, throwError } from 'rxjs';
 export class AuthService {
   isLogged: boolean = false;
 
-  constructor(
-    private http: HttpClient) { }
+  constructor (
+    private http: HttpClient
+    ) {}
 
-  user = new Subject<User>();
+  user = new BehaviorSubject<User>(null);
 
   register(email: string, password: string) {
     const data = { email: email, password: password, returnSecureToken: true }
@@ -32,9 +33,9 @@ export class AuthService {
       }))
   };
 
-  private handleCreateUser(res: AuthResponse) {
+  private handleCreateUser(res) {
     const expiresInTs = new Date().getTime() + Number(res.expiresIn) * 1000;
-    const expiresIn = new Date(expiresInTs)
+    const expiresIn = new Date(expiresInTs); 
     const user = new User(res.email, res.localId, res.idToken, expiresIn);
     this.user.next(user)
   }

@@ -1,13 +1,12 @@
 nav {
-    /* border: 1px solid black; */
+    /* border-bottom: 1px solid var(--green); */
+    border-bottom: 1.5px solid black;
+
+    width: 95%;
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
-    padding: 12px;
-    /* background-color: rgb(19, 108, 191); */
-    /* background-color: #934A5F; */
-
-    
+    margin: 0 auto;
+    padding-bottom: 12px;
 }
 .link.img-wrapper {
     background-image: url(https://st2.depositphotos.com/3554337/9570/i/950/depositphotos_95706990-stock-photo-green-movie-camera-symbol.jpg);
@@ -26,7 +25,8 @@ nav {
     text-decoration: none;
     padding: 4px 8px;
     font-size: 20px;
-    color: white;
+    color: black;
+    font-weight: bold;
     margin-right: 12px;
 
 }

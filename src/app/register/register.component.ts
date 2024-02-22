@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { AuthService } from '../Service/auth.service';
 import { Observable } from 'rxjs';
 import { AuthResponse } from '../Models/AuthResponse';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +11,10 @@ import { AuthResponse } from '../Models/AuthResponse';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router
+    ) { }
   isSubmited: boolean = false;
   isLoading: boolean = false;
   errorMessage: string | null = null;
@@ -29,6 +33,7 @@ export class RegisterComponent {
     this.authService.register(email, password).subscribe({
       next: (res) => {
         this.isLoading = false;
+        this.router.navigate(['/catalog'])
       }, 
       error: (errMsg) => {
         this.isLoading = false;
@@ -44,12 +49,12 @@ export class RegisterComponent {
     }, 4000);
   }
  
-  canExit() {
-    if(this.form.dirty && this.isSubmited === false){
-      return confirm('You have unsaved changes. Do you want to exit the page?')
-    } else {
-      return true;
-    }
-  }
+  // canExit() {
+  //   if(this.form.dirty && this.isSubmited === false){
+  //     return confirm('You have unsaved changes. Do you want to exit the page?')
+  //   } else {
+  //     return true;
+  //   }
+  // }
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from '../Service/auth.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -12,7 +12,8 @@ export class LoginComponent implements OnInit{
 
   constructor( 
     private authService: AuthService,
-    private activeRoute: ActivatedRoute ) {}
+    private activeRoute: ActivatedRoute,
+    private router: Router ) {}
 
   @ViewChild('loginForm')form: NgForm
   isSubmited: boolean = false;
@@ -40,8 +41,8 @@ export class LoginComponent implements OnInit{
 
     this.authService.login(email, password).subscribe({
       next: (res) => {
-        console.log(res);
         this.isLoading = false;
+        this.router.navigate(['/catalog']);
       },
       error: (errMsg) => {
         this.isLoading = false;
@@ -57,11 +58,11 @@ export class LoginComponent implements OnInit{
     }, 4000);
   }
 
-  canExit() {
-    if(this.form.dirty && this.isSubmited === false){
-      return confirm('You have unsaved changes. Do you want to exit the page?')
-    } else {
-      return true;
-    }
-  }
+  // canExit() {
+  //   if(this.form.dirty && this.isSubmited === false){
+  //     return confirm('You have unsaved changes. Do you want to exit the page?')
+  //   } else {
+  //     return true;
+  //   }
+  // }
 }
