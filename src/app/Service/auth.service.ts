@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { User } from '../Models/User';
 import { HttpClient } from '@angular/common/http';
 import { AuthResponse } from '../Models/AuthResponse';
-import { BehaviorSubject, Subject, catchError, tap, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, tap, throwError } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +11,10 @@ import { BehaviorSubject, Subject, catchError, tap, throwError } from 'rxjs';
 export class AuthService {
   isLogged: boolean = false;
 
-  constructor (
-    private http: HttpClient
-    ) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) { }
 
   user = new BehaviorSubject<User>(null);
 
@@ -33,9 +35,14 @@ export class AuthService {
       }))
   };
 
+  logout() {
+    this.user.next(null);
+    this.router.navigate(['/'])
+  }
+
   private handleCreateUser(res) {
     const expiresInTs = new Date().getTime() + Number(res.expiresIn) * 1000;
-    const expiresIn = new Date(expiresInTs); 
+    const expiresIn = new Date(expiresInTs);
     const user = new User(res.email, res.localId, res.idToken, expiresIn);
     this.user.next(user)
   }
@@ -68,9 +75,5 @@ export class AuthService {
         break;
     }
     return throwError(() => errorMessage);
-  }
-
-  logout() {
-
   }
 };

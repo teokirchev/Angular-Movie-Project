@@ -7,6 +7,6 @@
     </div>
     <div>
         <a class="link" routerLink="login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf="!isLoggedIn">Sign In</a>
-        <a class="link" *ngIf="isLoggedIn">Logout</a>
+        <a class="link" *ngIf="isLoggedIn" (click)="onLogout()">Logout</a>
     </div>
 </nav>

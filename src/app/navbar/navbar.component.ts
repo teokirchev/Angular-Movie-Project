@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from '../Service/auth.service';
 import { Subscription } from 'rxjs';
 import { User } from '../Models/User';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +12,7 @@ import { User } from '../Models/User';
 export class NavbarComponent implements OnInit, OnDestroy {
 
   constructor(
-    private authService: AuthService,
+    private authService: AuthService
   ) { }
 
   isLoggedIn: boolean = false;
@@ -23,6 +24,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
       this.isLoggedIn = user ? true : false; 
     })
   }
+
+  onLogout() {
+    this.authService.logout()
+  }
+
   ngOnDestroy() {
     this.userSubject.unsubscribe();
   }
