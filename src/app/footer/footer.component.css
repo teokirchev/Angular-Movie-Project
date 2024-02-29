@@ -4,23 +4,25 @@ footer {
     margin: 0 auto;
 
 }
+
 .container {
     display: flex;
-    /* border-top:2px solid; */
     justify-content: space-between;
     width: 30%;
     margin: 10px;
 }
+
 .text-menu {
     margin-top: 12px;
 }
+
 p {
     margin: 0px;
     margin-bottom: 6px;
     font-weight: bold;
-    /* color: black; */
-    color: black;
+    color: white;
 }
+
 .hero-footer {
     display: flex;
     align-items: center;
@@ -32,8 +34,34 @@ p {
     background-color: black;
 
 }
+
 p.text {
     text-align: center;
-    color: var(--green);
+    color: var(--grey);
     /* color: black; */
+}
+
+@media only screen and (max-width: 1107px) {
+    .container {
+        width: 40%;
+    };
+}
+@media only screen and (max-width: 920px) {
+    .container {
+        width: 50%;
+    };
+}
+@media only screen and (max-width: 660px) {
+    .container {
+        width: 60%;
+    };
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 95%;
+    };
+    .text-menu {
+        margin-top: 0px;
+    }
 }

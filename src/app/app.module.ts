@@ -48,4 +48,6 @@ import { ErrorSnackbarComponent } from './utility/error-snackbar/error-snackbar.
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  
+ }

@@ -36,6 +36,7 @@ export class AuthService {
   };
 
   logout() {
+    JSON.stringify(localStorage.removeItem('user'));
     this.user.next(null);
     this.router.navigate(['/'])
   }
@@ -44,7 +45,20 @@ export class AuthService {
     const expiresInTs = new Date().getTime() + Number(res.expiresIn) * 1000;
     const expiresIn = new Date(expiresInTs);
     const user = new User(res.email, res.localId, res.idToken, expiresIn);
-    this.user.next(user)
+    this.user.next(user);
+
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  autoLogin() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if(!user) {
+      return;
+    }
+    const loggedUser = new User(user.email, user.id, user._token, user._expiresIn);
+    if(loggedUser.token) {
+      this.user.next(loggedUser);
+    }
   }
 
   private handleError(err) {

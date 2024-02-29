@@ -21,10 +21,7 @@ form {
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    
 }
-
-
 
 input {
     all: unset;
@@ -37,7 +34,6 @@ input {
     border-radius: 1px;
     width: 90%;
     margin-top: 20px;
-
 }
 
 select {
@@ -50,8 +46,6 @@ select {
     margin-top: 20px;
 }
 
-
-
 textarea {
     all: unset;
     background-color: rgb(209, 206, 206);
@@ -63,7 +57,6 @@ textarea {
     border-radius: 1px;
     width: 90%;
     margin-top: 20px;
-
 }
 
 input.submit {
@@ -80,17 +73,32 @@ input.submit {
     margin-bottom: 20px;
     margin-top: 20px;
 }
+
 input.submit:hover {
     background-color: black;
     color: var(--green);
 }
+
 input.ng-invalid.ng-touched {
     border: 2px solid red
 }
+
 textarea.ng-invalid.ng-touched {
     border: 2px solid red
 }
-small{
-    color:red;
+
+small {
+    color: red;
     font-size: 16px;
+}
+@media only screen and (max-width: 600px) {
+    .container {
+    margin-top: 8px;
+        width: 70%;
+    }
+    
+    h1 {
+        margin-top: 20px;
+    }
+
 }
