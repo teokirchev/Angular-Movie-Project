@@ -17,6 +17,7 @@ export class AuthService {
   ) { }
 
   user = new BehaviorSubject<User>(null);
+  private tokenExpireTimer: any;
 
   register(email: string, password: string) {
     const data = { email: email, password: password, returnSecureToken: true }
@@ -36,9 +37,15 @@ export class AuthService {
   };
 
   logout() {
-    JSON.stringify(localStorage.removeItem('user'));
+    localStorage.removeItem('user');
     this.user.next(null);
-    this.router.navigate(['/'])
+    this.router.navigate(['/login'])
+
+    // зачистваме таймера ако някой натисне logout бутона
+    if (this.tokenExpireTimer) {
+      clearTimeout(this.tokenExpireTimer);
+    }
+    this.tokenExpireTimer = null;
   }
 
   private handleCreateUser(res) {
@@ -47,18 +54,28 @@ export class AuthService {
     const user = new User(res.email, res.localId, res.idToken, expiresIn);
     this.user.next(user);
 
+    this.autoLogout(res.expiresIn * 1000);
     localStorage.setItem('user', JSON.stringify(user));
   }
 
   autoLogin() {
     const user = JSON.parse(localStorage.getItem('user'));
-    if(!user) {
+    if (!user) {
       return;
     }
     const loggedUser = new User(user.email, user.id, user._token, user._expiresIn);
-    if(loggedUser.token) {
+    if (loggedUser.token) {
       this.user.next(loggedUser);
+      const timer = user._expiresIn.getTime() - new Date().getTime()
+      this.autoLogout(timer);
     }
+  }
+
+  // можеш да тестваш autologout като смениш времето на таймера expiresTime с 3000мс
+  autoLogout(expireTime: number) {
+    this.tokenExpireTimer = setTimeout(() => {
+      this.logout();
+    }, expireTime);
   }
 
   private handleError(err) {
