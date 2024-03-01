@@ -1,8 +1,8 @@
 <app-error-snackbar [errorMessage]="errorMessage" *ngIf="errorMessage"></app-error-snackbar>
-<h1>Register</h1>
 <app-loader *ngIf="isLoading"></app-loader>
 <div class="container" *ngIf="!isLoading">
-
+    
+    <h2>REGISTER HERE</h2>
     <form  #registerForm="ngForm" (ngSubmit)="onSubmitRegister()">
         <input type="email" 
         name="email" 

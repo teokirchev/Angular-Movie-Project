@@ -1,31 +1,31 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
+    margin: 12px auto;
+    border: 1px solid;
+    width: 95%;
+    background-image: url('https://165225.fs1.hubspotusercontent-na1.net/hubfs/165225/Web%20images%202023%20(compressed)/Video%20creation/green-screen-step-1.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: auto;
 }
 
 h1 {
-    color: var(--green);
+    color: black;
     font-size: 30px;
-    margin-bottom: 22px;
-    padding-top: 10px;
+    margin-bottom: 0px;
+    margin-top: 20px;
 }
 
 form {
-    margin: 0 auto;
     width: 30%;
     height: 250px;
     box-shadow: 1px 2px 10px 1px black;
-    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    margin-bottom: 70px;
-
+    margin: 30px;
 }
 
 input {
@@ -107,13 +107,15 @@ small {
 
 @media only screen and (max-width: 600px) {
     .container {
-    margin-top: 8px;
+        margin-top: 8px;
 
     }
+
     form {
-    width: 70%;
+        width: 70%;
 
     }
+
     h1 {
         margin-top: 0px;
     }

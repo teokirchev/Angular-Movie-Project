@@ -5,7 +5,7 @@ nav {
     width: 95%;
     display: flex;
     align-items: center;
-    margin: 0 30px;
+    margin: 0 auto;
 }
 .link.img-wrapper {
     background-image: url(https://st2.depositphotos.com/3554337/9570/i/950/depositphotos_95706990-stock-photo-green-movie-camera-symbol.jpg);

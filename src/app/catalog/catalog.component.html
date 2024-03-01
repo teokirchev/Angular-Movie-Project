@@ -24,6 +24,9 @@
     <div *ngFor="let movie of allMovies">
         <div class="wrap"
             *ngIf="selectedButtonChanged === 'all' || movie.isPremium.toString() === selectedButtonChanged">
+            <div class="img-wrapper">
+                <img [src]="movie.imageUrl">
+            </div>
             <div class="text">
                 <span class="title">{{movie.name}}</span>
                 <div class="type">
@@ -37,9 +40,6 @@
 
                     </div>
                 </div>
-            </div>
-            <div class="img-wrapper">
-                <img [src]="movie.imageUrl">
             </div>
             <div class="btn-wrapper">
                 <button class="btn-details" routerLink="/catalog/{{movie.id}}">Details</button>
