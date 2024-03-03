@@ -19,6 +19,7 @@ import { CatalogItemDetailsComponent } from './catalog/catalog-item-details/cata
 import { EditComponent } from './edit/edit.component';
 import { LoaderComponent } from './utility/loader/loader.component';
 import { ErrorSnackbarComponent } from './utility/error-snackbar/error-snackbar.component';
+import { CommentComponent } from './catalog/catalog-item-details/comment/comment.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { ErrorSnackbarComponent } from './utility/error-snackbar/error-snackbar.
     CatalogItemDetailsComponent,
     EditComponent,
     LoaderComponent,
-    ErrorSnackbarComponent
+    ErrorSnackbarComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,

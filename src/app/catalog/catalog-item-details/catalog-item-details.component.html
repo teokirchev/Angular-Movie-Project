@@ -10,8 +10,27 @@
             <p><span>Details:</span> {{selectedMovie.details}}</p>
         </div>
         <div class="btn-wrapper">
-            <button (click)="deleteMovie()">Delete</button>
-            <button (click)="editMovie()">Edit</button>
+            <button class="edit-btn" (click)="editMovie()">Edit</button>
+            <button class="comment-btn" (click)="commentMovie()">Comment</button>
+            <button class="delete-btn" (click)="deleteMovie()">Delete</button>
+        </div>
+    </div>
+</div>
+<app-comment *ngIf="isCommentClick" (closeForm)="closeCommentForm()"
+    (emitCommentData)="createComment($event)"></app-comment>
+
+<div *ngIf="allComments.length === 0" class="no-comments">
+    <p class="no-comments-text">There are no comments yet. Be the first?</p>
+    <button class="no-comment-btn" (click)="commentMovie()">Comment</button>
+</div>
+
+<div class="comment-container" *ngIf="allComments.length > 0">
+    <h2 class="comment-title">Comments section:</h2>
+    <div *ngFor="let comment of allComments">
+
+        <span class="comment-name">{{comment.name}}:</span>
+        <div class="comment-wrapper">
+            <p>{{comment.comment}}</p>
         </div>
     </div>
 </div>

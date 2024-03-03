@@ -37,9 +37,9 @@ export class AuthService {
   };
 
   logout() {
-    localStorage.removeItem('user');
     this.user.next(null);
     this.router.navigate(['/login'])
+    localStorage.removeItem('user');
 
     // зачистваме таймера ако някой натисне logout бутона
     if (this.tokenExpireTimer) {
@@ -66,7 +66,7 @@ export class AuthService {
     const loggedUser = new User(user.email, user.id, user._token, user._expiresIn);
     if (loggedUser.token) {
       this.user.next(loggedUser);
-      const timer = user._expiresIn.getTime() - new Date().getTime()
+      const timer = user._expiresIn.getTime() - new Date().getTime();
       this.autoLogout(timer);
     }
   }

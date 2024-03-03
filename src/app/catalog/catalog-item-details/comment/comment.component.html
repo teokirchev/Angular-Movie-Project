@@ -1,0 +1,18 @@
+<div class="comments-container">
+    <div class="container">
+        <div class="img-wrapper">
+            <img class="profile-img"
+                src="https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg"
+                alt="">
+        </div>
+        <form class="text-wrapper" #commentForm="ngForm" (ngSubmit)="onCommentSubmited(commentForm)">
+            <h1>Add a comment</h1>
+            <input name="name" ngModel type="text" placeholder="Name...">
+            <textarea name="comment" ngModel type="text" placeholder="Comment here..."></textarea>
+            <div class="btn-wrapper">
+                <button class="comment-btn" (click)="OnCloseForm()">Cancel</button>
+                <button type="submit" class="comment-btn">Send</button>
+            </div>
+        </form>
+    </div>
+</div>
