@@ -23,7 +23,7 @@ export class EditComponent implements OnInit{
   name: string;
   year: number;
   imageUrl: string;
-  isPremium: boolean = false;
+  isPremium: boolean;
   details: string;
 
   isSubmited: boolean = false;
@@ -50,17 +50,19 @@ export class EditComponent implements OnInit{
 
   onEditMovie() {    
     this.isSubmited = true;
-    
+      
     if(this.form.valid && this.isSubmited === true) {
       if(confirm('Do you want to edit this movie?')) {
-        this.movieService.editMovie(this.movieId, this.form.value)
+        const formValue = { ...this.form.value, isPremium: this.form.value.isPremium === 'true' };
+        this.movieService.editMovie(this.movieId, formValue)
         .subscribe(() => {
-          this.movieService.getAllmovies().subscribe((movie) => {
+          this.movieService.getAllmovies()
+          .subscribe((movie) => {
             this.movieService.moviesUpdated.emit(movie)
           })
         });
         this.form.reset()
-        this.router.navigate(['/catalog']); 
+        this.router.navigate(['/catalog/']); 
       }
     } else {
       this.isSubmited = false

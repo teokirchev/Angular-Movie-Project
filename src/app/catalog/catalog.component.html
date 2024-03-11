@@ -32,13 +32,11 @@
                 <div class="type">
                     <p>Year: <span>{{movie.year}}</span></p>
 
-                    <div class="premium" [ngStyle]="{backgroundColor: movie.isPremium ? 'green' : 'orangered',}">
-                        <span *ngIf="movie.isPremium; else basicStyle">Premium</span>
-                        <ng-template #basicStyle>
-                            <span>Basic</span>
-                        </ng-template>
-
+                    <div class="premium" [ngStyle]="{backgroundColor: movie.isPremium ? 'green' : 'orangered'}">
+                        <span *ngIf="movie.isPremium">Premium</span>
+                        <span *ngIf="!movie.isPremium">Basic</span>
                     </div>
+                    
                 </div>
             </div>
             <div class="btn-wrapper">

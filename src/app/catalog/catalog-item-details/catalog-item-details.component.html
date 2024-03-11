@@ -6,7 +6,8 @@
         <div>
             <h2>{{selectedMovie.name}}</h2>
             <p><span>Year:</span> {{selectedMovie.year}}</p>
-            <p><span>Type:</span> {{selectedMovie.isPremium ? 'Premium' : 'Basic'}}</p>
+            <p *ngIf="selectedMovie.isPremium"><span>Type:</span> Premium</p>
+            <p *ngIf="!selectedMovie.isPremium"><span>Type:</span> Basic</p>
             <p><span>Details:</span> {{selectedMovie.details}}</p>
         </div>
         <div class="btn-wrapper">
@@ -28,7 +29,7 @@
     <h2 class="comment-title">Comments section:</h2>
     <div *ngFor="let comment of allComments">
 
-        <span class="comment-name">{{comment.name}}:</span>
+        <span class="comment-name">{{comment.ownerEmail}}:</span>
         <div class="comment-wrapper">
             <p>{{comment.comment}}</p>
         </div>

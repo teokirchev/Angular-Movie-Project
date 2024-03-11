@@ -40,6 +40,7 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
     ).subscribe((comments) => {
       this.allComments = comments;
     });
+    
   }
 
   ngOnDestroy() {

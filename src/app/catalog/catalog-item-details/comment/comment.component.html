@@ -7,7 +7,6 @@
         </div>
         <form class="text-wrapper" #commentForm="ngForm" (ngSubmit)="onCommentSubmited(commentForm)">
             <h1>Add a comment</h1>
-            <input name="name" ngModel type="text" placeholder="Name...">
             <textarea name="comment" ngModel type="text" placeholder="Comment here..."></textarea>
             <div class="btn-wrapper">
                 <button class="comment-btn" (click)="OnCloseForm()">Cancel</button>

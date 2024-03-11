@@ -8,7 +8,7 @@ export class Movie {
         this.isPremium = isPremium;
         this.details = details;
     }
-    id?: string
+    id?: string;
     name: string;
     year: number;
     imageUrl: string;

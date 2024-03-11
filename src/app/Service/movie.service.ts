@@ -49,8 +49,10 @@ export class MovieService {
 
   createMovie(movie: Movie) {
     return this.authService.user.pipe(take(1), exhaustMap(user => {
+      const movieWithOwner = { ...movie, owner: user.id };
+
       return this.http.post<{ name: string }>
-        (`${this.url}movies.json`, movie,
+        (`${this.url}movies.json`, movieWithOwner,
           { params: new HttpParams().set('auth', user.token) }
         )
     }))

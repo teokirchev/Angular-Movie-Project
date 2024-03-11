@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { Movie } from '../Models/Movie';
 import { MovieService } from '../Service/movie.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -15,7 +15,8 @@ export class CatalogComponent implements OnInit {
   constructor(
     private movieService: MovieService,
     private router: Router,
-    private activeRoute: ActivatedRoute) {
+    private activeRoute: ActivatedRoute,
+  ) {
   };
 
   allMovies: Movie[] = []
@@ -44,10 +45,10 @@ export class CatalogComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.movieService.moviesUpdated.subscribe((movies) => {
+      
       this.allMovies = movies;
-      this.updateCounts()
+      this.updateCounts();
     })
 
     this.activeRoute.queryParamMap.subscribe((data) => {
@@ -80,7 +81,9 @@ export class CatalogComponent implements OnInit {
         })
       }
     });
+
   }
+ 
 
   setErrorMessage(err: HttpErrorResponse) {
     if (err.status === 401) {
