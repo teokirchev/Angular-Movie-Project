@@ -1,12 +1,13 @@
 export class Movie {
 
-    constructor(id: string, name: string, year: number, imageUrl: string, isPremium: boolean, details: string) {
+    constructor(id: string, name: string, year: number, imageUrl: string, isPremium: boolean, details: string, owner: string) {
         this.id = id;
         this.name = name;
         this.year = year;
         this.imageUrl = imageUrl;
         this.isPremium = isPremium;
         this.details = details;
+        this.owner = owner
     }
     id?: string;
     name: string;
@@ -14,4 +15,5 @@ export class Movie {
     imageUrl: string;
     isPremium: boolean;
     details: string;
+    owner: string
 }

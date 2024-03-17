@@ -20,6 +20,7 @@ import { EditComponent } from './edit/edit.component';
 import { LoaderComponent } from './utility/loader/loader.component';
 import { ErrorSnackbarComponent } from './utility/error-snackbar/error-snackbar.component';
 import { CommentComponent } from './catalog/catalog-item-details/comment/comment.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { CommentComponent } from './catalog/catalog-item-details/comment/comment
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

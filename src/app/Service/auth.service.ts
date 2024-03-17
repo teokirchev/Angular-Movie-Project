@@ -71,6 +71,10 @@ export class AuthService {
     }
   }
 
+  getCurrentUser() {
+    return this.user.asObservable();
+  }
+
   // можеш да тестваш autologout като смениш времето на таймера expiresTime с 3000мс
   autoLogout(expireTime: number) {
     this.tokenExpireTimer = setTimeout(() => {

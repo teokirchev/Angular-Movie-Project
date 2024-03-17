@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { map, switchMap } from 'rxjs';
 import { Comment } from 'src/app/Models/Comment';
 import { Movie } from 'src/app/Models/Movie';
+import { User } from 'src/app/Models/User';
+import { AuthService } from 'src/app/Service/auth.service';
 import { CommentService } from 'src/app/Service/comment.service';
 import { MovieService } from 'src/app/Service/movie.service';
 
@@ -19,15 +21,25 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
 
   isCommentClick: boolean = false;
   allComments: Comment[] = [];
+  commentText: string;
+  isOwner: boolean = false;
+  loggedInUser: User
 
   constructor(
     private movieService: MovieService,
     private commentService: CommentService,
     private activeRoute: ActivatedRoute,
     private router: Router,
-  ) {}
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
+    this.authService.getCurrentUser().subscribe(user => {
+      this.loggedInUser = user;
+      console.log(this.loggedInUser);
+
+    })
+
     this.paramMapObs = this.activeRoute.paramMap.pipe(
       switchMap(data => {
         this.movieId = data.get('id');
@@ -35,12 +47,14 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
       }),
       switchMap(movie => {
         this.selectedMovie = movie;
+
+        this.isOwner = this.selectedMovie.owner === this.loggedInUser.id;
+
         return this.commentService.getCommentsForMovie(this.movieId);
       })
     ).subscribe((comments) => {
       this.allComments = comments;
     });
-    
   }
 
   ngOnDestroy() {
@@ -53,7 +67,7 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
         this.movieService.getAllmovies().subscribe((movies) => {
           this.movieService.moviesUpdated.emit(movies)
         });
-      });;
+      });
     this.router.navigate(['/catalog']);
   }
 
@@ -61,7 +75,7 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
     this.router.navigate(['/edit', this.movieId]);
   }
 
-  commentMovie() {
+  openCommentMovie() {
     this.isCommentClick = true;
   }
 
@@ -69,34 +83,51 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
     this.isCommentClick = false;
   }
 
-  // createComment(comment: Comment) {
-  //   this.commentService.createComment(comment, this.movieId)
-  //   .subscribe(() => {
-  //     this.commentService.getCommentsForMovie(this.movieId)
-  //     .subscribe((comments) => {
-  //       this.allComments = comments
-  //     });
-  //   });
-  // }
+  isCommentOwner(comment: Comment): boolean {
+    return comment.ownerId === this.loggedInUser.id
+  }
+
   createComment(comment: Comment) {
     this.commentService.createComment(comment, this.movieId)
-      .subscribe(response => {
-        // Check if the response is successful
-        if (response && response.name) {
-          // Successfully created the comment, fetch updated comments
-          this.commentService.getCommentsForMovie(this.movieId)
-            .subscribe((comments) => {
-              this.allComments = comments;
-            });
-        } else {
-          // Handle error case here
-          console.error('Failed to create comment');
-        }
-      }, error => {
-        // Handle HTTP error
-        console.error('HTTP error', error);
-      });
+      .subscribe(
+        {
+          next: (response) => {
+            // Check if the response is successful
+            if (response && response.name) {
+              // Successfully created the comment, fetch updated comments
+              this.commentService.getCommentsForMovie(this.movieId)
+                .subscribe((comments) => {
+                  this.allComments = comments;
+                });
+            } else {
+              // Handle error case here
+              console.error('Failed to create comment');
+            }
+          }, error: (error) => {
+            // Handle HTTP error
+            console.error('HTTP error', error);
+          }
+        });
   }
+
+  deleteComment(commentId: string) {
+    this.commentService.deleteComment(commentId)
+      .subscribe(() => {
+        this.commentService.getCommentsForMovie(this.movieId)
+          .subscribe((comments) => {
+            this.allComments = comments;
+          });
+      })
+  }
+
+
+  editComment(commentId: string) {
+    this.commentService.getCommentById(commentId)
+      .subscribe((comment: Comment) => {
+        this.commentText = comment.comment;
+        this.openCommentMovie();
+      });
+  };
 
 }
 

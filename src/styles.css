@@ -19,3 +19,8 @@ nav a.link.active {
   color: var(--green);
   font-size: 22px;
 }
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none
+}

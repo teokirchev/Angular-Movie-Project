@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Comment } from '../Models/Comment';
-import { exhaustMap, map, take } from 'rxjs';
+import { exhaustMap, map, switchMap, take } from 'rxjs';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -20,20 +20,33 @@ export class CommentService {
     return this.authService.user.pipe(
       take(1),
       exhaustMap(user => {
-        const commentWithOwner = { ...comment, ownerId: user.id, ownerEmail: user.email, movieId };
+        const commentWithOwner = {
+          ...comment, ownerId: user.id, ownerEmail: user.email, movieId
+        };
 
         return this.http.post<{ name: string }>(
           `${this.url}comments.json`,
-          commentWithOwner
+          commentWithOwner,
+          { params: new HttpParams().set('auth', user.token) }
         );
       })
     )
   }
 
   getCommentsForMovie(movieId: string) {
-    return this.http.get<{ [key: string]: Comment }>(
-      `${this.url}comments.json?orderBy="movieId"&equalTo="${movieId}"`
-    ).pipe(
+    return this.authService.user.pipe(
+      take(1),
+      exhaustMap(user => {
+        return this.http.get<{ [key: string]: Comment }>
+          (`${this.url}comments.json`,
+            {
+              params: new HttpParams()
+                .set('orderBy', '"movieId"')
+                .set('equalTo', `"${movieId}"`)
+                .set('auth', user.token)
+            }
+          )
+      }),
       map((response) => {
         let comments = [];
         for (let key in response) {
@@ -45,4 +58,40 @@ export class CommentService {
       })
     );
   }
+
+  getCommentById(commentId: string) {
+    return this.authService.user.pipe(
+      take(1),
+      switchMap(user => {
+        return this.http.get<Comment>(
+          `${this.url}comments/${commentId}.json`,
+          { params: new HttpParams().set('auth', user.token) }
+        );
+      })
+    );
+  }
+
+  deleteComment(id: string) {
+    return this.authService.user.pipe(
+      take(1),
+      exhaustMap(user => {
+        return this.http.delete(`${this.url}comments/${id}.json`,
+          { params: new HttpParams().set('auth', user.token) }
+        )
+      })
+    )
+  }
+
+  editComment(id: string, editedComment: Comment) {
+    return this.authService.user.pipe(
+      take(1),
+      exhaustMap(user => {
+        return this.http.put(
+          `${this.url}comments/${id}.json`,editedComment,
+          { params: new HttpParams().set('auth', user.token) }
+        )
+      })
+    )
+  }
+
 }

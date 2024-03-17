@@ -90,57 +90,75 @@ button.comment-btn {
     border: 1px solid var(--green);
 }
 button:hover {
-    opacity: 1;
     transition-timing-function: ease-in-out;
-    transition: 1s;
+    transition: 0.5s;
     opacity: 1;
+    /* box-shadow: 1px 2px 10px 1px black; */
 }
 .comment-container {
     width: 70%;
     height: auto;
     margin: 0 auto;
     margin-bottom: 40px;
-    background-image: linear-gradient(to bottom, #868f96 0%, #596164 100%);
+    /* background-image: linear-gradient(to bottom, #868f96 0%, #596164 100%); */
+    background-color: black;
+    opacity: 0.8;
     box-shadow: 1px 2px 10px 1px black;
     padding: 12px;
 }
 
 .comment-title {
     font-size: 26px;
-    color: white;
+    color: rgb(179, 177, 177);
     border-radius: 2px;
     /* border-bottom: 1px solid; */
     text-align: center;
 }
 
 .comment-wrapper {
-    border-radius: 6px;
-    margin: 0px 12px 12px 12px;
-    border-top: 1px solid white;
-    border-left: 1px solid white;
-    box-shadow: 1px 2px 10px 1px black;
+    margin: 12px;
     height: auto;
     padding: 12px;
-    /* background: #DCE35B;
-    background: -webkit-linear-gradient(to top, var(--green), #45B649);
-    background: linear-gradient(to top, var(--green), #45B649); */
     background-color: rgb(179, 177, 177);
-
-
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .comment-name {
     font-size: 18px;
     margin: 12px;
-    color: black;
+    color: var(--green);
 }
 
-p {
-    font-size: 16px;
+p.comment {
+    font-size: 18px;
+    font-weight: bold;
     padding: 6px;
-    /* color: var(--grey); */
+    margin: 0px;
     color: black;
+    display: inline-block;
+
 }
+.trash {
+    width: 10px;
+}
+
+.trash:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.pen {
+    width: 12px;
+    margin-left: 12px;
+}
+
+.pen:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
 .no-comments {
     width: 50%;
     height: auto;
@@ -150,11 +168,13 @@ p {
     box-shadow: 1px 2px 10px 1px black;
     text-align: center;
 }
+
 .no-comments-text {
     font-size: 20px;
     color: white;
     display: inline-block;
 }
+
 .no-comment-btn {
     max-width: 100px;
     padding: 0px;

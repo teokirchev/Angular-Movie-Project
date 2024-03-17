@@ -33,17 +33,13 @@ input {
     justify-content: center;
     flex-wrap: wrap;
     margin: 8px auto;
+    padding: 40px;
     box-shadow: 1px 2px 10px 1px black;
     width: 95%;
-    /* background-image: url('https://morningannouncement.com/wp-content/uploads/2016/01/Fotolia_94207102_Subscription_Monthly_M.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover; */
     background: #DCE35B;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top,var(--green), #45B649 );  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, var(--green), #45B649 ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /* background: -webkit-linear-gradient(to top, black, var(--green) ); */
+    background: linear-gradient(to bottom, black, var(--green), black ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     gap: 40px;
-
 }
 
 .wrap {
@@ -51,12 +47,10 @@ input {
     flex-direction: column;
     border-radius: 2px;
     background-color: white;
+}
+.wrap:hover {
+    transform: scale(1.02);
     box-shadow: 1px 2px 10px 1px black;
-    margin-top: 40px;
-    /* margin-right: 40px; */
-    margin-bottom: 40px;
-    /* margin-left: 40px;  */
-    /* border: 1px solid grey; */
 }
 
 .text {
