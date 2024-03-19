@@ -21,6 +21,7 @@ import { LoaderComponent } from './utility/loader/loader.component';
 import { ErrorSnackbarComponent } from './utility/error-snackbar/error-snackbar.component';
 import { CommentComponent } from './catalog/catalog-item-details/comment/comment.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { EditCommentComponent } from './catalog/catalog-item-details/edit-comment/edit-comment.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     EditComponent,
     LoaderComponent,
     ErrorSnackbarComponent,
-    CommentComponent
+    CommentComponent,
+    EditCommentComponent
   ],
   imports: [
     BrowserModule,

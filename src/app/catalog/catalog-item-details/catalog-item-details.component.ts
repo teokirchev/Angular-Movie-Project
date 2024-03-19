@@ -20,6 +20,8 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
   paramMapObs;
 
   isCommentClick: boolean = false;
+  isEditCommentClick: boolean = false;
+  editedCommentData: Comment
   allComments: Comment[] = [];
   commentText: string;
   isOwner: boolean = false;
@@ -83,6 +85,16 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
     this.isCommentClick = false;
   }
 
+  openEditComment(comment: Comment) {
+    this.isEditCommentClick = true;
+    this.editedCommentData = comment
+  }
+
+  closeEditCommentForm() {
+    this.isEditCommentClick = false;
+  }
+  
+
   isCommentOwner(comment: Comment): boolean {
     return comment.ownerId === this.loggedInUser.id
   }
@@ -121,11 +133,12 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
   }
 
 
-  editComment(commentId: string) {
-    this.commentService.getCommentById(commentId)
+  editComment(commentId: Comment) {
+    this.commentService.getCommentById(commentId.id)
       .subscribe((comment: Comment) => {
         this.commentText = comment.comment;
-        this.openCommentMovie();
+        this.openEditComment(comment);
+        this.isEditCommentClick = false
       });
   };
 
