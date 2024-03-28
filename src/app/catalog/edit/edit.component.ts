@@ -25,7 +25,6 @@ export class EditComponent implements OnInit{
   imageUrl: string;
   isPremium: boolean;
   details: string;
-  owner: string
 
   isSubmited: boolean = false;
   paramMapObs;
@@ -42,7 +41,6 @@ export class EditComponent implements OnInit{
         this.imageUrl = movie.imageUrl;
         this.isPremium = movie.isPremium;
         this.details = movie.details;
-        this.owner = movie.owner
       })
     })
   }
@@ -55,7 +53,7 @@ export class EditComponent implements OnInit{
       
     if(this.form.valid && this.isSubmited === true) {
       if(confirm('Do you want to edit this movie?')) {
-        const formValue = { ...this.form.value, isPremium: this.form.value.isPremium === 'true',owner: this.owner };
+        const formValue = { ...this.form.value, isPremium: this.form.value.isPremium === 'true' };
         this.movieService.editMovie(this.movieId, formValue)
         .subscribe(() => {
           this.movieService.getAllmovies()
@@ -63,9 +61,8 @@ export class EditComponent implements OnInit{
             this.movieService.moviesUpdated.emit(movie)
           })
         });
-        
         this.form.reset()
-        this.router.navigate(['/catalog']); 
+        this.router.navigate(['/catalog/']); 
       }
     } else {
       this.isSubmited = false

@@ -7,7 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { CatalogItemDetailsComponent } from './catalog/catalog-item-details/catalog-item-details.component';
-import { EditComponent } from './edit/edit.component';
+import { EditComponent } from './catalog/edit/edit.component';
 import { canActivate } from './RouteGurds/authGuard';
 
 const routes: Routes = [
