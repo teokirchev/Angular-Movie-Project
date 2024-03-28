@@ -1,0 +1,15 @@
+.rating {
+    display: inline-block;
+    margin-right: 12px;
+  }
+  
+  .rating label {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .rating label.filled {
+    color: var(--green);
+  }
+  

@@ -60,7 +60,8 @@ export class MovieService {
 
   editMovie(id: string, editMovie: Movie) {
     return this.authService.user.pipe(take(1), exhaustMap(user => {
-      return this.http.put(`${this.url}movies/${id}.json`, editMovie,
+      const movieWithOwner = { ...editMovie, owner: user.id}
+      return this.http.put(`${this.url}movies/${id}.json`, movieWithOwner,
         { params: new HttpParams().set('auth', user.token) }
       )
     }))

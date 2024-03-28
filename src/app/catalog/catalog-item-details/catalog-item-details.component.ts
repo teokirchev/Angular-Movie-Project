@@ -51,7 +51,9 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
         this.selectedMovie = movie;
 
         this.isOwner = this.selectedMovie.owner === this.loggedInUser.id;
-
+        console.log(this.selectedMovie);
+        console.log(this.loggedInUser.id);
+        
         return this.commentService.getCommentsForMovie(this.movieId);
       })
     ).subscribe((comments) => {
