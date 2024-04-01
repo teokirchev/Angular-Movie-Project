@@ -4,7 +4,10 @@
     </div>
     <div class="details-wrapper">
         <div>
-            <h2>{{selectedMovie.name}}</h2>
+            <div class="raiting">
+                <h2>{{selectedMovie.name}}</h2>
+                <app-movie-rating></app-movie-rating>
+            </div>
             <p><span>Year:</span> {{selectedMovie.year}}</p>
             <p *ngIf="selectedMovie.isPremium"><span>Type:</span> Premium</p>
             <p *ngIf="!selectedMovie.isPremium"><span>Type:</span> Basic</p>
