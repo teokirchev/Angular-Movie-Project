@@ -1,13 +1,14 @@
 <nav>
     <div class="wrapper">
         <a class="link img-wrapper" routerLink="/"></a>
+        <h2 class="header">HomeCinema</h2>
+    </div>
+    <div>
         <a class="link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
         <a class="link" routerLink="catalog" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
             *ngIf="isLoggedIn">Catalog</a>
         <a class="link" routerLink="create" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
             *ngIf="isLoggedIn">Create</a>
-    </div>
-    <div>
         <a class="link" routerLink="login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
             *ngIf="!isLoggedIn">Sign In</a>
         <a class="link logout" *ngIf="isLoggedIn" (click)="onLogout()">Logout</a>

@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthService } from '../Service/auth.service';
+import { AuthService } from '../../Service/auth.service';
 import { Observable } from 'rxjs';
-import { AuthResponse } from '../Models/AuthResponse';
+import { AuthResponse } from '../../Models/AuthResponse';
 import { Router } from '@angular/router';
 
 @Component({

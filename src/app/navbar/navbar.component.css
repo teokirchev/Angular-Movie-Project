@@ -23,6 +23,11 @@ nav {
     margin-right: 30px;
     margin-bottom: 12px;
 }
+.header {
+    color: var(--grey);
+    border-left: 2px solid ;
+    padding-left: 30px;
+}
 
 .link {
     text-decoration: none;

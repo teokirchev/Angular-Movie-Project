@@ -11,6 +11,12 @@ footer {
     width: 30%;
     margin: 10px;
 }
+.wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding: 12px;
+}
 
 .text-menu {
     margin-top: 12px;
@@ -32,7 +38,7 @@ p {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 50px;
+    height: 64px;
     border-top: 1px solid black;
     /* background-color: black; */
     background-color: black;
@@ -43,6 +49,13 @@ p.text {
     text-align: center;
     color: var(--grey);
     /* color: black; */
+}
+.fa-brands {
+   font-size: 35px;
+   margin-right: 12px;
+}
+.fa-brands:hover {
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 1107px) {

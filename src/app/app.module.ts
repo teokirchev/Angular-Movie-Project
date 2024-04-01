@@ -8,13 +8,11 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { CreateComponent } from './create/create.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { LogoutComponent } from './logout/logout.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CatalogModule } from './catalog/catalog.module';
 import { SharedModule } from './shared.module';
+import { AuthModule } from './auth/auth.module';
 
 
 @NgModule({
@@ -24,9 +22,6 @@ import { SharedModule } from './shared.module';
     NavbarComponent,
     FooterComponent,
     CreateComponent,
-    LoginComponent,
-    RegisterComponent,
-    LogoutComponent,
     NotfoundComponent,
    
   ],
@@ -36,6 +31,7 @@ import { SharedModule } from './shared.module';
     HttpClientModule,
     FontAwesomeModule,
     CatalogModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
