@@ -7,7 +7,7 @@
             <input type="text" name="name" placeholder="Name.....*" [(ngModel)]="name" required #nameInput="ngModel"
                 minlength="3">
             <div>
-                <small *ngIf="nameInput.invalid && nameInput.touched">* Name is a required field and must be atleast
+                <small class="err-msg" *ngIf="nameInput.invalid && nameInput.touched">* Name is a required field and must be atleast
                     3
                     characters!</small>
             </div>
@@ -15,13 +15,11 @@
             <input name="year" placeholder="Year.....*" [(ngModel)]="year" required #yearInput="ngModel" minlength="4"
                 maxlength="4" pattern="[0-9]*">
             <div>
-                <small *ngIf="yearInput.invalid && yearInput.touched">* Year is a required field and must be a
-                    4-digit
-                    number!</small>
+                <small class="err-msg" *ngIf="yearInput.invalid && yearInput.touched">* Year is a required field and must be a 4-digit number!</small>
             </div>
             <input name="imageUrl" placeholder="Image.....*" [(ngModel)]="imageUrl" required #imageInput="ngModel">
             <div>
-                <small *ngIf="imageInput.invalid && imageInput.touched">* Image is a required field!</small>
+                <small class="err-msg" *ngIf="imageInput.invalid && imageInput.touched">* Please insert image, it is a required field in the form!</small>
             </div>
 
             <select name="isPremium" placeholder=".....*" [(ngModel)]="isPremium" required>
@@ -33,7 +31,7 @@
                 #detailsInput="ngModel" minlength="3" maxlength="200">
             </textarea>
             <div>
-                <small *ngIf="detailsInput.invalid && detailsInput.touched">* Details is a required field and must be
+                <small class="err-msg" *ngIf="detailsInput.invalid && detailsInput.touched">* Details is a required field and must be
                     between 3 and 200 characters!</small>
             </div>
 

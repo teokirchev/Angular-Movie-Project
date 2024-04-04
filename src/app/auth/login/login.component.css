@@ -74,7 +74,7 @@ input.ng-invalid.ng-touched {
     border: 1px solid red
 }
 .err-msg {
-    text-align: center;
+    width: 80%;
 }
 small {
     color: red;

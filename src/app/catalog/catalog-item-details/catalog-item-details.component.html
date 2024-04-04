@@ -1,3 +1,4 @@
+<app-loader *ngIf="isLoading" class="loader"></app-loader>
 <div class="container" *ngIf="selectedMovie">
     <div class="image-wrapper">
         <img [src]="selectedMovie.imageUrl" alt="">
@@ -17,29 +18,32 @@
             <button *ngIf="isOwner" class="edit-btn" (click)="editMovie()">Edit</button>
             <button class="comment-btn" (click)="openCommentMovie()">Comment</button>
             <button *ngIf="isOwner" class="delete-btn" (click)="deleteMovie()">Delete</button>
+            <i class="fa-solid fa-heart" [ngStyle]="{'color': isLikeClicked ? 'gold' : 'white'}"
+            (click)="likeMovie()"></i>
         </div>
     </div>
 </div>
 
-<app-comment *ngIf="isCommentClick"
-    (closeForm)="closeCommentForm()" 
-    (emitCommentData)="createComment($event)">
+
+<app-comment *ngIf="isCommentClick" (closeForm)="closeCommentForm()" (emitCommentData)="createComment($event)">
 </app-comment>
 
-<app-edit-comment *ngIf="isEditCommentClick"
-    (closeEditForm)="closeEditCommentForm()" 
-    (emitEditedCommentData)="editComment($event)"
-    [editedCommentData]="editedCommentData">
+<app-edit-comment *ngIf="isEditCommentClick" (closeEditForm)="closeEditCommentForm()"
+    (emitEditedCommentData)="editComment($event)" [editedCommentData]="editedCommentData">
 </app-edit-comment>
 
 
-<div *ngIf="allComments.length === 0" class="no-comments">
-    <p class="no-comments-text">There are no comments yet. Be the first?</p>
-    <button class="no-comment-btn" (click)="openCommentMovie()">Comment</button>
-</div>
+<ng-container *ngIf="!isLoading">
+    <div *ngIf="allComments.length === 0" class="no-comments">
+        <p class="no-comments-text">There are no comments yet. Be the first?</p>
+        <button class="no-comment-btn" (click)="openCommentMovie()">Comment</button>
+    </div>
+</ng-container>
+
 <div class="comment-container" *ngIf="allComments.length > 0">
 
     <h2 class="comment-title">Comments section:</h2>
+
     <div *ngFor="let comment of allComments">
 
         <span class="comment-name">{{comment.ownerEmail}}:</span>

@@ -9,6 +9,9 @@
     padding: 30px;
     margin-bottom: 100px;
 }
+.loader {
+    margin: 0 auto;
+}
 
 .image-wrapper {
     /* width: 120%; */
@@ -100,6 +103,17 @@ button:hover {
     transition: 0.5s;
     opacity: 1;
     /* box-shadow: 1px 2px 10px 1px black; */
+}
+.fa-solid.fa-heart {
+    margin-right: 40px;
+    margin-left: 20px;
+    font-size: 25px;
+    color: white;
+
+}
+.fa-solid.fa-heart:hover {
+    color: var(--green);
+    cursor: pointer;
 }
 .comment-container {
     width: 70%;

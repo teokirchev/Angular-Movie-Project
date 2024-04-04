@@ -28,7 +28,6 @@
     height: 70px;
     border-radius: 50%;
     margin: 20px;
-    border: 1px solid;
 }
 
 .profile-img {
@@ -56,11 +55,17 @@ input {
 }
 
 textarea {
-    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
     border: 1px solid;
     margin-right: 20px;
     min-height: 100px;
 
+}
+
+small {
+    color: red;
+    font-size: 16px;
 }
 .btn-wrapper{
     display: flex;

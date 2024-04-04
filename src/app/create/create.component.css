@@ -100,10 +100,12 @@ textarea.ng-invalid.ng-touched {
     border: 2px solid red
 }
 
-small {
+small.err-msg {
+    width: 80%;
     color: red;
     font-size: 16px;
-    margin-top: 0px;
+    margin: 0 auto;
+    display: block;
 }
 
 @media only screen and (max-width: 600px) {

@@ -19,6 +19,8 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
   movieId: string;
   paramMapObs;
 
+  isLoading: boolean = false;
+  isLikeClicked: boolean = false;
   isCommentClick: boolean = false;
   isEditCommentClick: boolean = false;
   editedCommentData: Comment
@@ -44,20 +46,19 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
 
     this.paramMapObs = this.activeRoute.paramMap.pipe(
       switchMap(data => {
+        this.isLoading = true;
         this.movieId = data.get('id');
         return this.movieService.getMovieById(this.movieId);
       }),
       switchMap(movie => {
         this.selectedMovie = movie;
-
         this.isOwner = this.selectedMovie.owner === this.loggedInUser.id;
-        console.log(this.selectedMovie);
-        console.log(this.loggedInUser.id);
-        
+        this.isLoading = false;
         return this.commentService.getCommentsForMovie(this.movieId);
       })
-    ).subscribe((comments) => {
+      ).subscribe((comments) => {
       this.allComments = comments;
+
     });
   }
 
@@ -77,6 +78,12 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
 
   editMovie() {
     this.router.navigate(['/edit', this.movieId]);
+  }
+
+  likeMovie() {
+    console.log('Like');
+    this.isLikeClicked = true;
+    
   }
 
   openCommentMovie() {
@@ -112,6 +119,7 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
               this.commentService.getCommentsForMovie(this.movieId)
                 .subscribe((comments) => {
                   this.allComments = comments;
+
                 });
             } else {
               // Handle error case here
