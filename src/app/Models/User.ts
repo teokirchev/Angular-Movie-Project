@@ -1,11 +1,16 @@
 export class User {
 
+    userLikes: string[]
+
     constructor(
         public email: string,
         public id: string,
         private _token: string,
         private _expiresIn: Date,
-    ) {}
+    ) {
+
+        this.userLikes = []
+    }
 
     get token() {
         if (!this._expiresIn || this._expiresIn < new Date()) {

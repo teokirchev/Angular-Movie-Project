@@ -42,10 +42,10 @@ nav {
     color: var(--green);
 }
 
-
 .link.active{
-   border: 1px solid #BAFF39;
+    border: 1px solid #BAFF39;
 }
+
 
 @media only screen and (max-width: 600px) {
     .link.img-wrapper {

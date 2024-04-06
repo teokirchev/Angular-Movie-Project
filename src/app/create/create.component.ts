@@ -1,7 +1,9 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild,  } from '@angular/core';
 import { MovieService } from '../Service/movie.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { Movie } from '../Models/Movie';
 
 @Component({
   selector: 'app-create',
@@ -24,14 +26,19 @@ export class CreateComponent {
   isPremium: boolean = false;
   details: string;
 
-  isSubmited: boolean = false
+  isSubmited: boolean = false;
 
   onCreateMovie() {    
     this.isSubmited = true;
     
     if(this.form.valid && this.isSubmited === true) {
       if(confirm('Do you want to create this movie?')) {
-        this.movieService.createMovie(this.form.value)
+        const movieData = {
+          ...this.form.value, 
+          likesCount: 0,
+          movieLikedBy: []
+        }
+        const obs = this.movieService.createMovie(movieData)
         .subscribe(() => {
           this.movieService.getAllmovies()
           .subscribe((movies) => {
@@ -46,6 +53,8 @@ export class CreateComponent {
       this.isSubmited = false
     }
   }
+  
+  
 
   canExit() {
     if(this.form.dirty && this.isSubmited === false){

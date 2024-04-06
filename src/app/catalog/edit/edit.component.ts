@@ -53,7 +53,11 @@ export class EditComponent implements OnInit{
       
     if(this.form.valid && this.isSubmited === true) {
       if(confirm('Do you want to edit this movie?')) {
-        const formValue = { ...this.form.value, isPremium: this.form.value.isPremium === 'true' };
+        const formValue = { 
+          ...this.form.value,
+            isPremium: this.form.value.isPremium === 'true',
+            likesCount: 0,
+            movieLikedBy: [] };
         this.movieService.editMovie(this.movieId, formValue)
         .subscribe(() => {
           this.movieService.getAllmovies()

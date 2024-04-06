@@ -160,23 +160,31 @@ p.comment {
     display: inline-block;
 
 }
-.trash {
+.fa-solid.fa-trash-can {
     width: 10px;
+    color: red;
+    opacity: 0.7;
+
 }
 
-.trash:hover {
+.fa-solid.fa-trash-can:hover {
     cursor: pointer;
     transform: scale(1.1);
+    opacity: 1;
 }
 
-.pen {
+.fa-solid.fa-file-pen {
     width: 12px;
-    margin-left: 12px;
+    margin-left: 15px;
+    color: green;
+    opacity: 0.7;
 }
 
-.pen:hover {
+.fa-solid.fa-file-pen:hover {
     cursor: pointer;
     transform: scale(1.1);
+    opacity: 1;
+
 }
 
 .no-comments {

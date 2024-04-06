@@ -7,9 +7,9 @@ import { CommentComponent } from "./catalog-item-details/comment/comment.compone
 import { EditCommentComponent } from "./catalog-item-details/edit-comment/edit-comment.component";
 import { MovieRatingComponent } from "./catalog-item-details/movie-rating/movie-rating.component";
 import { CommonModule } from "@angular/common";
-// import { AppRoutingModule } from "../app-routing.module";
 import { SharedModule } from "../shared.module";
 import { RouterModule } from "@angular/router";
+import { CatalogRoutingModule } from "./catalog-routing.module";
 
 
 
@@ -38,6 +38,7 @@ import { RouterModule } from "@angular/router";
         CommonModule,
         RouterModule,
         SharedModule,
+        CatalogRoutingModule
     ]
 })
 

@@ -38,6 +38,7 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    
     this.authService.getCurrentUser().subscribe(user => {
       this.loggedInUser = user;
       console.log(this.loggedInUser);
@@ -73,11 +74,11 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
           this.movieService.moviesUpdated.emit(movies)
         });
       });
-    this.router.navigate(['/catalog']);
+    this.router.navigate(['catalog']);
   }
 
   editMovie() {
-    this.router.navigate(['/edit', this.movieId]);
+    this.router.navigate(['catalog/edit', this.movieId]);
   }
 
   likeMovie() {
