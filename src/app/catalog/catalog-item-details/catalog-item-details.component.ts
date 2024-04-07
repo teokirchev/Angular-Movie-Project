@@ -21,6 +21,7 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
 
   isLoading: boolean = false;
   isLikeClicked: boolean = false;
+  likeButtonColor: string = 'white';
   isCommentClick: boolean = false;
   isEditCommentClick: boolean = false;
   editedCommentData: Comment
@@ -60,6 +61,13 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
       ).subscribe({
         next: (comments) => {
           this.allComments = comments;
+          if (this.loggedInUser && this.selectedMovie.movieLikedBy && this.selectedMovie.movieLikedBy.includes(this.loggedInUser.id)) {
+            this.isLikeClicked = true;
+            this.likeButtonColor = 'red';
+          } else {
+            this.isLikeClicked = false;
+            this.likeButtonColor = 'white';
+          }
         }, error: () => {
           this.router.navigate(['/notfound'])
         }
@@ -86,8 +94,15 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
   }
 
   likeMovie() {
+    this.isLikeClicked = !this.isLikeClicked;
     console.log('Like');
-    this.isLikeClicked = true;
+    this.movieService.likeMovie(this.movieId)    
+    .subscribe({
+      next: (response) => {
+        console.log(response);
+        this.likeButtonColor = this.isLikeClicked ? 'red' : 'white';
+      }
+    })
     
   }
 

@@ -108,13 +108,12 @@ button:hover {
     margin-right: 40px;
     margin-left: 20px;
     font-size: 25px;
-    color: white;
-
 }
+
 .fa-solid.fa-heart:hover {
-    color: var(--green);
     cursor: pointer;
 }
+
 .comment-container {
     width: 70%;
     height: auto;

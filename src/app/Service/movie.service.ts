@@ -1,7 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Movie } from '../Models/Movie';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable, exhaustMap, map, take } from 'rxjs';
+import { Observable, exhaustMap, map, switchMap, take } from 'rxjs';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -49,8 +49,7 @@ export class MovieService {
 
   createMovie(movie: Movie) {
     return this.authService.user.pipe(take(1), exhaustMap(user => {
-      const movieWithOwner = { ...movie, owner: user.id};
-
+      const movieWithOwner = { ...movie, owner: user.id };
       return this.http.post<{ name: string }>
         (`${this.url}movies.json`, movieWithOwner,
           { params: new HttpParams().set('auth', user.token) }
@@ -60,7 +59,7 @@ export class MovieService {
 
   editMovie(id: string, editMovie: Movie) {
     return this.authService.user.pipe(take(1), exhaustMap(user => {
-      const movieWithOwner = { ...editMovie, owner: user.id}
+      const movieWithOwner = { ...editMovie, owner: user.id }
       return this.http.put(`${this.url}movies/${id}.json`, movieWithOwner,
         { params: new HttpParams().set('auth', user.token) }
       )
@@ -72,6 +71,26 @@ export class MovieService {
       return this.http.delete(`${this.url}movies/${id}.json`,
         { params: new HttpParams().set('auth', user.token) }
       )
+    }))
+  }
+
+  likeMovie(movieId: string) {
+    return this.authService.user.pipe(take(1), exhaustMap(user => {
+      return this.getMovieById(movieId)
+        .pipe(
+          switchMap(movie => {
+            let movieLikedBy: string[] = [];
+            if (movie.movieLikedBy && movie.movieLikedBy.includes(user.id)) {
+              movieLikedBy = movie.movieLikedBy.filter(id => id !== user.id);
+            } else {
+              movieLikedBy = [...(movie.movieLikedBy || []), user.id];
+            }
+            const updatedMovie = { ...movie, movieLikedBy };
+            return this.http.put(`${this.url}movies/${movieId}.json`, updatedMovie,
+              { params: new HttpParams().set('auth', user.token) }
+            )
+          })
+        )
     }))
   }
 
