@@ -57,10 +57,14 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
         this.isLoading = false;
         return this.commentService.getCommentsForMovie(this.movieId);
       })
-      ).subscribe((comments) => {
-      this.allComments = comments;
-
-    });
+      ).subscribe({
+        next: (comments) => {
+          this.allComments = comments;
+        }, error: () => {
+          this.router.navigate(['/notfound'])
+        }
+      }
+    );
   }
 
   ngOnDestroy() {

@@ -49,6 +49,7 @@ export class CatalogComponent implements OnInit {
       
       this.allMovies = movies;
       this.updateCounts();
+      
     })
 
     this.activeRoute.queryParamMap.subscribe((data) => {
@@ -60,6 +61,8 @@ export class CatalogComponent implements OnInit {
           next: (movies) => {
             this.allMovies = movies;
             this.updateCounts();
+      console.log(this.allMovies);
+
             this.isLoading = false;
           }, error: (error) => {
             this.setErrorMessage(error)

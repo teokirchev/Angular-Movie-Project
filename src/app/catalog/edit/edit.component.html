@@ -1,5 +1,5 @@
-<div class="page-wrapper">
-
+<app-loader *ngIf="isLoading"></app-loader>
+<div *ngIf="!isLoading" class="page-wrapper">
     <div class="container" >
     <h1>Edit Movie</h1>
     <form (ngSubmit)="onEditMovie()" #editForm="ngForm">
