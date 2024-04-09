@@ -18,8 +18,9 @@
             <button *ngIf="isOwner" class="edit-btn" (click)="editMovie()">Edit</button>
             <button class="comment-btn" (click)="openCommentMovie()">Comment</button>
             <button *ngIf="isOwner" class="delete-btn" (click)="deleteMovie()">Delete</button>
-            <i class="fa-solid fa-heart" [ngStyle]="{'color': likeButtonColor }"
-            (click)="likeMovie()"></i>
+                <i class="fa-solid fa-heart" [ngStyle]="{'color': likeButtonColor }"
+                (click)="likeMovie()"></i>
+            
         </div>
     </div>
 </div>

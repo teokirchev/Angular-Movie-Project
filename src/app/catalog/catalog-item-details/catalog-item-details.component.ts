@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { map, switchMap } from 'rxjs';
+import { switchMap } from 'rxjs';
 import { Comment } from 'src/app/Models/Comment';
 import { Movie } from 'src/app/Models/Movie';
 import { User } from 'src/app/Models/User';
@@ -22,6 +22,8 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
   isLoading: boolean = false;
   isLikeClicked: boolean = false;
   likeButtonColor: string = 'white';
+  textLikeColor: string = ''
+  likeNumber: number = 0;
   isCommentClick: boolean = false;
   isEditCommentClick: boolean = false;
   editedCommentData: Comment
@@ -42,7 +44,6 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
     
     this.authService.getCurrentUser().subscribe(user => {
       this.loggedInUser = user;
-      console.log(this.loggedInUser);
 
     })
 
@@ -54,6 +55,10 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
       }),
       switchMap(movie => {
         this.selectedMovie = movie;
+        if(!this.selectedMovie.movieLikedBy) {
+          this.selectedMovie.movieLikedBy = []
+        }    
+        console.log(this.selectedMovie);
         this.isOwner = this.selectedMovie.owner === this.loggedInUser.id;
         this.isLoading = false;
         return this.commentService.getCommentsForMovie(this.movieId);
@@ -68,7 +73,9 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
             this.isLikeClicked = false;
             this.likeButtonColor = 'white';
           }
-        }, error: () => {
+        }, error: (err) => {
+          console.log(err);
+          
           this.router.navigate(['/notfound'])
         }
       }
@@ -95,6 +102,7 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
 
   likeMovie() {
     this.isLikeClicked = !this.isLikeClicked;
+    
     console.log('Like');
     this.movieService.likeMovie(this.movieId)    
     .subscribe({

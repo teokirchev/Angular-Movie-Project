@@ -57,6 +57,21 @@ p.text {
 .fa-brands:hover {
     cursor: pointer;
 }
+.fa-brands.fa-square-facebook:hover {
+    color: #1877f2
+}
+.fa-brands.fa-square-x-twitter:hover {
+    color: black;
+}
+.fa-brands.fa-linkedin:hover {
+    color: #0266c3;
+}
+.fa-brands.fa-instagram:hover {
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    ;
+    border-radius: 6px;
+}
 
 @media only screen and (max-width: 1107px) {
     .container {

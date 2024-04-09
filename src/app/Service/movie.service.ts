@@ -1,7 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Movie } from '../Models/Movie';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable, exhaustMap, map, switchMap, take } from 'rxjs';
+import { Observable, exhaustMap, map, switchMap, take, tap } from 'rxjs';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -39,13 +39,15 @@ export class MovieService {
   };
 
   getMovieById(id: string): Observable<Movie> {
-    return this.authService.user.pipe(take(1), exhaustMap(user => {
+    return this.authService.user.pipe(
+    take(1), exhaustMap(user => {
       return this.http.get<Movie>(
         `${this.url}movies/${id}.json`,
         { params: new HttpParams().set('auth', user.token) }
       )
     }))
   }
+  
 
   createMovie(movie: Movie) {
     return this.authService.user.pipe(take(1), exhaustMap(user => {
