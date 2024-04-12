@@ -21,7 +21,6 @@ footer {
 .text-menu {
     margin-top: 12px;
     border-right: 1.5px solid;
-
 }
 
 p {
@@ -52,6 +51,10 @@ p.text {
     text-align: center;
     color: var(--grey);
     /* color: black; */
+}
+
+.social {
+    margin-bottom: 10px;
 }
 .fa-brands {
    font-size: 35px;
@@ -93,10 +96,24 @@ p.text {
 }
 
 @media only screen and (max-width: 600px) {
+    .wrap {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
     .container {
         width: 95%;
     }
     .text-menu {
         margin-top: 0px;
+        border: none;
     }
+    .text-menu p {
+        color: black;
+    }
+    .social {
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+   
 }

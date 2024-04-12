@@ -54,14 +54,31 @@ nav {
     nav {
         padding: 10px 0px;
         margin:0 auto;  
-        justify-content: center
-        
     }
-    
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 512px) {
     .link {
         margin: 6px;
+    }
+}
+
+@media only screen and (max-width: 464px) {
+    .link {
+        margin: 6px;
+        font-size: 16px;
+    }
+    .link.active{
+        border: 1px solid #BAFF39;
+        font-size: 16px;
+    }
+}
+@media only screen and (max-width: 390px) {
+    .link {
+        font-size: 14px;
+    }
+    .link.active{
+        border: 1px solid #BAFF39;
+        font-size: 14px;
     }
 }
