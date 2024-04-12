@@ -50,13 +50,13 @@ nav {
 @media only screen and (max-width: 600px) {
     .link.img-wrapper {
         display: none;
-    };
+    }
     nav {
         padding: 10px 0px;
         margin:0 auto;  
         justify-content: center
         
-    };
+    }
     
 }
 
