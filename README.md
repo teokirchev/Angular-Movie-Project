@@ -1,3 +1,5 @@
+For more detailed documentation, see the [Docs](https://github.com/teokirchev/Angular-Movie-Project/blob/main/docs/README.md).
+
 # Project
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
