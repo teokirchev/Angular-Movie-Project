@@ -7,7 +7,7 @@
     background-image: url('https://nseledcloud.com/wp-content/uploads/2023/11/Virtual-Production-vs.-Green-Screen-2.jpg');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    /* background-size: contain; */
     background-color: black;
 }
 
@@ -84,27 +84,22 @@ small {
     font-size: 16px;
 }
 
-@media only screen and (max-width: 1200px) {
-    form {
-        width: 40%;
-    }
-}
-
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 934px) {
+    .container {
+        background-size: cover;
+    
+        }
     form {
         width: 50%;
     }
 }
 
 @media only screen and (max-width: 660px) {
-    
 
     input {
         padding: 6px;
     }
-    h2 {
-        color: white;
-    }
+    
     
 }
 
@@ -112,16 +107,13 @@ small {
     form {
         width: 70%;
     }
-    h2 {
-        color: white;
-    }
+    
   
 }
 @media only screen and (max-width: 470px) {
+    
     form {
         width: 80%;
     }
-    p,span {
-        color: white;
-    }
+   
 }
