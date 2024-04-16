@@ -23,3 +23,24 @@ export const canActivate = (
     }))
 
 }
+
+export const canActivateReverse = (
+    activatedRoute: ActivatedRouteSnapshot,
+    routerState: RouterStateSnapshot,
+) => {
+
+    const authService = inject(AuthService);
+    const router = inject(Router);
+
+    return authService.user.pipe(take(1), map((user) => {
+
+        const loggedIn =  user ? true : false;
+
+        if(loggedIn) {
+            return router.createUrlTree(['/notfound'])
+        } else {
+            return true;
+        }
+    }))
+
+}

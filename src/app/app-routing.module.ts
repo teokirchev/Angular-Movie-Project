@@ -5,7 +5,7 @@ import { CreateComponent } from './create/create.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { NotfoundComponent } from './notfound/notfound.component';
-import { canActivate } from './RouteGurds/authGuard';
+import { canActivate, canActivateReverse } from './RouteGurds/authGuard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,8 +17,8 @@ const routes: Routes = [
     canDeactivate: [(comp: CreateComponent) => { return comp.canExit(); }],
     canActivate: [canActivate] },
 
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent, canActivate: [canActivateReverse] },
+  { path: 'register', component: RegisterComponent, canActivate: [canActivateReverse]},
   { path: 'logout', component: HomeComponent },
   { path: 'notfound', component: NotfoundComponent },
 
