@@ -21,18 +21,19 @@ footer {
 .text-menu {
     margin-top: 12px;
     border-right: 1.5px solid;
+    padding: 0px;
 }
 
 p {
     margin: 0px;
     margin-bottom: 6px;
+    color: black;
     font-weight: bold;
-    color: white;
-    padding-right: 12px;
+    padding-right: 30px;
 }
 
 p:hover{
-    color: black;
+    color: var(--green);
 }
 
 .hero-footer {

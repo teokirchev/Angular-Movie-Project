@@ -53,6 +53,11 @@ span {
     color: var(--green);
     font-weight: bold;
 }
+span.number {
+    color: black;
+    font-weight: lighter;
+    margin-right: 20px;
+}
 
 p {
     margin: 0px 0px 12px 12px;
@@ -95,7 +100,7 @@ button:hover {
 }
 .fa-solid.fa-heart {
     margin-left: 20px;
-    margin-right: 20px;
+    margin-right: 4px;
     font-size: 25px;
 }
 

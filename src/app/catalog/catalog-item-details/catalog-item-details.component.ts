@@ -37,8 +37,10 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
     private commentService: CommentService,
     private activeRoute: ActivatedRoute,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
   ) { }
+
+  
 
   ngOnInit() {
     
@@ -52,6 +54,7 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
         this.isLoading = true;
         this.movieId = data.get('id');
         return this.movieService.getMovieById(this.movieId);
+        
       }),
       switchMap(movie => {
         this.selectedMovie = movie;
@@ -61,6 +64,7 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
         console.log(this.selectedMovie);
         this.isOwner = this.selectedMovie.owner === this.loggedInUser.id;
         this.isLoading = false;
+        this.likeNumber = this.selectedMovie.movieLikedBy.length;
         return this.commentService.getCommentsForMovie(this.movieId);
       })
       ).subscribe({
@@ -81,7 +85,8 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
       }
     );
   }
-
+  
+ 
   ngOnDestroy() {
     this.paramMapObs.unsubscribe()
   }
@@ -104,13 +109,23 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
     this.isLikeClicked = !this.isLikeClicked;
     
     console.log('Like');
+
     this.movieService.likeMovie(this.movieId)    
     .subscribe({
       next: (response) => {
         console.log(response);
         this.likeButtonColor = this.isLikeClicked ? 'red' : 'white';
+        if(this.isLikeClicked) {
+          console.log('yes');
+          this.likeNumber++
+        } else {
+          console.log('no');
+          this.likeNumber--
+          
+        }
       }
     })
+    
     
   }
 
