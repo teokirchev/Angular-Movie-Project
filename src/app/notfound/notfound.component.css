@@ -1,13 +1,26 @@
+.text {
+    display: flex;
+    flex-direction: column;
+}
+span {
+    margin: 0 auto;
+    color: red;
+    font-weight: bold;
+    font-size: 50px;
+}
 p {
-    font-size: 26px;
-    color: var(--green);
+    color: white;
     font-weight: bold;
     text-align: center;
-    margin: 20px auto;
+    margin: 0 auto;
     font-size: 30px ;
     width: 95%;
 }
-div {
+.mikey {
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+.img-wrapper {
     width: 40%;
     margin: 0 auto;
 }
@@ -15,13 +28,16 @@ img {
     width: 100%;
     height: auto;
     margin-bottom: 30px;
+    border-radius: 12px;
+    
+
 }
 
 @media only screen and (max-width: 900px) {
     p {
     font-size: 24px ;
     } 
-    div {
+    .img-wrapper {
         width: 60%;
     }
 }

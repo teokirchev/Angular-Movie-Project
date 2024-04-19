@@ -1,19 +1,14 @@
 <div class="comments-container">
     <div class="container">
-        <div class="img-wrapper">
-            <img class="profile-img"
-                src="https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg"
-                alt="">
-        </div>
+        
         <form class="text-wrapper" #commentForm="ngForm" (ngSubmit)="onCommentSubmited(commentForm)">
-            <h1>Add a comment</h1>
             <textarea name="comment" ngModel #commentInput="ngModel" type="text" required placeholder="Comment here..."></textarea>
             <div class="err-msg">
                 <small *ngIf="commentInput.invalid && commentInput.touched">*The field is required!</small>
             </div>
             <div class="btn-wrapper">
-                <button class="comment-btn" (click)="OnCloseForm()">Cancel</button>
-                <button type="submit" class="comment-btn" [disabled]="commentForm.invalid">Send</button>
+                <button class="comment-btn cancel" (click)="OnCloseForm()">Cancel</button>
+                <button type="submit" class="comment-btn submit" [disabled]="commentForm.invalid">Send</button>
                     
             </div>
         </form>

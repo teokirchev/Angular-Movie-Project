@@ -1,17 +1,17 @@
 .filter {
-    display: inline-block;
-    color: var(--green);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
     /* border: 1px solid black; */
     padding: 6px 12px;
     border-radius: 1px;
-    margin-left: 30px;
 }
 .head {
     font-weight: bold;
+    color: white
 }
-.count {
-    color: white;
-}
+
 
 @media only screen and (max-width: 600px) {
     .filter {

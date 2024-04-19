@@ -2,11 +2,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 40px auto;
-    width: 95%;
+    /* background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%); */
+    margin: 0 auto;
+    width: 100%;
     box-shadow: 1px 2px 10px 1px black;
     padding: 30px;
-    margin-bottom: 70px;
+    margin-bottom: 30px;
 }
 .loader {
     margin: 0 auto;
@@ -16,12 +17,12 @@
     width: 30%;
     height: 400px;
     margin-right: 20px;
-    background-color: var(--grey);
 }
 
 img {
     width: 100%;
     height: 100%;
+
 }
 img:hover {
     transform: scale(1.02);
@@ -36,7 +37,7 @@ img:hover {
     height: 100%;
     min-height: 400px;
     font-size: 18px;
-    background-color: rgb(179, 177, 177);
+    color: black;
 }
 .raiting {
     display: flex;
@@ -44,17 +45,14 @@ img:hover {
     align-items: center;
 }
 h2 {
-    color: var(--green);
     font-size: 34px;
     margin: 12px;
 }
 
 span {
-    color: var(--green);
     font-weight: bold;
 }
 span.number {
-    color: black;
     font-weight: lighter;
     margin-right: 20px;
 }
@@ -71,32 +69,33 @@ p {
 }
 
 button {
-    background-color: var(--green);
     margin: 20px;
     flex: 1;
     width: 100%;
-    border: 1px solid black;
+    border: none;
     border-radius: 2px;
     cursor: pointer;
     font-size: 16px;
     height: 35px;
     font-weight: bold;
-    opacity: 0.8;
+    border-radius: 12px;
+}
+button.edit-btn {
+    background-color: #1877f2;
+    color: white;
 }
 button.delete-btn {
     background-color: red;
     color: white;
-    border: 1px solid white;
 }
 button.comment-btn {
     background-color: black;
-    color: var(--green);
-    border: 1px solid var(--green);
+    color: white;
 }
 button:hover {
     transition-timing-function: ease-in-out;
     transition: 0.5s;
-    opacity: 1;
+    opacity: 0.8;
 }
 .fa-solid.fa-heart {
     margin-left: 20px;
@@ -107,48 +106,60 @@ button:hover {
 .fa-solid.fa-heart:hover {
     cursor: pointer;
 }
+.com {
+    display: flex;
+}
 .comment-section {
-    width: 95%;
-    background-color: black;
+    width: 100%;
+    min-height: 450px;
     display: flex;
     justify-content: space-between;
-    margin: 0 auto;
-    margin-bottom: 70px;
-    box-shadow: 1px 2px 10px 1px black;
-    padding: 12px;
 
+    padding-top: 30px;
 }
 
 .comment-container {
+    background-image: url(../../../assets/images/521449.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: column;
-    width: 65%;
+    width: 60%;
     height: auto;
-    background-color: black;
-    opacity: 0.8;
+    box-shadow: 1px 2px 10px 1px black;
+    border-radius: 12px;
+}
+.comment-container div {
+    padding-top: 12px;
 }
 
 
 .comment-title {
     font-size: 26px;
     border-radius: 2px;
-    text-align: center;
+    color: white;
+
 }
 
 .comment-wrapper {
-    margin: 12px;
+    margin: 12px auto;
+    margin-bottom: 0px;
+    width: 95%;
     height: auto;
     padding: 12px;
-    background-color: rgb(179, 177, 177);
+    background-color: black;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    opacity: 0.8;
+    border-radius: 12px;
 }
 
 .comment-name {
     font-size: 18px;
     margin: 12px;
-    color: var(--green);
+    color: #1877f2;
 }
 
 p.comment {
@@ -156,18 +167,11 @@ p.comment {
     font-weight: bold;
     padding: 4px;
     margin: 0px;
-    color: black;
+    color: white;
     display: inline-block;
 }
-.comment-img-wrapper{
-    width: 30%;
-    height: 100%;
-    padding: 20px;
-}
-.comment-img-wrapper img {
-    width: 100%;
-    height: 100%;
-}
+
+
 
 .fa-solid.fa-trash-can {
     width: 10px;
@@ -193,13 +197,26 @@ p.comment {
     transform: scale(1.1);
     opacity: 1;
 }
+.comment-info {
+    width: 40%;
+    
+    color: white;
+    font-weight: bold;
+    font-size: 26px;
+}
+.comment-info p {
+    padding: 12px;
+    font-size: 24px;
+}
+
+.comment-info p span{
+    color: #ffad01;
+}
 
 .no-comments {
     width: 50%;
     height: auto;
-    border: 1px solid;
-    margin: 0 auto;
-    margin-bottom: 100px;
+    margin: 20px auto;
     box-shadow: 1px 2px 10px 1px black;
     text-align: center;
     padding: 12px;
@@ -215,8 +232,7 @@ p.comment {
     max-width: 100px;
     padding: 0px;
     border: none;
-    background-color: #666f73;
-    color: var(--green);
+    color: black;
     text-decoration: underline;
 }
 

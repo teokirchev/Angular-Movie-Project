@@ -22,7 +22,7 @@
     </ng-container>
 
     <div *ngFor="let movie of allMovies">
-        <div class="wrap"
+        <div class="wrap" routerLink="/catalog/{{movie.id}}"
             *ngIf="selectedButtonChanged === 'all' || movie.isPremium.toString() === selectedButtonChanged">
             <div class="img-wrapper">
                 <img [src]="movie.imageUrl">
@@ -39,9 +39,7 @@
                     
                 </div>
             </div>
-            <div class="btn-wrapper">
-                <button class="btn-details" routerLink="/catalog/{{movie.id}}">Details</button>
-            </div>
+            
         </div>
         <!-- <app-catalog-item [movie]="movie" -->
         <!-- </app-catalog-item> -->
