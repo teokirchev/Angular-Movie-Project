@@ -1,24 +1,25 @@
 .container {
-    
-   
+
+
     margin: 0 auto;
     width: 100%;
 }
-.wrapper {
+
+.hero-wrapper {
     width: 100%;
     position: relative;
 }
 
 .img-wrapper {
     width: 100%;
-
+    margin-bottom: 60px;
 }
 
-img{
+img {
     width: 100%;
 }
 
-p {
+p.playfair-display {
     padding: 0px 30px;
     color: white;
     border-radius: 12px;
@@ -29,95 +30,147 @@ p {
     width: 40%;
     height: auto;
     font-size: 18px;
-}
-.playfair-display {
     font-family: "Playfair Display", serif;
     font-optical-sizing: auto;
     font-weight: 700;
     font-style: normal;
-  }
+}
+
+/* --------second----------- */
+.wrapper {
+    width: 100%;
+    display: flex;
+    position: relative;
+    margin-bottom: 60px;
+
+}
+
+.second-img-wrapper {
+    width: 70%;
+    height: auto;
+    margin-left: 100px;
+}
+
+.second-img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.text {
+    width: 25%;
+    position: absolute;
+    bottom: 210px;
+    right: 100px;
+    /* border-radius: 12px; */
+    padding: 20px;
+    background-color: white;
+    color: black;
+    opacity: 0.8;
+    border-width: 5px;
+    border-style: solid;
+    border-image:
+        linear-gradient(to bottom,
+            yellow,
+            orange,
+            red,
+            rgba(0, 0, 0, 0)) 1 100%;
+}
+
+/* --------third----------- */
+.wrapper-3 {
+    width: 100%;
+    display: flex;
+    position: relative;
+    margin-bottom: 60px;
+
+}
+
+.third-img-wrapper {
+    width: 70%;
+    margin-left: 270px;
+}
+
+.third-img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.text-3 {
+    width: 25%;
+    position: absolute;
+    bottom: 60px;
+    left: 100px;
+    /* border-radius: 12px; */
+    padding: 20px;
+    background-color: white;
+    color: black;
+    opacity: 0.8;
+    border-width: 5px;
+    border-style: solid;
+    border-image:
+        linear-gradient(to bottom,
+            yellow,
+            orange,
+            red,
+            rgba(0, 0, 0, 0)) 1 100%;
+}
+
+@media only screen and (max-width: 1200px) {
+    .wrapper {
+        flex-direction: column;
+        position: static;
+        align-items: center;
+
+    }
+    .second-img-wrapper {
+        width: 80%;
+        margin: 0px;
+        margin-bottom: 20px;
+    }
+    .text {
+        position: static;
+        width: 80%;
+        margin: 0 auto;
+    }
+   
+}
+
+@media only screen and (max-width: 1000px) {
+    .second-img-wrapper {
+        width: 100%;
+    }
+    .text {
+        width: 100%;
+    }
+    .wrapper-3 {
+        flex-direction: column;
+    }
+    .third-img-wrapper {
+        width: 100%;
+        margin: 0px;
+    }
+    .text-3 {
+        position: static;
+        width: 100%;
+    }
+}
 
 @media only screen and (max-width: 880px) {
-    h1 {
-        width: 350px;
-    }
-    p {
-        font-size: 22px;
-    }
-}
 
-@media only screen and (max-width: 820px) {
-    
-    p {
-        font-size: 20px;
-    }
-}
-
-@media only screen and (max-width: 750px) {
-    p {
-        width: 45%;
-    }
-}
-
-
-@media only screen and (max-width: 686px) {
-    p {
-        font-size: 18px;
-    }   
-    h1 {
-        font-size: 38px;
-    } 
-    
-}
-
-@media only screen and (max-width: 633px) {
-    p {
-        font-size: 16px;
-    }
-}
-
-@media only screen and (max-width: 581px) {
-    p {
+    p.playfair-display {
         font-size: 14px;
-    }
-    h1 {
-        font-size: 34px;
-    }
-}
-@media only screen and (max-width: 527px) {
-    p {
-        font-size: 13px;
-    }
-    h1 {
-        font-size: 30px;
-        width: 40%;
+        padding: 0px 12px;
     }
 }
 
-@media only screen and (max-width: 495px) {
-    p {
-        font-size: 12px;
-    }
-    h1 {
-        font-size: 26px;
-        width: 40%;
-    }
-}
-@media only screen and (max-width: 463px) {
-    p {
-        font-size: 11px;
-    }
-    h1 {
-        font-size: 24px;
-        width: 40%;
-    }
-}
-@media only screen and (max-width: 437px) {
-    p {
-        display: none;
-    }
-    h1 {
-        font-size: 24px;
+@media only screen and (max-width: 720px) {
+
+    p.playfair-display {
+        position: static;
         width: 100%;
+    }
+    .img-wrapper {
+        margin-bottom: 12px;
     }
 }

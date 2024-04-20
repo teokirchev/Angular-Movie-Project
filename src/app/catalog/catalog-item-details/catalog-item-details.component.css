@@ -5,25 +5,30 @@
     /* background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%); */
     margin: 0 auto;
     width: 100%;
-    box-shadow: 1px 2px 10px 1px black;
+    /* box-shadow: 1px 2px 10px 1px black; */
+    border-top: 1.5px solid white;
+    border-bottom: 1.5px solid white;
     padding: 30px;
     margin-bottom: 30px;
+    border-radius: 12px;
 }
+
 .loader {
     margin: 0 auto;
 }
 
 .image-wrapper {
     width: 30%;
-    height: 400px;
+    height: 420px;
     margin-right: 20px;
 }
 
 img {
     width: 100%;
     height: 100%;
-
+    border-radius: 12px;
 }
+
 img:hover {
     transform: scale(1.02);
     box-shadow: 1px 2px 10px 1px black;
@@ -39,11 +44,13 @@ img:hover {
     font-size: 18px;
     color: black;
 }
+
 .raiting {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 h2 {
     font-size: 34px;
     margin: 12px;
@@ -52,6 +59,7 @@ h2 {
 span {
     font-weight: bold;
 }
+
 span.number {
     font-weight: lighter;
     margin-right: 20px;
@@ -69,52 +77,56 @@ p {
 }
 
 button {
-    margin: 20px;
-    flex: 1;
+    margin: 0px 20px 0px 20px;
     width: 100%;
     border: none;
     border-radius: 2px;
     cursor: pointer;
     font-size: 16px;
-    height: 35px;
+    padding: 8px;
     font-weight: bold;
     border-radius: 12px;
 }
+
 button.edit-btn {
     background-color: #1877f2;
     color: white;
 }
+
 button.delete-btn {
     background-color: red;
     color: white;
 }
+
 button.comment-btn {
     background-color: black;
     color: white;
 }
+
 button:hover {
     transition-timing-function: ease-in-out;
     transition: 0.5s;
     opacity: 0.8;
 }
+
 .fa-solid.fa-heart {
     margin-left: 20px;
-    margin-right: 4px;
     font-size: 25px;
 }
 
 .fa-solid.fa-heart:hover {
     cursor: pointer;
 }
+
 .com {
     display: flex;
 }
+
 .comment-section {
     width: 100%;
     min-height: 450px;
     display: flex;
     justify-content: space-between;
-
     padding-top: 30px;
 }
 
@@ -130,8 +142,10 @@ button:hover {
     box-shadow: 1px 2px 10px 1px black;
     border-radius: 12px;
 }
+
 .comment-container div {
-    padding-top: 12px;
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 
@@ -148,7 +162,8 @@ button:hover {
     width: 95%;
     height: auto;
     padding: 12px;
-    background-color: black;
+    border: 1px solid black;
+    /* background-color: black; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -164,10 +179,9 @@ button:hover {
 
 p.comment {
     font-size: 20px;
-    font-weight: bold;
     padding: 4px;
     margin: 0px;
-    color: white;
+    color: black;
     display: inline-block;
 }
 
@@ -197,19 +211,21 @@ p.comment {
     transform: scale(1.1);
     opacity: 1;
 }
+
 .comment-info {
     width: 40%;
-    
+
     color: white;
     font-weight: bold;
     font-size: 26px;
 }
+
 .comment-info p {
     padding: 12px;
     font-size: 24px;
 }
 
-.comment-info p span{
+.comment-info p span {
     color: #ffad01;
 }
 
@@ -236,64 +252,78 @@ p.comment {
     text-decoration: underline;
 }
 
-@media only screen and (max-width: 800px) {
-    .container {
-        flex-direction: column;
-        
-    }
+@media only screen and (max-width: 1050px) {
     .image-wrapper {
-        width: 50%;
-        margin-bottom: 20px;
+        width: 40%;
         margin-right: 0px;
     }
+
     .details-wrapper {
-        width: 100%;
-        padding: 15px;
+        width: 60%;
     }
+}
+
+@media only screen and (max-width: 880px) {
+
     .no-comments {
         width: 95%;
     }
 }
+
 @media only screen and (max-width: 700px) {
-    .image-wrapper {
-        width: 70%;
-    }
-}
-@media only screen and (max-width: 600px) {
-    
-    .details-wrapper div {
-        display: flex;
+    .container {
         flex-direction: column;
     }
 
-    .btn-wrapper {
-        width: 50%;
-        display: flex;
-        align-items: center;
-        margin: 0 auto;
+    .image-wrapper {
+        width: 70%;
     }
-    button {
-        padding: 6px;
-        margin-bottom: 0px;
+
+    .details-wrapper {
+        width: 100%;
     }
-    button.delete-btn {
+
+    .comment-section {
+        flex-direction: column;
+    }
+
+    .comment-container {
+        width: 100%;
+        min-height: 450px;
         margin-bottom: 20px;
     }
-   
-}
-@media only screen and (max-width: 580px) {
-    .comment-img-wrapper{
-        display: none;
+
+    .comment-info {
+        width: 100%;
     }
-    .comment-container{
+
+    
+}
+
+@media only screen and (max-width: 580px) {
+    .btn-wrapper {
+        flex-direction: column;
+    }
+
+    button {
+        margin-bottom: 12px;
+    }
+
+    .comment-container {
         width: 100%;
     }
 }
+
 @media only screen and (max-width: 500px) {
     .image-wrapper {
         width: 100%;
     }
-    .btn-wrapper{
-        width: 80%;
+
+}
+
+@media only screen and (max-width: 460px) {
+    .raiting {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }

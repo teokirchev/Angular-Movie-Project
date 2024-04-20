@@ -15,9 +15,9 @@
             <p><span>Details:</span> {{selectedMovie.details}}</p>
         </div>
         <div class="btn-wrapper">
-            <button *ngIf="isOwner" class="edit-btn" (click)="editMovie()">Edit Information</button>
-            <button class="comment-btn" (click)="openCommentMovie()">Comment Movie</button>
-            <button *ngIf="isOwner" class="delete-btn" (click)="deleteMovie()">Delete Movie</button>
+            <button *ngIf="isOwner" class="edit-btn" (click)="editMovie()">Edit</button>
+            <button class="comment-btn" (click)="openCommentMovie()">Comment</button>
+            <button *ngIf="isOwner" class="delete-btn" (click)="deleteMovie()">Delete</button>
             <div [ngStyle]="{'display': 'flex', 'flexDirection': 'row', 'alignItems': 'baseline'}">
                 <i class="fa-solid fa-heart" [ngStyle]="{'color': likeButtonColor }" (click)="likeMovie()"></i>
                 <span class="number">({{likeNumber}})</span>

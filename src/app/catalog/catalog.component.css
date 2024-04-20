@@ -1,15 +1,16 @@
 .search {
     display: flex;
     justify-content: center;
-    align-items: end;
+    align-items: flex-end;
     margin: 0 auto;
-    width: 700px;
+    width: 70%;
     height: 186px;
     background-image: url(../../assets/images/mickey-mouse-set-logo-disney-600nw-2279023159.webp);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     border: 1.5px solid;
+    border-radius: 12px;
 }
 
 input {
@@ -129,10 +130,18 @@ img {
     margin: 0 auto;
 }
 
+@media only screen and (max-width: 970px) {
+    .search {
+        width: 80%;
+        height: 155px;
+    }
+}
+
+
 
 @media only screen and (max-width: 600px) {
-    input {
-        width: 50%;
+    .search {
+        width: 100%;
     }
 
     .container {

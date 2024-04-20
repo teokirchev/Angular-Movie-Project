@@ -25,24 +25,16 @@ nav {
     cursor: pointer;
 }
 .link:hover {
-    color: white;
+    color: orangered;
 }
 
 .link.active{
     
-    color: white;
+    color: orangered;
 }
 
 
-@media only screen and (max-width: 600px) {
-    .link.img-wrapper {
-        display: none;
-    }
-    nav {
-        padding: 10px 0px;
-        margin:0 auto;  
-    }
-}
+
 
 @media only screen and (max-width: 512px) {
     .link {
@@ -52,18 +44,18 @@ nav {
 
 @media only screen and (max-width: 464px) {
     .link {
-        margin: 6px;
-        font-size: 16px;
+        font-size: 24px;
     }
-    .link.active{
-        font-size: 16px;
-    }
+    
 }
-@media only screen and (max-width: 390px) {
+@media only screen and (max-width: 420px) {
     .link {
-        font-size: 14px;
+        font-size: 20px;
     }
-    .link.active{
-        font-size: 14px;
+    
+}
+@media only screen and (max-width: 380px) {
+    .link {
+        margin-right: 0px;
     }
 }
