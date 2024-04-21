@@ -32,12 +32,18 @@ form {
 
 input {
     width: 80%;
-    border: 1px solid black;
+    border: 1.5px solid black;
     height: 30px;
     margin-top: 30px;
+    background: white;
+    font-size: 18px;
+    opacity: 0.8;
+}
+input:hover {
+    opacity: 1;
 }
 
-.submit {
+input.submit {
     background-color: black;
     color: white;
     border-radius: 12px;
@@ -47,16 +53,15 @@ input {
     font-weight: bold;
 }
 
-.submit:hover {
-    /* background-color: var(--green);
-    color: black; */
+input.submit:hover {
     transition-timing-function: ease-in-out;
     transition: 1s;
-    opacity: 0.8;
-
-
+    opacity: 1;
 }
-
+.already {
+    background-color: white;
+    opacity: 0.8;
+}
 span {
     color: black;
     text-decoration: underline;
@@ -68,7 +73,7 @@ span {
 p {
     color: black;
     font-size: 16px;
-
+    display: inline-block;
 }
 .first-input {
     margin-top: 52px;
@@ -114,9 +119,25 @@ small {
   
 }
 @media only screen and (max-width: 470px) {
-    
     form {
         width: 80%;
     }
-   
+   .already {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    opacity: 0.8;
+
+   }
+   .already:hover {
+    opacity: 1;
+   }
+   p {
+    margin-top: 8px;
+    margin-bottom: 0px;
+   }
+   span {
+    margin-bottom: 12px;
+   }
 }

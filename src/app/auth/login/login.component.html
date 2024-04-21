@@ -26,6 +26,9 @@
         </div>
 
         <input type="submit" class="submit" value="Sign In" [disabled]="loginForm.invalid">
-        <p>You don't have profile? <span routerLink="/register">Register here!</span></p>
+        <div class="already">
+            <p>Already have a profile?</p>
+            <span routerLink="/register"> Register here!</span>
+        </div>
     </form>
 </div>

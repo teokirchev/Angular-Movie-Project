@@ -28,6 +28,10 @@
         </div>
 
         <input type="submit" class="submit" value="Register" [disabled]="registerForm.invalid">
-        <p>Already have a profile? <span routerLink="/login">Log in here!</span></p>
+        <div class="already">
+            <p>Already have a profile?</p>
+            <span routerLink="/login"> Log in here!</span>
+        </div>
+        
     </form>
 </div>

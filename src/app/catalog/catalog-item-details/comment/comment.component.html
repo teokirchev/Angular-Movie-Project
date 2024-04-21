@@ -1,7 +1,8 @@
 <div class="comments-container">
+
     <div class="container">
-        
         <form class="text-wrapper" #commentForm="ngForm" (ngSubmit)="onCommentSubmited(commentForm)">
+            <h1>Your comment:</h1>
             <textarea name="comment" ngModel #commentInput="ngModel" type="text" required placeholder="Comment here..."></textarea>
             <div class="err-msg">
                 <small *ngIf="commentInput.invalid && commentInput.touched">*The field is required!</small>
@@ -9,8 +10,8 @@
             <div class="btn-wrapper">
                 <button class="comment-btn cancel" (click)="OnCloseForm()">Cancel</button>
                 <button type="submit" class="comment-btn submit" [disabled]="commentForm.invalid">Send</button>
-                    
             </div>
         </form>
     </div>
+    
 </div>

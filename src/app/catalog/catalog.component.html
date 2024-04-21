@@ -1,7 +1,13 @@
-<div class="search">
-    <input type="text" placeholder="Search..." #search>
-    <button class="button-srch" (click)="onSearchClicked(search.value)">Search</button>
+<div class="search-wrapper">
+    <div class="search-img-wrapper">
+        <img src="../../assets/images/Walt_Disney_Pictures_Logo_.png" alt="">
+    </div>
+    <div class="search">
+        <input type="text" placeholder="Search..." #search>
+        <button class="button-srch" (click)="onSearchClicked(search.value)">Search</button>
+    </div>
 </div>
+
 
 <div>
     <div *ngIf="allMovies.length > 0">
@@ -36,10 +42,10 @@
                         <span *ngIf="movie.isPremium">Premium</span>
                         <span *ngIf="!movie.isPremium">Basic</span>
                     </div>
-                    
+
                 </div>
             </div>
-            
+
         </div>
         <!-- <app-catalog-item [movie]="movie" -->
         <!-- </app-catalog-item> -->

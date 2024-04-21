@@ -35,28 +35,33 @@ input {
     width: 80%;
     border: 1px solid black;
     height: 30px;
-    background-color: white;
+    background: white;
     margin-top: 30px;
-
+    font-size: 18px;
+    opacity: 0.8;
+}
+input:hover {
+    opacity: 1;
 }
 
-.submit {
+input.submit {
     background-color: black;
     color: white;
-    border: 1px solid black;
+    border-radius: 12px;
     cursor: pointer;
     font-size: 16px;
     height: 35px;
     font-weight: bold;
 }
 
-.submit:hover {
-    /* background-color: var(--green);
-    color: black; */
+input.submit:hover {
     transition-timing-function: ease-in-out;
     transition: 1s;
+    opacity: 1;
+}
+.already {
+    background-color: white;
     opacity: 0.8;
-
 }
 
 span {
@@ -70,7 +75,7 @@ span {
 p {
     color: black;
     font-size: 16px;
-
+    display: inline-block;
 }
 .first-input {
     margin-top: 52px;
@@ -112,13 +117,29 @@ small {
     form {
         width: 70%;
     }
-    
-  
 }
 @media only screen and (max-width: 470px) {
     
     form {
         width: 80%;
     }
+    .already {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: white;
+        opacity: 0.8;
+    
+       }
+       .already:hover {
+        opacity: 1;
+       }
+       p {
+        margin-top: 8px;
+        margin-bottom: 0px;
+       }
+       span {
+        margin-bottom: 12px;
+       }
    
 }

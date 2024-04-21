@@ -1,18 +1,15 @@
 .container {
-
-
     margin: 0 auto;
     width: 100%;
 }
 
 .hero-wrapper {
     width: 100%;
-    position: relative;
+    /* position: relative; */
 }
 
 .img-wrapper {
     width: 100%;
-    margin-bottom: 60px;
 }
 
 img {
@@ -20,15 +17,16 @@ img {
 }
 
 p.playfair-display {
-    padding: 0px 30px;
+    padding: 20px 30px;
     color: white;
-    border-radius: 12px;
     line-height: 1.6;
-    position: absolute;
+    text-align: center;
+    /* position: absolute;
     top: 0px;
-    left: 20px;
-    width: 40%;
+    left: 20px; */
+    width: 70%;
     height: auto;
+    margin: 0 auto;
     font-size: 18px;
     font-family: "Playfair Display", serif;
     font-optical-sizing: auto;
@@ -76,14 +74,12 @@ p.playfair-display {
             red,
             rgba(0, 0, 0, 0)) 1 100%;
 }
-
 /* --------third----------- */
 .wrapper-3 {
     width: 100%;
     display: flex;
     position: relative;
     margin-bottom: 60px;
-
 }
 
 .third-img-wrapper {
@@ -101,7 +97,6 @@ p.playfair-display {
     position: absolute;
     bottom: 60px;
     left: 100px;
-    /* border-radius: 12px; */
     padding: 20px;
     background-color: white;
     color: black;
@@ -138,21 +133,23 @@ p.playfair-display {
 
 @media only screen and (max-width: 1000px) {
     .second-img-wrapper {
-        width: 100%;
+        width: 90%;
     }
     .text {
-        width: 100%;
+        width: 90%;
     }
     .wrapper-3 {
         flex-direction: column;
     }
     .third-img-wrapper {
-        width: 100%;
-        margin: 0px;
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 20px;
     }
     .text-3 {
         position: static;
-        width: 100%;
+        margin: 0 auto;
+        width: 90%;
     }
 }
 

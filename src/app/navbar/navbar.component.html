@@ -9,6 +9,8 @@
             *ngIf="isLoggedIn">Create</a>
         <a class="link" routerLink="login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
             *ngIf="!isLoggedIn">Sign In</a>
+            <a class="link" routerLink="register" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+            *ngIf="!isLoggedIn">Register</a>
         <a class="link logout" *ngIf="isLoggedIn" (click)="onLogout()">Logout</a>
     </div>
 </nav>

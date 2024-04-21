@@ -2,7 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%); */
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
     margin: 0 auto;
     width: 100%;
     /* box-shadow: 1px 2px 10px 1px black; */
@@ -214,15 +215,27 @@ p.comment {
 
 .comment-info {
     width: 40%;
-
+    
     color: white;
     font-weight: bold;
     font-size: 26px;
 }
 
 .comment-info p {
-    padding: 12px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     font-size: 24px;
+    background-color: black;
+    opacity: 0.7;
+    border-width: 4px;
+    border-style: solid;
+    border-image:
+        linear-gradient(to bottom,
+        red,
+        orange,
+        yellow,
+            rgba(0, 0, 0, 0)) 1 100%;
 }
 
 .comment-info p span {
