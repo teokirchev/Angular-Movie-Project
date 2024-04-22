@@ -30,33 +30,32 @@ h1 {
 }
 
 input {
-    all: unset;
     color: black;
-    border: 1.5px solid black;
+    border: 1.4px solid black;
+    border-radius: 12px;
     height: 30px;
     width: 80%;
     margin-top: 20px;
-
+    background: none;
 }
 
 select {
     height: 33px;
     color: black;
-    background-color: inherit;
-    border-radius: 1px;
-    border: 1.5px solid black;
+    border-radius: 12px;
+    border: 1.4px solid black;
     width: 80%;
     margin-top: 20px;
+    background: none;
 
 }
 
 textarea {
-    
-    all: unset;
-    border: 1.5px solid black;
+    background: none;
     color: black;
+    border: 1.4px solid black;
+    border-radius: 12px;
     height: 120px;
-    border-radius: 1px;
     width: 80%;
     margin-top: 20px;
 }

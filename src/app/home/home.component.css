@@ -53,6 +53,8 @@ p.playfair-display {
     width: 100%;
     height: auto;
     border-radius: 12px;
+    border: 1px solid white;
+
 }
 
 .text {
@@ -90,6 +92,7 @@ p.playfair-display {
 .third-img {
     width: 100%;
     border-radius: 12px;
+    border: 1px solid white;
 }
 
 .text-3 {
