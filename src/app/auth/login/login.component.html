@@ -1,8 +1,8 @@
 <app-error-snackbar [errorMessage]="errorMessage" *ngIf="errorMessage"></app-error-snackbar>
 <app-loader *ngIf="isLoading"></app-loader>
 <div class="container" *ngIf="!isLoading">
-    <h2>SIGN IN HERE</h2>
     <form #loginForm="ngForm" (ngSubmit)="onLoginClicked()">
+        <h2>SIGN IN HERE</h2>
         <input type="email" 
         name="email" 
         placeholder="Email*" 

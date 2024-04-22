@@ -2,8 +2,8 @@
 <app-loader *ngIf="isLoading"></app-loader>
 <div class="container" *ngIf="!isLoading">
     
-    <h2>REGISTER HERE</h2>
     <form  #registerForm="ngForm" (ngSubmit)="onSubmitRegister()">
+        <h2>REGISTER HERE</h2>
         <input type="email" 
         name="email" 
         placeholder="Email*" 
