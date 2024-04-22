@@ -68,6 +68,7 @@ p.text {
 }
 .fa-brands:hover {
     cursor: pointer;
+    scale: 1.2;
 }
 .fa-brands.fa-square-facebook {
     color: #1877f2;

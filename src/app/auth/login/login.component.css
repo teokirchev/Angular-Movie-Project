@@ -28,6 +28,14 @@ form {
     align-items: center;
     height: auto;
     margin: 70px 50px;
+    border-width: 4px;
+    border-style: solid;
+    border-image:
+        linear-gradient(to bottom,
+            yellow,
+            orange,
+            red,
+            rgba(0, 0, 0, 0)) 1 100%;
 
 }
 

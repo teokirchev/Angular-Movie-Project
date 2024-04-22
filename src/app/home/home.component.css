@@ -60,7 +60,7 @@ p.playfair-display {
 .text {
     width: 25%;
     position: absolute;
-    bottom: 210px;
+    bottom: 300px;
     right: 100px;
     /* border-radius: 12px; */
     padding: 20px;
@@ -98,7 +98,7 @@ p.playfair-display {
 .text-3 {
     width: 25%;
     position: absolute;
-    bottom: 60px;
+    bottom: 40px;
     left: 100px;
     padding: 20px;
     background-color: white;
