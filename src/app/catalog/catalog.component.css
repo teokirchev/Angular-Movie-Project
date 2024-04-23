@@ -64,13 +64,13 @@ input {
     justify-content: center;
     flex-wrap: wrap;
     border-radius: 12px;
+    border: 1.4px solid black;
     padding: 20px 0px;
-    margin-bottom: 60px;
-    box-shadow: 1px 2px 10px 1px black;
+    margin-bottom: 20px;
     width: 100%;
     /* background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%); */
-    background-color: white;
+    background-color: #6a93cd;
 
 }
 
@@ -80,7 +80,7 @@ input {
     margin-left: 4px;
     margin-right: 4px;
     margin-bottom: 8px;
-    border: 1.5px solid;
+    /* border: 1px solid white; */
     background-color: white;
     border-radius: 12px;
 }
@@ -134,24 +134,37 @@ img {
 }
 
 .no-movies {
-    color: red;
+    color: white;
     margin: 0 auto;
+    box-shadow: 1px 2px 10px 1px black;
+    border-radius: 12px;
 }
 
 .no-movies-text {
     font-size: 40px;
-    color: var(--green);
-    border: 2px solid var(--green);
+    color: white;
     padding: 15px 30px;
     margin: 40px;
-    background-color: black;
+    background: none;
 }
 
 .loader {
     margin: 0 auto;
 }
 
-
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mikey-img {
+    width: 25%;
+    height: auto;
+}
+.mikey-img img {
+    max-width: 100%;
+    border-radius: 50%;
+}
 
 @media only screen and (max-width: 700px) {
     .search {

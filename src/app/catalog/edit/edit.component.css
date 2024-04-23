@@ -1,7 +1,8 @@
 .page-wrapper {
     width: 100%;
     border: 1px solid white;
-    margin: 12px auto;
+    margin: 0px auto;
+    margin-bottom: 120px;
     background-image: url('../../../assets/images/743959.jpg');
     background-position: center;
     background-repeat: no-repeat;
