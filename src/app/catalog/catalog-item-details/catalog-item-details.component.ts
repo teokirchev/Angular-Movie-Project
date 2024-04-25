@@ -21,7 +21,7 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
 
   isLoading: boolean = false;
   isLikeClicked: boolean = false;
-  likeButtonColor: string = 'white';
+  likeButtonColor: string = 'grey';
   textLikeColor: string = ''
   likeNumber: number = 0;
   isCommentClick: boolean = false;

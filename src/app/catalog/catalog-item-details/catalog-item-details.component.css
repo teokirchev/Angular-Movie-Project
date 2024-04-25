@@ -116,7 +116,10 @@ button:hover {
 
 .fa-solid.fa-heart {
     margin-left: 20px;
-    font-size: 25px;
+    font-size: 20px;
+    background-color: black;
+    padding: 6px;
+    border-radius: 50%;
 }
 
 .fa-solid.fa-heart:hover {
