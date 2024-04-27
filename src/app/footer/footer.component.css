@@ -1,12 +1,12 @@
 
 footer {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     background-color: #115ea6;
     width: 100%;
     height: 270px;
-    margin: 0 auto;
     background-image: url(../../assets/images/full_logo.jpg);
     background-position: center;
     background-size: cover;
@@ -15,110 +15,103 @@ footer {
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
 }
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
 
 /* -----------/------------- */
 .container {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 25vw;
-    padding: 12px 0px;
 }
 
-p {
+p.side-text {
     margin: 0px;
-    color: orangered;
-    font-weight: bold;
+    padding: 0 12px;
+    color: #115ea6;
     font-size: 18px;
+    font-weight: bold;
+    border-right: 1px solid;
+}
+p:last-child {
+    border-right: none;
 }
 
-p:hover{
-    color: black;
+p.side-text:hover{
+    color: orangered;
+    cursor: pointer;
+    scale: 1.02;
 }
 
 
 /* ------------------ */
 .social {
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     padding: 12px 0px;
-    width: 25vw;
+
 }
 .fa-brands {
    font-size: 35px;
+   color: black;
+
 }
 .fa-brands:hover {
     cursor: pointer;
     scale: 1.2;
+    color: orangered;
+
 }
 .fa-brands.fa-square-facebook {
-    color: black;
     margin-right: 12px;
 }
 .fa-brands.fa-square-x-twitter {
-    color: black;
     margin-right: 12px;
 }
 .fa-brands.fa-linkedin {
-    color: black;
+    margin-right: 12px;
 }
 .fa-brands.fa-square-instagram {
-    color: black;
     margin-right: 12px;
-    border-radius: 6px;
 }
 /* -----------/------------- */
 .hero-footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 25vw;
-    padding: 12px 0px;
 }
 
 p.text {
-    text-align: center;
+    background-color: white;
     color: black;
-    padding: 0px;
+    margin: 0;
+    padding: 3px 6px;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    opacity: 0.8;
 }
 
-@media only screen and (max-width: 1107px) {
-    .container {
-        width: 40%;
-    }
-}
-@media only screen and (max-width: 920px) {
-    .container {
-        width: 50%;
-    }
-    
-}
 @media only screen and (max-width: 660px) {
+    .wrapper {
+        flex-direction: column;
+    }
     .container {
-        width: 60%;
+        justify-content: center;
     }
 }
-
-@media only screen and (max-width: 600px) {
-    .wrap {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .container {
-        width: 100%;
-    }
-    .text-menu {
-        margin-top: 0px;
-        border: none;
-    }
-    .text-menu p {
-        padding: 0px;
-    }
+@media only screen and (max-width: 500px) {
     
-    .social {
-        margin-top: 12px;
+    p.side-text{
+        font-size: 16px;
+        padding: 0 6px;
+        margin-top: 6px;
     }
-   
+}
+@media only screen and (max-width: 390px) {
+    p.side-text {
+        font-size: 15px;
+        padding: 0 3px;
+    }
 }

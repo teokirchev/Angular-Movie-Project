@@ -5,7 +5,6 @@
 
 .hero-wrapper {
     width: 100%;
-    /* position: relative; */
 }
 
 .img-wrapper {
@@ -21,9 +20,6 @@ p.playfair-display {
     color: black;
     line-height: 1.6;
     text-align: center;
-    /* position: absolute;
-    top: 0px;
-    left: 20px; */
     width: 70%;
     height: auto;
     margin: 0 auto;
@@ -172,5 +168,23 @@ p.playfair-display {
     }
     .img-wrapper {
         margin-bottom: 12px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .wrapper {
+        margin-bottom: 20px;
+    }
+    .second-img-wrapper{
+        width: 100%;
+    }
+    .text {
+        width: 100%;
+    }
+    .third-img-wrapper {
+        width: 100%;
+
+    }
+    .text-3 {
+        width: 100%;
     }
 }

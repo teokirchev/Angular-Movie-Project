@@ -38,12 +38,11 @@ h1 {
     color: black;
     margin: 0px;
     padding-top: 20px;
-    color: white;
 }
 
 input {
-    color: white;
-    border: 1px solid white;
+    color: black;
+    border: 1px solid;
     height: 30px;
     width: 80%;
     margin-top: 12px;
@@ -52,8 +51,8 @@ input {
 
 select {
     height: 33px;
-    color: white;
-    border: 1px solid white;
+    color: black;
+    border: 1px solid;
     width: 80%;
     margin-top: 20px;
     background: none;
@@ -62,8 +61,8 @@ select {
 
 textarea {
     background: none;
-    color: white;
-    border: 1px solid white;
+    color: black;
+    border: 1px solid;
     height: 80px;
     width: 80%;
     margin-top: 20px;

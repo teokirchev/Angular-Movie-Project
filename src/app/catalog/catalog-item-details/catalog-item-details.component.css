@@ -15,12 +15,6 @@
     margin-bottom: 30px;
     border-radius: 12px;
 }
-.jini {
-    width: 20%;
-}
-.jini img {
-    max-width: 100%;
-}
 .loader {
     margin: 0 auto;
 }
@@ -268,18 +262,15 @@ p.comment {
     text-decoration: underline;
 }
 
-@media only screen and (max-width: 1050px) {
-    .image-wrapper {
-        width: 40%;
-        margin-right: 0px;
-    }
 
-    .details-wrapper {
-        width: 60%;
-    }
-}
 
 @media only screen and (max-width: 880px) {
+    .container {
+    width: 100%;
+    }
+    .comment-container {
+        width: 90vw;
+    }
 
     .no-comments {
         width: 95%;
@@ -292,27 +283,20 @@ p.comment {
     }
 
     .image-wrapper {
-        width: 70%;
+        width: 50%;
     }
 
     .details-wrapper {
         width: 100%;
     }
 
-    .comment-section {
-        flex-direction: column;
-    }
-
-    .comment-container {
-        width: 100%;
-        min-height: 450px;
-        margin-bottom: 20px;
-    }
 
     .comment-info {
         width: 100%;
     }
-
+    .pooh {
+        width: 40%;
+    }
     
 }
 
@@ -327,6 +311,15 @@ p.comment {
 
     .comment-container {
         width: 100%;
+    }
+    .comment-info p{
+        margin: 12px 0px;
+    }
+    .pooh-wrapper {
+        flex-direction: column;
+    }
+    .pooh {
+        margin: 0 auto;
     }
 }
 

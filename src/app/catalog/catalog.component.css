@@ -170,6 +170,12 @@ section {
     .search {
         width: 100%;
     }
-    
-    
+    .mikey-img {
+        width: 35%;
+    }
+}    
+@media only screen and (max-width: 400px) {
+    .mikey-img {
+        width: 50%;
+    }
 }
