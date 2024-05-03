@@ -35,7 +35,6 @@ export class CreateComponent {
       if(confirm('Do you want to create this movie?')) {
         const movieData = {
           ...this.form.value, 
-          likesCount: 0,
           movieLikedBy: []
         }
         const obs = this.movieService.createMovie(movieData)

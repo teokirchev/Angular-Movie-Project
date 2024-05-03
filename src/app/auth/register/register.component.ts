@@ -24,14 +24,17 @@ export class RegisterComponent {
   onSubmitRegister() {
     const email = this.form.value.email;
     const password = this.form.value.password;
+    const repass = this.form.value.repass;
 
     this.isSubmited = true;
     this.form.reset();
 
     this.isLoading = true;
     
-    this.authService.register(email, password).subscribe({
+    this.authService.register(email, password, repass).subscribe({
       next: (res) => {
+        console.log(res);
+        
         this.isLoading = false;
         this.router.navigate(['/catalog'])
       }, 

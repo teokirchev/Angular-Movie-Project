@@ -8,13 +8,29 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class MovieRatingComponent {
 
   @Output()
-  rateEvent = new EventEmitter<number>();
+  rateEvent: EventEmitter<number> = new EventEmitter<number>();
+
+  @Output()
+  closeRateEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   stars = [1, 2, 3, 4, 5];
   selectedRating: number | undefined;
 
+  closeRateMovie() {
+    this.closeRateEvent.emit(false)
+  }
   rateMovie(rating: number): void {
-    this.selectedRating = rating;
+    this.selectedRating = rating
     this.rateEvent.emit(rating)
+    
+  }
+
+  selectRating(rating: number): void {
+    if (this.selectedRating === rating) {
+      // If the same star is clicked again, unselect it
+      this.selectedRating = undefined;
+    } else {
+      this.selectedRating = rating;
+    }
   }
 }

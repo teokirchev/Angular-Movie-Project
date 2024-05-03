@@ -77,7 +77,6 @@ export class EditComponent implements OnInit {
         const formValue = {
           ...this.form.value,
           isPremium: this.form.value.isPremium === 'true',
-          likesCount: 0,
           movieLikedBy: []
         };
         this.movieService.editMovie(this.movieId, formValue)

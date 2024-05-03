@@ -25,6 +25,7 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
   textLikeColor: string = ''
   likeNumber: number = 0;
   isCommentClick: boolean = false;
+  isRateMovieClick: boolean = false;
   isEditCommentClick: boolean = false;
   editedCommentData: Comment
   allComments: Comment[] = [];
@@ -58,6 +59,11 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
       }),
       switchMap(movie => {
         this.selectedMovie = movie;
+
+        if (!movie.ratingSum && !movie.ratingCount) {
+          this.selectedMovie.averageRating = 0;
+          this.selectedMovie.ratingCount = 0;
+        }
         if(!this.selectedMovie.movieLikedBy) {
           this.selectedMovie.movieLikedBy = []
         }    
@@ -134,7 +140,7 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
   }
 
   closeCommentForm() {
-    this.isCommentClick = false;
+    this.isCommentClick = false;    
   }
 
   openEditComment(comment: Comment) {
@@ -194,6 +200,23 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
         this.isEditCommentClick = false
       });
   };
+
+  openRateMovie() {
+    this.isRateMovieClick = true
+  }
+  closeRateMovie() {
+    this.isRateMovieClick = false;
+  }
+  
+  rateMovie(rating: number) {
+    this.movieService.rateMovie(this.movieId, rating)
+    .subscribe((movie: Movie[]) => {
+      this.movieService.moviesUpdated.emit(movie)
+      this.isRateMovieClick = false;
+    })
+  }
+
+ 
 
 }
 

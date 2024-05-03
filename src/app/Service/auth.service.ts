@@ -20,8 +20,8 @@ export class AuthService {
   user = new BehaviorSubject<User>(null);
   private tokenExpireTimer: any;
 
-  register(email: string, password: string) {
-    const data = { email: email, password: password, returnSecureToken: true }
+  register(email: string, password: string, repass: string) {
+    const data = { email: email, password: password, repass: repass, returnSecureToken: true }
     return this.http.post<AuthResponse>(
       'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + environment.firebaseAPIKEY, data)
       .pipe(catchError(this.handleError), tap((res) => {

@@ -1,6 +1,18 @@
 export class Movie {
 
-    constructor(id: string, name: string, year: number, imageUrl: string, isPremium: boolean, details: string, owner: string, likesCount: number = 0, movieLikedBy: string[] = []) {
+    constructor
+    (id: string,
+    name: string,
+    year: number,
+    imageUrl: string, 
+    isPremium: boolean, 
+    details: string, 
+    owner: string,
+    movieLikedBy: string[] = [],
+    ratingSum: number | undefined,
+    ratingCount: number | undefined,
+    averageRating: number | undefined
+    ) {
         this.id = id;
         this.name = name;
         this.year = year;
@@ -8,8 +20,10 @@ export class Movie {
         this.isPremium = isPremium;
         this.details = details;
         this.owner = owner;
-        this.likesCount = likesCount;
         this.movieLikedBy = movieLikedBy;
+        this.ratingSum = ratingSum;
+        this.ratingCount = ratingCount;
+        this.averageRating = averageRating
     }
     id?: string;
     name: string;
@@ -18,6 +32,8 @@ export class Movie {
     isPremium: boolean;
     details: string;
     owner: string;
-    likesCount: number;
     movieLikedBy: string[];
+    ratingSum: number | undefined;
+    ratingCount: number | undefined;
+    averageRating: number | undefined;
 }

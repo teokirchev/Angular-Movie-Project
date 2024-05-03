@@ -1,8 +1,15 @@
-<div class="rating">
-    <label *ngFor="let star of stars"
-            (click)="rateMovie(star)"
-           [ngClass]="{'filled': star <= selectedRating}">
-      ★
-    </label>
+<div class="rating-container">
+  <div class="stars-wrapper">
+    <div>
+      <div class="stars">
+        <label *ngFor="let star of stars" [ngClass]="{'filled': star <= selectedRating}" (click)="selectRating(star)">
+          ★
+        </label>
+      </div>
+      <div class="btn">
+        <button class="cancel" (click)="closeRateMovie()">Cancel</button>
+        <button (click)="rateMovie(selectedRating)">Rate</button>
+      </div>
+    </div>
   </div>
-  
+</div>

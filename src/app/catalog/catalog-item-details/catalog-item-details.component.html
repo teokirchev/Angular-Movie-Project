@@ -8,8 +8,19 @@
             <div>
                 <div class="raiting">
                     <h2>{{selectedMovie.name}}</h2>
-                    <app-movie-rating></app-movie-rating>
+
+                    <div class="star-rating">
+                            <!-- <span *ngFor="let star of getStars(selectedMovie.averageRating)"> -->
+                                <button class="rate" (click)="openRateMovie()"><i class="fa-regular fa-star"></i> Rate</button>
+                            <!-- </span> -->
+                            <p class="average-rating">{{selectedMovie.averageRating.toFixed(1)}} / 5 ({{selectedMovie.ratingCount}})</p>
+                        
+                    </div>
                 </div>
+                    <app-movie-rating *ngIf="isRateMovieClick" (rateEvent)="rateMovie($event)"
+                        (closeRateEvent)="closeRateMovie()">
+                    </app-movie-rating>
+
                 <p><span>Year:</span> {{selectedMovie.year}}</p>
                 <p *ngIf="selectedMovie.isPremium"><span>Type:</span> Premium</p>
                 <p *ngIf="!selectedMovie.isPremium"><span>Type:</span> Basic</p>
@@ -19,6 +30,8 @@
                 <button *ngIf="isOwner" class="edit-btn" (click)="editMovie()">Edit</button>
                 <button class="comment-btn" (click)="openCommentMovie()">Comment</button>
                 <button *ngIf="isOwner" class="delete-btn" (click)="deleteMovie()">Delete</button>
+                <!-- <button class="rate" (click)="openRateMovie()">Rate</button> -->
+
                 <div [ngStyle]="{'display': 'flex', 'flexDirection': 'row', 'alignItems': 'baseline'}">
                     <i class="fa-solid fa-heart" [ngStyle]="{'color': likeButtonColor }" (click)="likeMovie()"></i>
                     <span class="number">({{likeNumber}})</span>
@@ -27,9 +40,7 @@
             </div>
         </div>
     </div>
-    <!-- <div class="jini">
-        <img src="../../../assets/images/giphy.gif" alt="">
-    </div> -->
+
 </div>
 <app-comment *ngIf="isCommentClick" (closeForm)="closeCommentForm()" (emitCommentData)="createComment($event)">
 </app-comment>
@@ -55,16 +66,16 @@
             </div>
             <div class="comment-wrapper">
                 <p class="comment">{{comment.comment}}</p>
-                <div *ngIf="isOwner">
+                <div *ngIf="isCommentOwner(comment)">
                     <i class="fa-solid fa-trash-can" (click)="deleteComment(comment.id)"></i>
                     <i class="fa-solid fa-file-pen" (click)="openEditComment(comment)"></i>
                 </div>
 
             </div>
-            
+
         </div>
-        
-        
+
+
     </div>
     <div class="pooh-wrapper">
         <div class="pooh">
@@ -78,7 +89,8 @@
             <p>“Sometimes the smallest things take up the most room in your heart.” — <span>Winnie the Pooh</span></p>
             <p>“What’s wrong with knowing what you know now and not knowing what you don’t know until later?” —
                 <span>Winnie
-                    the Pooh</span></p>
+                    the Pooh</span>
+            </p>
         </div>
     </div>
 </div>

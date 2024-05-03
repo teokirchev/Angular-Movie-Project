@@ -27,19 +27,20 @@ footer {
     display: flex;
 }
 
-p.side-text {
+a.side-text {
     margin: 0px;
     padding: 0 12px;
     color: #115ea6;
     font-size: 18px;
     font-weight: bold;
     border-right: 1px solid;
+    text-decoration: none;
 }
-p:last-child {
+a:last-child {
     border-right: none;
 }
 
-p.side-text:hover{
+a.side-text:hover{
     color: orangered;
     cursor: pointer;
     scale: 1.02;
@@ -103,14 +104,14 @@ p.text {
 }
 @media only screen and (max-width: 500px) {
     
-    p.side-text{
+    a.side-text{
         font-size: 16px;
         padding: 0 6px;
         margin-top: 6px;
     }
 }
 @media only screen and (max-width: 390px) {
-    p.side-text {
+    a.side-text {
         font-size: 15px;
         padding: 0 3px;
     }

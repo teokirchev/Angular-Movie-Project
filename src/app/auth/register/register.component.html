@@ -1,37 +1,37 @@
 <app-error-snackbar [errorMessage]="errorMessage" *ngIf="errorMessage"></app-error-snackbar>
 <app-loader *ngIf="isLoading"></app-loader>
 <div class="container" *ngIf="!isLoading">
-    
-    <form  #registerForm="ngForm" (ngSubmit)="onSubmitRegister()">
+
+    <form #registerForm="ngForm" (ngSubmit)="onSubmitRegister()">
         <h2>REGISTER HERE</h2>
-        <input type="email" 
-        name="email" 
-        placeholder="Email*" 
-        ngModel
-        required
-        email
-        #mailInput="ngModel">
+        <input type="email" name="email" placeholder="Email*" ngModel required email #mailInput="ngModel">
         <div class="err-msg">
-            <small *ngIf="mailInput.invalid && mailInput.touched">*Email is required field and it must be a valid email!</small>
+            <small *ngIf="mailInput.invalid && mailInput.touched">*Email is required field and it must be a valid
+                email!</small>
         </div>
 
-        <input type="password"
-        name="password" 
-        placeholder="Password*"
-        ngModel
-        required  
-        ngModel 
-        minlength="6"
-        #passInput="ngModel">
+        <input type="password" name="password" placeholder="Password*" ngModel required minlength="6"
+            #passInput="ngModel">
         <div class="err-msg">
-            <small *ngIf="passInput.invalid && passInput.touched">*Password is a required field and must be atleast 6 characters!</small>
+            <small *ngIf="passInput.invalid && passInput.touched">*Password is a required field and must be atleast 6
+                characters!</small>
         </div>
+        <!--  -->
+        <input type="password" name="repass" placeholder="Repeat Password*" ngModel required minlength="6"
+            #repassInput="ngModel">
+        <div class="err-msg">
+            <small *ngIf="repassInput.invalid && repassInput.touched || passInput.value !== repassInput.value" >
+                    Passwords do not match.
+            </small>
+        </div>
+        <!--  -->
 
-        <input type="submit" class="submit" value="Register" [disabled]="registerForm.invalid">
+        <input type="submit" class="submit" value="Register"
+            [disabled]="registerForm.invalid || passInput.value !== repassInput.value">
         <div class="already">
             <p>Already have a profile?</p>
             <span routerLink="/login"> Log in here!</span>
         </div>
-        
+
     </form>
 </div>

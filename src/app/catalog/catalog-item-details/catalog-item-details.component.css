@@ -47,12 +47,40 @@
 .raiting {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
+}
+.star-rating {
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
+  
+  .fa-star {
+    color: gold;
+  }
+  
+  .checked {
+    color: gold;
+  }
+  .average-rating {
+    font-size: 18px;
+    font-weight: bold;
+  }
+button.rate {
+    color: black;
+    background: none;
+    font-size: 18px;
+    margin: 0px;
+    padding-bottom: 4px;
+}
+button.rate:hover {
+    scale: 1.2;
+    opacity: 1;
+}
 h2 {
     font-size: 34px;
-    margin: 12px;
+    margin: 0px 12px;
 }
 
 span {
@@ -86,6 +114,7 @@ button {
     font-weight: bold;
     border-radius: 12px;
 }
+
 
 button.edit-btn {
     background-color: #1877f2;
@@ -149,6 +178,7 @@ button:hover {
     height: auto;
     padding: 12px;
     border: 1.5px solid black;
+    border-radius: 8px;
     /* background-color: black; */
     display: flex;
     justify-content: space-between;
@@ -307,6 +337,9 @@ p.comment {
 
     button {
         margin-bottom: 12px;
+    }
+    button.rate {
+        margin: 0px;
     }
 
     .comment-container {

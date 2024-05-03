@@ -95,5 +95,31 @@ export class MovieService {
         )
     }))
   }
+  
+  rateMovie(movieId: string, rating: number) {
+    return this.authService.user.pipe(
+      take(1),
+      exhaustMap(user => {
+        return this.getMovieById(movieId).pipe(
+          switchMap(movie => {
+            // Calculate the new average rating
+            const newRatingSum = (movie.ratingSum || 0) + rating;
+            const newRatingCount = (movie.ratingCount || 0) + 1;
+            const newAverageRating = newRatingSum / newRatingCount;
+
+            // Update the movie object with the new rating details
+            const updatedMovie = { ...movie, ratingSum: newRatingSum, ratingCount: newRatingCount, averageRating: newAverageRating };
+
+            // Send a PUT request to update the movie
+            return this.http.put(
+              `${this.url}movies/${movieId}.json`,
+              updatedMovie,
+              { params: new HttpParams().set('auth', user.token) }
+            );
+          })
+        );
+      })
+    );
+  }
 
 }

@@ -1,15 +1,78 @@
-.rating {
-    display: inline-block;
-    margin: 12px;
-  }
-  
-  .rating label {
+.rating-container {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+} 
+.stars-wrapper {
+  background-color: white;
+  width: 30vw;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+  .stars label {
     font-size: 30px;
     color: grey;
     cursor: pointer;
+    opacity: 0.8;
+    margin: 6px;
   }
   
-  .rating label.filled {
+  .stars label.filled {
     color: gold;
   }
+  .btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+  }
+  
+  .btn button {
+    border: none;
+    border-radius: 8px;
+    background-color: black;
+    font-weight: bold;
+    font-size: 16px;
+    color: gold;
+    cursor: pointer;
+    padding: 6px;
+    width: 100%;
+
+  }
+  button.cancel {
+    margin-right: 12px; 
+  }
+@media only screen and (max-width: 700px) {
+  .stars-wrapper {
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  .stars-wrapper {
+    width: 80%;
+  }
+}
   
