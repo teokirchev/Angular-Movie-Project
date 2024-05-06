@@ -17,17 +17,19 @@ img {
 
 p.playfair-display {
     padding: 20px 30px;
-    color: black;
+    opacity: 0.8;
+    color: white;
     line-height: 1.6;
     text-align: center;
-    width: 70%;
+    width: 100%;
     height: auto;
     margin: 0 auto;
-    font-size: 18px;
+    font-size: 24px;
     font-family: "Playfair Display", serif;
     font-optical-sizing: auto;
     font-weight: 700;
     font-style: normal;
+    margin-bottom: 12px;
 }
 
 /* --------second----------- */
@@ -52,16 +54,14 @@ p.playfair-display {
     border: 1px solid white;
 
 }
-
-.text {
-    width: 25%;
+.second-text {
+    display: flex;
+    flex-direction: column;
     position: absolute;
-    bottom: 300px;
+    bottom: 250px;
     right: 100px;
-    /* border-radius: 12px; */
-    padding: 20px;
+    width: 25%;
     background-color: white;
-    color: black;
     opacity: 0.8;
     border-width: 5px;
     border-style: solid;
@@ -71,7 +71,43 @@ p.playfair-display {
             orange,
             red,
             rgba(0, 0, 0, 0)) 1 100%;
+            color: black;
 }
+h2 {
+    margin: 10px auto;
+    font-weight: normal;
+}
+.text {
+    padding: 0px 20px;
+    margin-top: 0px;
+}
+          
+    .btn-grad{
+        background-image: linear-gradient(to right, #c21500 0%, #ffc500  51%, #c21500  100%);
+        margin: 0px auto;
+        margin-bottom: 10px;
+        padding: 6px 0px;
+        width: 40%;
+        text-align: center;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;            
+        box-shadow: 0 0 20px #eee;
+        border: none;
+        display: block;
+        cursor: pointer;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+
+      .btn-grad:hover {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+      }
+     
 /* --------third----------- */
 .wrapper-3 {
     width: 100%;
@@ -90,13 +126,12 @@ p.playfair-display {
     border-radius: 12px;
     border: 1px solid white;
 }
-
-.text-3 {
-    width: 25%;
+.third-text {
     position: absolute;
-    bottom: 40px;
+    bottom: 70px;
     left: 100px;
-    padding: 20px;
+    width: 25%;
+    padding: 0px 10px;
     background-color: white;
     color: black;
     opacity: 0.8;
@@ -108,6 +143,12 @@ p.playfair-display {
             orange,
             red,
             rgba(0, 0, 0, 0)) 1 100%;
+    display: flex;
+    flex-direction: column;
+}
+.text-3 {
+    padding: 0px 20px;
+    margin-top: 0px;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -122,7 +163,7 @@ p.playfair-display {
         margin: 0px;
         margin-bottom: 20px;
     }
-    .text {
+    .second-text {
         position: static;
         width: 80%;
         margin: 0 auto;
@@ -134,7 +175,7 @@ p.playfair-display {
     .second-img-wrapper {
         width: 90%;
     }
-    .text {
+    .second-text {
         width: 90%;
     }
     .wrapper-3 {
@@ -177,7 +218,7 @@ p.playfair-display {
     .second-img-wrapper{
         width: 100%;
     }
-    .text {
+    .second-text {
         width: 100%;
     }
     .third-img-wrapper {

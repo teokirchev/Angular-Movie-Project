@@ -20,8 +20,8 @@
         <input type="password" name="repass" placeholder="Repeat Password*" ngModel required minlength="6"
             #repassInput="ngModel">
         <div class="err-msg">
-            <small *ngIf="repassInput.invalid && repassInput.touched || passInput.value !== repassInput.value" >
-                    Passwords do not match.
+            <small *ngIf="repassInput.invalid && repassInput.touched && passInput.value !== repassInput.value" >
+                    *Passwords do not match.
             </small>
         </div>
         <!--  -->

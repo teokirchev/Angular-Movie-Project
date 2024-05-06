@@ -6,10 +6,12 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { canActivate, canActivateReverse } from './RouteGurds/authGuard';
+import { HistoryComponent } from './history/history.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'history', component: HistoryComponent },
 
   { path: 'catalog', loadChildren: () => import('./catalog/catalog.module').then(m => m.CatalogModule), canActivate: [canActivate] },
 

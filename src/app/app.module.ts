@@ -13,6 +13,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CatalogModule } from './catalog/catalog.module';
 import { SharedModule } from './shared.module';
 import { AuthModule } from './auth/auth.module';
+import { HistoryComponent } from './history/history.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { AuthModule } from './auth/auth.module';
     FooterComponent,
     CreateComponent,
     NotfoundComponent,
+    HistoryComponent,
    
   ],
   imports: [
