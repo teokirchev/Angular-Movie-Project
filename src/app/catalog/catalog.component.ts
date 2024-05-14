@@ -3,6 +3,7 @@ import { Movie } from '../Models/Movie';
 import { MovieService } from '../Service/movie.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { AuthService } from '../Service/auth.service';
 
 @Component({
   selector: 'app-catalog',
@@ -16,6 +17,7 @@ export class CatalogComponent implements OnInit {
     private movieService: MovieService,
     private router: Router,
     private activeRoute: ActivatedRoute,
+    private authService: AuthService,
   ) {
   };
 
@@ -45,6 +47,10 @@ export class CatalogComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.user.subscribe((user) => {
+      console.log(user);
+      
+    })
     this.movieService.moviesUpdated.subscribe((movies) => {
       
       this.allMovies = movies;
@@ -61,7 +67,6 @@ export class CatalogComponent implements OnInit {
           next: (movies) => {
             this.allMovies = movies;
             this.updateCounts();
-      console.log(this.allMovies);
 
             this.isLoading = false;
           }, error: (error) => {

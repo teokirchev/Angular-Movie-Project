@@ -22,6 +22,7 @@ export class RegisterComponent {
   @ViewChild('registerForm') form: NgForm;
 
   onSubmitRegister() {
+    const name = this.form.value.name;
     const email = this.form.value.email;
     const password = this.form.value.password;
     const repass = this.form.value.repass;
@@ -31,7 +32,7 @@ export class RegisterComponent {
 
     this.isLoading = true;
     
-    this.authService.register(email, password, repass).subscribe({
+    this.authService.register(name, email, password, repass).subscribe({
       next: (res) => {
         console.log(res);
         

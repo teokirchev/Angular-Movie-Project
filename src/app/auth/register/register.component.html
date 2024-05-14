@@ -4,6 +4,12 @@
 
     <form #registerForm="ngForm" (ngSubmit)="onSubmitRegister()">
         <h2>REGISTER HERE</h2>
+
+        <input type="text" name="fName" placeholder="First Name*" ngModel minlength="2" required fName #nameInput="ngModel">
+        <div class="err-msg">
+            <small *ngIf="nameInput.invalid && nameInput.touched">*Name is required field!</small>
+        </div>
+
         <input type="email" name="email" placeholder="Email*" ngModel required email #mailInput="ngModel">
         <div class="err-msg">
             <small *ngIf="mailInput.invalid && mailInput.touched">*Email is required field and it must be a valid
@@ -26,7 +32,7 @@
         </div>
         <!--  -->
 
-        <input type="submit" class="submit" value="Register"
+        <input type="submit" class="btn-grad" value="Register"
             [disabled]="registerForm.invalid || passInput.value !== repassInput.value">
         <div class="already">
             <p>Already have a profile?</p>

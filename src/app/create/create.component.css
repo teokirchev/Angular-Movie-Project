@@ -66,27 +66,20 @@ textarea {
     margin-top: 20px;
 }
 
-input.submit {
-    background-color: black;
-    width: 80%;
-    color: white;
-    border-radius: 8px;
-    border: 1px solid black;
-    cursor: pointer;
-    font-size: 16px;
-    height: 35px;
-    font-weight: bold;
-    margin-bottom: 20px;
+.btn-grad{
+    background-image: linear-gradient(to right, #c21500 0%, #ffc500  51%, #c21500  100%);
+    margin: 20px auto;
     text-align: center;
-    opacity: 1;
-}
-
-
-input.submit:hover {
-    transition-timing-function: ease-in-out;
-    transition: 1s;
-    opacity: 0.8;
-}
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    border: none;
+    display: block;
+    cursor: pointer;
+  }
+  .btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+  }
 
 input.ng-invalid.ng-touched {
     border: 2px solid red

@@ -11,7 +11,7 @@
 
                     <div class="star-rating">
                             <!-- <span *ngFor="let star of getStars(selectedMovie.averageRating)"> -->
-                                <button class="rate" (click)="openRateMovie()"><i class="fa-regular fa-star"></i> Rate</button>
+                                <button class="rate" (click)="openRateMovie()">Rate <i class="fa-regular fa-star"></i></button>
                             <!-- </span> -->
                             <p class="average-rating">{{selectedMovie.averageRating.toFixed(1)}} / 5 ({{selectedMovie.ratingCount}})</p>
                         

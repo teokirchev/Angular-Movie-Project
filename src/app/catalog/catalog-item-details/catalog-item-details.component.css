@@ -66,13 +66,14 @@
   .average-rating {
     font-size: 18px;
     font-weight: bold;
+    margin: 0;
   }
 button.rate {
     color: black;
     background: none;
     font-size: 18px;
-    margin: 0px;
-    padding-bottom: 4px;
+    margin: 0;
+    padding: 0;
 }
 button.rate:hover {
     scale: 1.2;

@@ -41,10 +41,10 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
     private authService: AuthService,
   ) { }
 
-  
+
 
   ngOnInit() {
-    
+
     this.authService.getCurrentUser().subscribe(user => {
       this.loggedInUser = user;
 
@@ -55,7 +55,7 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
         this.isLoading = true;
         this.movieId = data.get('id');
         return this.movieService.getMovieById(this.movieId);
-        
+
       }),
       switchMap(movie => {
         this.selectedMovie = movie;
@@ -64,35 +64,35 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
           this.selectedMovie.averageRating = 0;
           this.selectedMovie.ratingCount = 0;
         }
-        if(!this.selectedMovie.movieLikedBy) {
+        if (!this.selectedMovie.movieLikedBy) {
           this.selectedMovie.movieLikedBy = []
-        }    
+        }
         console.log(this.selectedMovie);
         this.isOwner = this.selectedMovie.owner === this.loggedInUser.id;
         this.isLoading = false;
         this.likeNumber = this.selectedMovie.movieLikedBy.length;
         return this.commentService.getCommentsForMovie(this.movieId);
       })
-      ).subscribe({
-        next: (comments) => {
-          this.allComments = comments;
-          if (this.loggedInUser && this.selectedMovie.movieLikedBy && this.selectedMovie.movieLikedBy.includes(this.loggedInUser.id)) {
-            this.isLikeClicked = true;
-            this.likeButtonColor = 'red';
-          } else {
-            this.isLikeClicked = false;
-            this.likeButtonColor = 'white';
-          }
-        }, error: (err) => {
-          console.log(err);
-          
-          this.router.navigate(['/notfound'])
+    ).subscribe({
+      next: (comments) => {
+        this.allComments = comments;
+        if (this.loggedInUser && this.selectedMovie.movieLikedBy && this.selectedMovie.movieLikedBy.includes(this.loggedInUser.id)) {
+          this.isLikeClicked = true;
+          this.likeButtonColor = 'red';
+        } else {
+          this.isLikeClicked = false;
+          this.likeButtonColor = 'white';
         }
+      }, error: (err) => {
+        console.log(err);
+
+        this.router.navigate(['/notfound'])
       }
-    );
+    });
+
   }
-  
- 
+
+
   ngOnDestroy() {
     this.paramMapObs.unsubscribe()
   }
@@ -113,26 +113,26 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
 
   likeMovie() {
     this.isLikeClicked = !this.isLikeClicked;
-    
+
     console.log('Like');
 
-    this.movieService.likeMovie(this.movieId)    
-    .subscribe({
-      next: (response) => {
-        console.log(response);
-        this.likeButtonColor = this.isLikeClicked ? 'red' : 'white';
-        if(this.isLikeClicked) {
-          console.log('yes');
-          this.likeNumber++
-        } else {
-          console.log('no');
-          this.likeNumber--
-          
+    this.movieService.likeMovie(this.movieId)
+      .subscribe({
+        next: (response) => {
+          console.log(response);
+          this.likeButtonColor = this.isLikeClicked ? 'red' : 'white';
+          if (this.isLikeClicked) {
+            console.log('yes');
+            this.likeNumber++
+          } else {
+            console.log('no');
+            this.likeNumber--
+
+          }
         }
-      }
-    })
-    
-    
+      })
+
+
   }
 
   openCommentMovie() {
@@ -140,7 +140,7 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
   }
 
   closeCommentForm() {
-    this.isCommentClick = false;    
+    this.isCommentClick = false;
   }
 
   openEditComment(comment: Comment) {
@@ -151,7 +151,7 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
   closeEditCommentForm() {
     this.isEditCommentClick = false;
   }
-  
+
 
   isCommentOwner(comment: Comment): boolean {
     return comment.ownerId === this.loggedInUser.id
@@ -207,16 +207,11 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
   closeRateMovie() {
     this.isRateMovieClick = false;
   }
-  
+
   rateMovie(rating: number) {
     this.movieService.rateMovie(this.movieId, rating)
-    .subscribe((movie: Movie[]) => {
-      this.movieService.moviesUpdated.emit(movie)
-      this.isRateMovieClick = false;
-    })
+      .subscribe(() => {
+      })
   }
-
- 
-
 }
 

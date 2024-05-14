@@ -20,8 +20,8 @@ export class AuthService {
   user = new BehaviorSubject<User>(null);
   private tokenExpireTimer: any;
 
-  register(email: string, password: string, repass: string) {
-    const data = { email: email, password: password, repass: repass, returnSecureToken: true }
+  register(name: string, email: string, password: string, repass: string) {
+    const data = { name: name, email: email, password: password, repass: repass, returnSecureToken: true }
     return this.http.post<AuthResponse>(
       'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + environment.firebaseAPIKEY, data)
       .pipe(catchError(this.handleError), tap((res) => {
@@ -52,7 +52,7 @@ export class AuthService {
   private handleCreateUser(res) {
     const expiresInTs = new Date().getTime() + Number(res.expiresIn) * 1000;
     const expiresIn = new Date(expiresInTs);
-    const user = new User(res.email, res.localId, res.idToken, expiresIn);
+    const user = new User(res.name, res.email, res.localId, res.idToken, expiresIn);
     this.user.next(user);
 
     this.autoLogout(res.expiresIn * 1000);
@@ -64,7 +64,7 @@ export class AuthService {
     if (!user) {
       return;
     }
-    const loggedUser = new User(user.email, user.id, user._token, user._expiresIn);
+    const loggedUser = new User(user.name, user.email, user.id, user._token, user._expiresIn);
     if (loggedUser.token) {
       this.user.next(loggedUser);
       const timer = new Date(user._expiresIn).getTime() - new Date().getTime();
@@ -74,6 +74,7 @@ export class AuthService {
 
   getCurrentUser() {
     return this.user.asObservable();
+    
   }
 
   // можеш да тестваш autologout като смениш времето на таймера expiresTime с 3000мс

@@ -25,7 +25,7 @@
             <small *ngIf="passInput.invalid && passInput.touched">*Password is a required field and must be atleast 6 characters!</small>
         </div>
 
-        <input type="submit" class="submit" value="Sign In" [disabled]="loginForm.invalid">
+        <input type="submit" class="btn-grad" value="Sign In" [disabled]="loginForm.invalid">
         <div class="already">
             <p>Already have a profile?</p>
             <span routerLink="/register"> Register here!</span>

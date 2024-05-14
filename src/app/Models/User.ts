@@ -3,6 +3,7 @@ export class User {
     userLikes: string[]
 
     constructor(
+        public name: string,
         public email: string,
         public id: string,
         private _token: string,

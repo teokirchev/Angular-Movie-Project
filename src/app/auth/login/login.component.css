@@ -44,7 +44,8 @@ form {
 
 input {
     width: 80%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    border: none;
     height: 30px;
     margin-top: 30px;
     background: white;
@@ -54,22 +55,24 @@ input {
 input:hover {
     opacity: 1;
 }
-
-input.submit {
-    background-color: black;
-    color: white;
-    border-radius: 12px;
+.btn-grad{
+    background-image: linear-gradient(to right, #c21500 0%, #ffc500  51%, #c21500  100%);
+    margin: 0px auto;
+    margin-top: 30px;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    border: none;
+    display: block;
     cursor: pointer;
-    font-size: 16px;
-    height: 35px;
-    font-weight: bold;
-}
+  }
+  .btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
 
-input.submit:hover {
-    transition-timing-function: ease-in-out;
-    transition: 1s;
-    opacity: 1;
-}
 
 span {
     color: black;

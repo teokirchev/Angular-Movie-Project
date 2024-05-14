@@ -2,15 +2,25 @@
     <div class="wrapper">
         <a class="link img-wrapper" routerLink="/"></a>
     </div>
-    <div>
-        <a class="link" routerLink="catalog" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-            *ngIf="isLoggedIn">Catalog</a>
-        <a class="link" routerLink="create" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-            *ngIf="isLoggedIn">Create</a>
-        <a class="link" routerLink="login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-            *ngIf="!isLoggedIn">Sign In</a>
-            <a class="link" routerLink="register" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-            *ngIf="!isLoggedIn">Register</a>
-        <a class="link logout" *ngIf="isLoggedIn" (click)="onLogout()">Logout</a>
+    <div class="navbar-icon">
+        <i class="fa-solid fa-bars"></i>
+        <div class="hover-menu">
+            <ul>
+                <li><a class="link profile" routerLink="profile" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: true}" *ngIf="isLoggedIn"><i class="fa-solid fa-user"></i>{{userEmail}}</a></li>
+
+                <li><a class="link" routerLink="catalog" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}" *ngIf="isLoggedIn">CATALOG</a></li>
+                <li><a class="link" routerLink="create" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}" *ngIf="isLoggedIn">CREATE</a></li>
+                <li><a class="link" routerLink="login" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}" *ngIf="!isLoggedIn">SIGN IN</a></li>
+                <li><a class="link" routerLink="register" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}" *ngIf="!isLoggedIn">REGISTER</a></li>
+                <li><a class="link" routerLink="history" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}" *ngIf="isLoggedIn">HISTORY</a></li>
+                <li><a class="link logout" *ngIf="isLoggedIn" (click)="onLogout()">LOGOUT</a></li>
+            </ul>
+        </div>
     </div>
 </nav>
