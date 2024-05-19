@@ -7,6 +7,12 @@
     <span class="count">{{'All('+all+')'}}</span>
 
     <input type="radio" name="filter" 
+        value="topRated"
+        [(ngModel)]="selectedButtonChanged" 
+        (change)="onSelectButtonChanged()"/>
+        <span class="count">Top Rated</span>
+
+    <input type="radio" name="filter" 
         value="true"
         [(ngModel)]="selectedButtonChanged" 
         (change)="onSelectButtonChanged()"/>
@@ -17,5 +23,7 @@
         [(ngModel)]="selectedButtonChanged" 
         (change)="onSelectButtonChanged()"/>
     <span class="count">{{'Basic('+basic+')'}}</span>
+
+    
     
 </div>

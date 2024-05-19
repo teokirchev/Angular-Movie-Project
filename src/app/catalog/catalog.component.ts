@@ -4,6 +4,7 @@ import { MovieService } from '../Service/movie.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AuthService } from '../Service/auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-catalog',
@@ -22,10 +23,12 @@ export class CatalogComponent implements OnInit {
   };
 
   allMovies: Movie[] = []
+  originalMovies: Movie[] = [];
 
   all: number;
   premium: number;
   basic: number;
+  topRated
 
   updateCounts() {
     this.all = this.allMovies.length;
@@ -40,8 +43,21 @@ export class CatalogComponent implements OnInit {
   errorMessage: string | null = null;
 
   changeRadioButtonEvent(value: string) {
-    this.selectedButtonChanged = value
-  };
+    this.selectedButtonChanged = value;
+    if (value === 'topRated') {
+      this.allMovies.forEach(movie => {
+        movie.averageRating = movie.averageRating || 0;
+      });
+      this.allMovies = this.allMovies.sort((a, b) => b.averageRating - a.averageRating);
+    } else if(value === 'all') {
+      this.movieService.getAllmovies().subscribe( (movie) => {
+        this.allMovies = movie;
+      });
+      
+    }
+  }
+  
+
   onSearchClicked(value: string) {
     this.router.navigate(['/catalog'], { queryParams: { search: value } })
   }
@@ -49,14 +65,13 @@ export class CatalogComponent implements OnInit {
   ngOnInit() {
     this.authService.user.subscribe((user) => {
       console.log(user);
-      
+
     })
     this.movieService.moviesUpdated.subscribe((movies) => {
-      
       this.allMovies = movies;
       this.updateCounts();
-      
     })
+    
 
     this.activeRoute.queryParamMap.subscribe((data) => {
       this.searchedText = data.get('search');
@@ -91,7 +106,7 @@ export class CatalogComponent implements OnInit {
     });
 
   }
- 
+
 
   setErrorMessage(err: HttpErrorResponse) {
     if (err.status === 401) {

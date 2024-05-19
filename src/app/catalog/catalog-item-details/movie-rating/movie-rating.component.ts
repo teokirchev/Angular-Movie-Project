@@ -22,7 +22,7 @@ export class MovieRatingComponent {
   rateMovie(rating: number): void {
     this.selectedRating = rating
     this.rateEvent.emit(rating);
-      this.closeRateEvent.emit(false);
+    
   }
 
   selectRating(rating: number): void {

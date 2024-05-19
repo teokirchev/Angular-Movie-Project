@@ -11,7 +11,7 @@
 
 <div>
     <div *ngIf="allMovies.length > 0">
-        <app-filter [all]="all" [premium]="premium" [basic]="basic"
+        <app-filter [all]="all" [premium]="premium" [basic]="basic" [topRated]="topRated"
             (changeRadioButtonEvent)="changeRadioButtonEvent($event)">
         </app-filter>
     </div>
@@ -29,7 +29,7 @@
 
     <div *ngFor="let movie of allMovies">
         <div class="wrap" routerLink="/catalog/{{movie.id}}"
-            *ngIf="selectedButtonChanged === 'all' || movie.isPremium.toString() === selectedButtonChanged">
+            *ngIf="selectedButtonChanged === 'all' || selectedButtonChanged === 'topRated' || movie.isPremium.toString() === selectedButtonChanged">
             <div class="img-wrapper">
                 <img [src]="movie.imageUrl">
             </div>

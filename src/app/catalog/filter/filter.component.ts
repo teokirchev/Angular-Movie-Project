@@ -12,6 +12,8 @@ export class FilterComponent {
   premium: number = 0;
   @Input()
   basic: number = 0;
+  @Input()
+  topRated
 
   // създаваш евента
   @Output()

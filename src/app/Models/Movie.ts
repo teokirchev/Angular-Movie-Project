@@ -11,7 +11,7 @@ export class Movie {
     movieLikedBy: string[] = [],
     ratingSum: number | undefined,
     ratingCount: number | undefined,
-    averageRating: number | undefined
+    averageRating: number | undefined = 0
     ) {
         this.id = id;
         this.name = name;
@@ -35,5 +35,5 @@ export class Movie {
     movieLikedBy: string[];
     ratingSum: number | undefined;
     ratingCount: number | undefined;
-    averageRating: number | undefined;
+    averageRating: number | undefined = 0;
 }

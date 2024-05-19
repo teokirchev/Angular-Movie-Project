@@ -211,7 +211,9 @@ export class CatalogItemDetailsComponent implements OnInit, OnDestroy {
   rateMovie(rating: number) {
     this.movieService.rateMovie(this.movieId, rating)
       .subscribe(() => {
+        this.closeRateMovie()
       })
+      
   }
 }
 
