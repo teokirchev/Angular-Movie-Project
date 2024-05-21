@@ -1,11 +1,18 @@
 nav {
-    width: 95%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;
+    margin-bottom: 6px;
 }
 
+.wrapper {
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
 .link.img-wrapper {
     background-image: url(../../assets/images/logo-round-01.png);
     background-repeat: no-repeat;
@@ -15,38 +22,64 @@ nav {
     height: 80px;
     display: inline-block;
 }
+
+ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+}
+
+ul li a {
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 26px;
+    color: white;
+    font-weight: bold;
+}
+
+ul li a:hover {
+    color: orangered;
+    
+
+}
+ul li a.link.active {
+    color: orangered;
+}
+
+
 .navbar-icon {
     position: relative;
     display: inline-block;
     font-size: 24px;
-    padding-left: 30px;
+    padding-left: 0px 30px;
 }
+
 .navbar-icon:hover {
     scale: 1.1;
-  }
-  .navbar-icon:hover .hover-menu {
+}
+
+.navbar-icon:hover .hover-menu {
     display: block;
-  }
-  .fa-bars {
+}
+
+.fa-bars {
+    display: none;
     cursor: pointer;
-  }
-  .hover-menu {
+}
+
+.hover-menu {
     display: none;
     position: absolute;
     right: 0px;
-    background: #D3CCE3;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-    /* background-color: white; */
-    border: 2px solid ;
+    background-color: black;
     border-top-left-radius: 16px;
     border-bottom-right-radius: 16px;
     opacity: 0.9;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
-  }
-  .hover-menu ul {
+}
+
+.hover-menu ul {
     list-style-type: none;
     margin: 0;
     padding: 12px 0px;
@@ -54,11 +87,13 @@ background: linear-gradient(to left, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Fi
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-  }
-  .hover-menu ul li {
+}
+
+.hover-menu ul li {
     margin: 0;
-  }
-  .hover-menu ul li a {
+}
+
+.hover-menu ul li a {
     text-decoration: none;
     color: black;
     font-size: 16px;
@@ -71,18 +106,21 @@ background: linear-gradient(to left, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Fi
     color: black;
     color: orangered;
 
-  }
+}
 
-  .hover-menu ul li a.active{
+.hover-menu ul li a.active {
     color: orangered;
 }
+
 .link.logout {
     cursor: pointer;
 }
+
 .hover-menu ul li a.link.profile {
     font-size: 20px;
     color: #115ea6;
 }
+
 .fa-user {
     display: inline;
     margin-right: 8px;
@@ -101,14 +139,16 @@ background: linear-gradient(to left, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Fi
     .link {
         font-size: 24px;
     }
-    
+
 }
+
 @media only screen and (max-width: 420px) {
     .link {
         font-size: 20px;
     }
-    
+
 }
+
 @media only screen and (max-width: 380px) {
     .link {
         margin-right: 0px;

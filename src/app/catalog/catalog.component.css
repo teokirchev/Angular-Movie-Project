@@ -61,16 +61,18 @@ input {
 .container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
     border-radius: 12px;
-    border: 1.4px solid black;
+    /* border: 1.4px solid black; */
     padding: 20px 0px;
+    margin: 0 auto;
     margin-bottom: 20px;
-    width: 100%;
+    width: 80%;
     /* background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%); */
-    background-color: #6a93cd;
+    /* background-color: #6a93cd; */
+    background: none;
 
 }
 
@@ -79,7 +81,7 @@ input {
     flex-direction: column;
     margin-left: 4px;
     margin-right: 4px;
-    margin-bottom: 8px;
+    margin-bottom: 20px;
     /* border: 1px solid white; */
     background-color: white;
     border-radius: 12px;
@@ -160,6 +162,8 @@ section {
 .mikey-img {
     width: 25%;
     height: auto;
+    margin-bottom: 40px;
+
 }
 .mikey-img img {
     max-width: 100%;

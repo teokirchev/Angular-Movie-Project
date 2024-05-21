@@ -22,7 +22,7 @@ background: linear-gradient(to bottom, #5691c8, #457fca);
 
 }
 
-nav a.link.active {
+nav div ul li a.link.active {
   color: #0077da;
 }
 input:focus,
