@@ -3,18 +3,18 @@
         <a class="link img-wrapper" routerLink="/"></a>
         <ul>
             <li><a class="link" routerLink="login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                    *ngIf="!isLoggedIn">Sign in</a></li>
+                    *ngIf="!isLoggedIn">SIGN IN</a></li>
             <li><a class="link" routerLink="register" routerLinkActive="active"
-                    [routerLinkActiveOptions]="{exact: true}" *ngIf="!isLoggedIn">Register</a></li>
+                    [routerLinkActiveOptions]="{exact: true}" *ngIf="!isLoggedIn">REGISTER</a></li>
 
             <li><a class="link" routerLink="catalog" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                    *ngIf="isLoggedIn">Catalog</a></li>
+                    *ngIf="isLoggedIn">CATALOG</a></li>
             <li><a class="link" routerLink="create" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                    *ngIf="isLoggedIn">Create</a></li>
+                    *ngIf="isLoggedIn">CREATE</a></li>
 
             <li><a class="link" routerLink="history" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                    *ngIf="isLoggedIn">History</a></li>
-            <li><a class="link logout" *ngIf="isLoggedIn" (click)="onLogout()">Logout</a></li>
+                    *ngIf="isLoggedIn">HISTORY</a></li>
+            <li><a class="link logout" *ngIf="isLoggedIn" (click)="onLogout()">LOGOUT</a></li>
         </ul>
     </div>
     <div class="navbar-icon" *ngIf="isLoggedIn">
